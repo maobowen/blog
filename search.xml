@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[Hello!]]></title>
+      <url>/blog/hello/</url>
+      <content type="html"><![CDATA[<p>Welcome to 101对双生儿’s blog! This blog will be the place to host my technical articles, class notes and personal posts. Thanks <a href="http://moxfive.xyz" target="_blank" rel="noopener">MOxFIVE</a> for providing such an amazing <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" rel="noopener">theme</a> on <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>, a fast, simple and powerful blog framework based on <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a>. The site is still under construction, so more contents will be added later.</p>
+<a id="more"></a>
+<p>Born and raised in Shanghai, I am now a computer science graduating senior, pursuing dual bachelor’s degrees from <a href="https://www.columbia.edu" target="_blank" rel="noopener">Columbia University in the City of New York</a> and <a href="https://www.cityu.edu.hk" target="_blank" rel="noopener">City University of Hong Kong</a>. I am interested in software engineering, computer systems and artificial intelligence. You can find my résumé from the link on the left side, and my current projects on my <a href="https://github.com/maobowen" target="_blank" rel="noopener">GitHub</a>. Feel free to talk to me!</p>
+<p>The blog will be displayed in English; however, many posts will be available in either English, or Chinese, or both. Should you need any translation please let me know.</p>
+<p>See you soon! </p>
+]]></content>
+      
+        
+    </entry>
+    
+  
+  
+    
+    <entry>
+      <title><![CDATA[Résumé]]></title>
+      <url>/blog//resume/index.html</url>
+      <content type="html"><![CDATA[<h1 id="Education"><a href="#Education" class="headerlink" title="Education"></a>Education</h1><h2 id="Columbia-University-School-of-General-Studies"><a href="#Columbia-University-School-of-General-Studies" class="headerlink" title="Columbia University, School of General Studies"></a><a href="https://www.columbia.edu" target="_blank" rel="noopener">Columbia University</a>, <a href="https://gs.columbia.edu" target="_blank" rel="noopener">School of General Studies</a></h2><p><em>Bachelor of Arts in <a href="https://www.cs.columbia.edu" target="_blank" rel="noopener">Computer Science</a></em> (Intelligent Systems Track)<br>September 2016 - May 2018, New York</p>
+<ul>
+<li>Dean’s List, School of General Studies (Spring 2017)</li>
+<li>Membership in the Honor Society of the School of General Studies (Fall 2017)</li>
+<li>Surdna Scholarship, School of General Studies (2017 - 2018)</li>
+<li>New Student Scholarship, School of General Studies (2016 - 2017)</li>
+</ul>
+<h2 id="City-University-of-Hong-Kong"><a href="#City-University-of-Hong-Kong" class="headerlink" title="City University of Hong Kong"></a><a href="https://www.cityu.edu.hk" target="_blank" rel="noopener">City University of Hong Kong</a></h2><p><em>Bachelor of Science (Honours) in <a href="https://www.cs.cityu.edu.hk/" target="_blank" rel="noopener">Computer Science</a></em> (Data Science Stream)<br>September 2013 - July 2018, Hong Kong</p>
+<ul>
+<li>Dean’s List, College of Science and Engineering (<a href="https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201402.pdf" target="_blank" rel="noopener">Fall 2013</a>, <a href="https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201503.pdf" target="_blank" rel="noopener">Fall 2014</a>, <a href="https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201508.pdf" target="_blank" rel="noopener">Spring 2015</a>, <a href="https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201603.pdf" target="_blank" rel="noopener">Fall 2015</a>, <a href="https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201608.pdf" target="_blank" rel="noopener">Spring 2016</a>)</li>
+<li>CityU Mainland Student Scholarship Scheme - Full Tuition Scholarship (2013 - 2016)</li>
+<li>Chow Sang Sang Group Entrance Scholarships for CityU-Columbia U Joint Bachelor’s Degree Program (2016 - 2017)</li>
+</ul>
+<h2 id="Shanghai-Nanyang-Model-High-School"><a href="#Shanghai-Nanyang-Model-High-School" class="headerlink" title="Shanghai Nanyang Model High School"></a><a href="http://www.nanmo.cn" target="_blank" rel="noopener">Shanghai Nanyang Model High School</a></h2><p><em>High School Diploma</em><br>September 2010 - June 2013, Shanghai</p>
+<h1 id="Experience"><a href="#Experience" class="headerlink" title="Experience"></a>Experience</h1><h2 id="The-Hongkong-and-Shanghai-Banking-Cooperation-HSBC"><a href="#The-Hongkong-and-Shanghai-Banking-Cooperation-HSBC" class="headerlink" title="The Hongkong and Shanghai Banking Cooperation (HSBC)"></a><a href="https://www.hsbc.com.hk" target="_blank" rel="noopener">The Hongkong and Shanghai Banking Cooperation (HSBC)</a></h2><p><strong><em>Industrial Placement Trainee</em></strong><br><em>Production Support Team, Derivatives Clearing and Services, Global Banking and Markets</em><br>June 2015 - April 2016, Hong Kong</p>
+<ul>
+<li>Provided technical support on trading issues to internal and external clients trading derivatives.</li>
+<li>Developed computer programs in Java, Perl and shell scripts to improve working efficiency and decrease the risks of operational mistakes for Production Support Team.</li>
+<li>Worked in the student project - Online Financial Product Selection Tool.</li>
+</ul>
+<h1 id="Projects"><a href="#Projects" class="headerlink" title="Projects"></a>Projects</h1><h2 id="Color-Monster"><a href="#Color-Monster" class="headerlink" title="Color Monster"></a>Color Monster</h2><p><strong><em>Java Programmer</em></strong><br><em>Team CityUytiC, Samsung Solve for Tomorrow 2015 Application Development Competition, Samsung Electronics H.K. Company, Ltd.</em><br>September 2015 - October 2015, Hong Kong</p>
+<p>An Android game designed for Samsung Solve for Tomorrow 2015 Application Development Competition which aimed to train the ability of concentration of children with special educational needs (especially with ADHD).</p>
+<ul>
+<li>Implemented the back-end logic of the game, including the score system, animations and data transmission on networks in Java.</li>
+<li>Implemented the back-end logic of the server-side reporting system in PHP and Bootstrap.</li>
+<li>Integrated the back-end logic (Java code) and UI design (XML code) together, and debugged and tested the final product in Android Studio.</li>
+</ul>
+<p>Award: Second Runner-Up<br>Official Promotion Video: <a href="https://youtu.be/Y4kvIFqm15A" target="_blank" rel="noopener">https://youtu.be/Y4kvIFqm15A</a> (Cantonese)</p>
+<h2 id="Smarter-Class-Schedule"><a href="#Smarter-Class-Schedule" class="headerlink" title="Smarter Class Schedule"></a>Smarter Class Schedule</h2><p><strong><em>Project Manager</em></strong><br>September 2015 - December 2015, Hong Kong</p>
+<p>A Java-based course project for CS3343 Software Engineering Practice, City University of Hong Kong which helped students arrange their class schedules automatically.</p>
+<ul>
+<li>Implemented the first version of the program which included more than 30 Java classes, several external libraries and various algorithms.</li>
+<li>Coordinated with the team to debug, refactor and optimize the program, and presented the final product.</li>
+</ul>
+<h2 id="T4U"><a href="#T4U" class="headerlink" title="T4U"></a>T4U</h2><p><strong><em>Programmer</em></strong><br>January 2016 – April 2016, Hong Kong</p>
+<p>A JSP-based online ticketing system for CS4280 Advanced Internet Applications Development, City University of Hong Kong.</p>
+<p>Source: <a href="http://shawnlyu.github.io/T4U/" target="_blank" rel="noopener">http://shawnlyu.github.io/T4U/</a></p>
+<h1 id="Extracurricular-Activities"><a href="#Extracurricular-Activities" class="headerlink" title="Extracurricular Activities"></a>Extracurricular Activities</h1><h2 id="Chinese-Students-and-Scholars-Association-of-City-University-of-Hong-Kong-Undergraduate-CSSAUG"><a href="#Chinese-Students-and-Scholars-Association-of-City-University-of-Hong-Kong-Undergraduate-CSSAUG" class="headerlink" title="Chinese Students and Scholars Association of City University of Hong Kong Undergraduate (CSSAUG)"></a>Chinese Students and Scholars Association of City University of Hong Kong Undergraduate (CSSAUG)</h2><p><strong><em>Technology Secretary of the 9th Executive Committee</em></strong><br>October 2013 - September 2014, Hong Kong</p>
+<ul>
+<li>Organized activities (e.g. Singing Contest, Carnival and Orientation Camp) for all Mainland Chinese undergraduate students.</li>
+<li>Provided technical support in different student activities.</li>
+<li>Initiated and managed official website and WeChat public account using PHP and MySQL.</li>
+</ul>
+<h1 id="Awards"><a href="#Awards" class="headerlink" title="Awards"></a>Awards</h1><ul>
+<li>Samsung Solve for Tomorrow 2015 Application Development Competition, Second Runner-Up</li>
+<li>The 2015 ACM-ICPC Asia Shanghai Regional Contest, Honorable Mention</li>
+<li>ACM Hong Kong Collegiate Programming Contest 2015, Honorable Mention</li>
+<li>Junior Group of CityU CS-EE Programming Contest 2014, Second Place</li>
+<li>CityU-CS Robocode Contest 2014 (Common 1st-Year), Honorable Mention.</li>
+</ul>
+<h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><ul>
+<li>Programming languages: Assembly, C, C++, C#, HTML, Java, JavaScript, $\LaTeX$, Pascal, Perl, Python, PHP, Shell, SQL, Visual Basic</li>
+<li>Frameworks: Django, Hadoop, JavaServer Pages</li>
+</ul>
+<h1 id="Languages"><a href="#Languages" class="headerlink" title="Languages"></a>Languages</h1><ul>
+<li>Shanghainese: Native</li>
+<li>Mandarin Chinese: Native</li>
+<li>Cantonese: Bilingual proficient</li>
+<li>English: Professional working proficient</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[All Tags]]></title>
+      <url>/blog/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+  
+</search>
