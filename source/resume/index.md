@@ -4,6 +4,7 @@ lang: en
 permalink: /resume/
 original: false
 comments: false
+share: false
 ---
 # Education
 
