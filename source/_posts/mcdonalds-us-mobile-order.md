@@ -2,7 +2,6 @@
 title: 只花$2，就能在美国麦当劳吃到双层牛肉芝士堡？
 date: 2018-01-20 20:00:00
 lang: zh-CN
-mathjax: false
 tags:
 ---
 *This article is about how to redeem deals exclusive for mobile ordering on McDonald's App, and is only available in Chinese. Please avoid using cellular data to read it as it contains many images.*  

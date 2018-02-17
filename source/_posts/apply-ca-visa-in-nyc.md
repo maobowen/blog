@@ -1,8 +1,7 @@
 ---
 title: 持美国 F-1 签证在纽约市面签加拿大临时居民访问签证
-date: 2018-01-20 20:00:00
+date: 2018-02-16 22:00:00
 lang: zh-CN
-mathjax: false
 tags:
 ---
 *This article is about how to apply a Canadian visitor visa at New York Visa Application Centre, and is only available in Chinese.*
