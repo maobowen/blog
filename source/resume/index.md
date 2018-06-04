@@ -8,24 +8,32 @@ share: false
 ---
 # Education
 
+## [Cornell University](https://www.cornell.edu)
+
+*Master of Engineering in [Computer Science](https://www.cs.cornell.edu)*  
+August 2018 - December 2019, Ithaca 
+
 ## [Columbia University](https://www.columbia.edu), [School of General Studies](https://gs.columbia.edu)
 
 *Bachelor of Arts in [Computer Science](https://www.cs.columbia.edu)* (Intelligent Systems Track)  
+*magna cum laude*   
 September 2016 - May 2018, New York
 
-- Dean’s List, School of General Studies (Spring 2017)
+- Dean's List, School of General Studies (Spring 2017, Spring 2018)
 - Membership in the Honor Society of the School of General Studies (Fall 2017)
 - Surdna Scholarship, School of General Studies (2017 - 2018)
 - New Student Scholarship, School of General Studies (2016 - 2017)
 
 ## [City University of Hong Kong](https://www.cityu.edu.hk)
 
-*Bachelor of Science (Honours) in [Computer Science](https://www.cs.cityu.edu.hk/)* (Data Science Stream)  
+*Bachelor of Science (Honours) in [Computer Science](https://www.cs.cityu.edu.hk)* (Data Science Stream)  
+First Class Honours  
 September 2013 - July 2018, Hong Kong
 
-- Dean’s List, College of Science and Engineering ([Fall 2013](https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201402.pdf), [Fall 2014](https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201503.pdf), [Spring 2015](https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201508.pdf), [Fall 2015](https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201603.pdf), [Spring 2016](https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201608.pdf))
+- Dean's Scholarships, College of Science and Engineering ([Year 2017/18](http://www6.cityu.edu.hk/cse/cms/content.aspx?id=scholarshipsawards&lang=en))
+- Dean's List, College of Science and Engineering ([Fall 2013](https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201402.pdf), [Fall 2014](https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201503.pdf), [Spring 2015](https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201508.pdf), [Fall 2015](https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201603.pdf), [Spring 2016](https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201608.pdf))
 - CityU Mainland Student Scholarship Scheme - Full Tuition Scholarship (2013 - 2016)
-- Chow Sang Sang Group Entrance Scholarships for CityU-Columbia U Joint Bachelor’s Degree Program (2016 - 2017)
+- Chow Sang Sang Group Entrance Scholarships for CityU-Columbia U Joint Bachelor's Degree Program (2016 - 2017)
 
 ## [Shanghai Nanyang Model High School](http://www.nanmo.cn)
 
@@ -46,6 +54,27 @@ June 2015 - April 2016, Hong Kong
 
 # Projects
 
+## [Less0n](https://less0n.bmao.tech/)
+
+***Project Manager***  
+*Team Less0n*  
+February 2018 - April 2018, New York
+
+A Flask-based course project for COMS W4156 Advanced Software Engineering, Columbia University which aimed to be the next generation of course and professor ratings system for Columbia community.
+
+Award: First Prize of the Demo Day at J.P. Morgan   
+Source: https://github.com/maobowen/Less0n
+
+## Pixel++
+
+***Tester***  
+*Team Pixel++*  
+January 2018 - May 2018, New York
+
+A course project for COMS W4115 Programming Languages and Translators, Columbia University which is a programming language for efficient manipulation of images coded in OCaml.
+  
+Source: https://maobowen.github.io/PixelPlusPlus
+
 ## Color Monster
 
 ***Java Programmer***  
@@ -59,7 +88,8 @@ An Android game designed for Samsung Solve for Tomorrow 2015 Application Develop
 - Integrated the back-end logic (Java code) and UI design (XML code) together, and debugged and tested the final product in Android Studio.
 
 Award: Second Runner-Up  
-Official Promotion Video: https://youtu.be/Y4kvIFqm15A (Cantonese)
+Official Promotion Video: https://youtu.be/Y4kvIFqm15A (Cantonese)  
+Source: https://github.com/ShawnLYU/Color-Monster
 
 ## Smarter Class Schedule
 
@@ -99,8 +129,8 @@ October 2013 - September 2014, Hong Kong
 
 # Skills
 
-- Programming languages: Assembly, C, C++, C#, HTML, Java, JavaScript, $\LaTeX$, Pascal, Perl, Python, PHP, Shell, SQL, Visual Basic
-- Frameworks: Django, Hadoop, JavaServer Pages
+- Programming languages: Assembly, C, C++, C#, HTML, Java, JavaScript, $\LaTeX$, OCaml, Pascal, Perl, Python, PHP, Shell, SQL, Visual Basic
+- Frameworks: Flask, Django, Hadoop, JavaServer Pages
 
 # Languages
 
