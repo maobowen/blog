@@ -3,6 +3,60 @@
   
     
     <entry>
+      <title><![CDATA[Setting Up a ShadowsocksR Proxy Server]]></title>
+      <url>/blog/shadowsocksr/</url>
+      <content type="html"><![CDATA[<p>Follow this tutorial to start setting up a ShadowsocksR proxy server and enjoying freedom outside the wall!</p>
+<a id="more"></a>
+<h2 id="Server-side-Setup"><a href="#Server-side-Setup" class="headerlink" title="Server-side Setup"></a>Server-side Setup</h2><h3 id="Prepare-a-server"><a href="#Prepare-a-server" class="headerlink" title="Prepare a server"></a>Prepare a server</h3><p>I would recommend <a href="https://m.do.co/c/881f697ed35a" target="_blank" rel="noopener">DigitalOcean</a> and <a href="https://www.vultr.com/?ref=7436070" target="_blank" rel="noopener">Vultr</a>, both of which offer various plans for <a href="https://en.wikipedia.org/wiki/Virtual_private_server" target="_blank" rel="noopener">virtual private servers (VPS)</a>. DigitalOcean provides <a href="https://try.digitalocean.com/performance/?refcode=881f697ed35a&amp;utm_campaign=Referral_Invite&amp;utm_medium=Referral_Program&amp;utm_source=CopyPaste" target="_blank" rel="noopener">\$100 credits</a> for new users, while Vultr provides <a href="https://www.vultr.com/promo25b?ref=7436070" target="_blank" rel="noopener">\$25 credits</a> for new users. Students with a valid .edu email address can sign up for <a href="https://education.github.com/pack" target="_blank" rel="noopener">GitHub Student Developer Pack</a> and get an extra \$50 credits on DigitalOcean. <a href="https://cloud.google.com/free/" target="_blank" rel="noopener">Google Cloud</a> and <a href="https://azure.microsoft.com/en-us/free/" target="_blank" rel="noopener">Microsoft Azure</a>, at the same time, also provide free credits for trial, but they can exhaust faster. These free credits usually last for only one year, so you should take full advantage of them before they expire. If you have access to a dedicated server, keep in mind that you should have full access to it.</p>
+<p>I will deploy a Vultr Cloud Compute (VC2) server with Ubuntu 18.04 in this tutorial.</p>
+<img src="/blog/shadowsocksr/shadowsocksr_01.png" width="500" title="Log into the server">
+<h3 id="Install-ShadowsocksR-Proxy-Server"><a href="#Install-ShadowsocksR-Proxy-Server" class="headerlink" title="Install ShadowsocksR Proxy Server"></a>Install ShadowsocksR Proxy Server</h3><p>In this tutorial, we will use <a href="https://github.com/ToyoDAdoubi/doubi/blob/master/ssrmu.sh" target="_blank" rel="noopener">a script</a> developed by <a href="https://github.com/ToyoDAdoubi" target="_blank" rel="noopener">@Toyo</a> to help us install the proxy server. This script installs and runs the proxy server in the MudbJSON mode so that the we can manage each user of the proxy server separately. For those who are interested in the technical details of this script, please refer to <a href="https://doub.io/ss-jc60/#脚本版本" target="_blank" rel="noopener">『原创』ShadowsocksR MudbJSON模式多用户一键脚本 支持流量限制等</a> (Chinese).</p>
+<p>Thanks to the script, the installation can be extremely easy. First, download and run the script.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh &amp;&amp; chmod +x ssrmu.sh &amp;&amp; ./ssrmu.sh</span><br></pre></td></tr></table></figure>
+<img src="/blog/shadowsocksr/shadowsocksr_02.png" width="500" title="Download and run the script">
+<p>Enter <strong>1</strong> to start the installation of ShadowsocksR proxy server.</p>
+<img src="/blog/shadowsocksr/shadowsocksr_03.png" width="500" title="Start installation">
+<p>First, hit the <strong>Enter key</strong> to let the script automatically detect the IP address of the server. Then enter <strong>user name</strong>, <strong>port number</strong> and <strong>password</strong> for the first user.</p>
+<blockquote>
+<p>The username and password should only contain ASCII characters. The port entered here should not have conflict with the ports which the server is using or the server system reserves.</p>
+</blockquote>
+<img src="/blog/shadowsocksr/shadowsocksr_04.png" width="500" title="Configure the first user">
+<p>For the encryption method, select <strong>“none”</strong> (i.e. enter <strong>1</strong>) since I will use “auth_chain_a” protocol later.</p>
+<img src="/blog/shadowsocksr/shadowsocksr_05.png" width="500" title="Select the encryption method">
+<p>Now select <strong>“auth_chain_a”</strong> protocol (i.e. enter <strong>5</strong>) because it is safer.</p>
+<blockquote>
+<p>For more information about “auth_chain_a” protocol, please refer to <a href="https://breakwa11.blogspot.com/2017/05/auth-chain-a.html" target="_blank" rel="noopener">协议auth_chain_a是啥</a> (Chinese) or <a href="https://github.com/shadowsocksr-backup/shadowsocks-rss/blob/master/doc/auth_chain_a.md" target="_blank" rel="noopener">https://github.com/shadowsocksr-backup/shadowsocks-rss/blob/master/doc/auth_chain_a.md</a> (English). You might also use “auth_chain_b” protocol, but it has not been widely supported on the iOS devices yet.</p>
+</blockquote>
+<img src="/blog/shadowsocksr/shadowsocksr_06.png" width="500" title="Select the protocol">
+<p>Use the <strong>default setting</strong> for obfuscation (i.e. enter <strong>5</strong>) with no compatibility with Shadowsocks (i.e. enter <strong>n</strong>). Original Shadowsocks proxy is no longer safe, so it is not necessary to make the server compatible with Shadowsocks.</p>
+<blockquote>
+<p>For more technical information about encryption method, protocol and obfuscation in ShadowsocksR, please refer to <a href="https://github.com/iMeiji/shadowsocks_install/wiki/ShadowsocksR-协议插件文档" target="_blank" rel="noopener">ShadowsocksR 协议插件文档</a> (Chinese).</p>
+</blockquote>
+<img src="/blog/shadowsocksr/shadowsocksr_07.png" width="500" title="Select the obfuscation">
+<p>Use the <strong>default settings</strong> for all remaining parameters unless you want to limit the device number, the network speed, the traffic and/or the ports of the current user.</p>
+<img src="/blog/shadowsocksr/shadowsocksr_08.png" width="500" title="Configure the first user">
+<p>Finally, the script shows that the proxy server is installed successfully, and the first user is configured. Write down the ShadowsocksR URL starting with <code>ssr://</code> or the QR code URL so that we can add this configuration to the clients later.</p>
+<img src="/blog/shadowsocksr/shadowsocksr_09.png" width="500" title="Installation finished">
+<p>If you want to add another user, just run the script again by <code>./ssrmu.sh</code>, choose <strong>7</strong> and follow the exact same instruction.</p>
+<p>In theory, we should boost our proxy server’s TCP connection. The good news is that Ubuntu 18.04 enables <a href="https://ai.google/research/pubs/pub45646" target="_blank" rel="noopener">Google BBR</a> by default, so we do not need to take any further action. If you use other versions or systems and need to enable it manually, please follow this tutorial: <a href="https://www.91yun.co/archives/5174" target="_blank" rel="noopener">Centos/Ubuntu/Debian BBR加速一键安装包</a> (Chinese).</p>
+<p>And don’t forget to set firewall rules for the server! <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-digitalocean-cloud-firewalls?refcode=881f697ed35a&amp;utm_campaign=Referral_Invite&amp;utm_medium=Referral_Program&amp;utm_source=CopyPaste" target="_blank" rel="noopener">DigitalOcean</a> and <a href="https://www.vultr.com/docs/vultr-firewall?ref=7436070" target="_blank" rel="noopener">Vultr</a> provide graphical interface inside their consoles so that users can set up firewalls in clicks.</p>
+<h2 id="Client-side-Setup"><a href="#Client-side-Setup" class="headerlink" title="Client-side Setup"></a>Client-side Setup</h2><p>I would recommend the following client-side applications:</p>
+<ul>
+<li>macOS: <a href="https://github.com/qinyuhang/ShadowsocksX-NG-R/releases" target="_blank" rel="noopener">ShadowsocksX-NG</a></li>
+<li>Linux: <a href="https://github.com/erguotou520/electron-ssr/releases" target="_blank" rel="noopener">electron-ssr</a></li>
+<li>Windows: <a href="https://github.com/shadowsocksrr/shadowsocksr-csharp/releases" target="_blank" rel="noopener">ShadowsocksR C#</a></li>
+<li>iOS: <a href="https://itunes.apple.com/app/id1239860606" target="_blank" rel="noopener">Potatso Lite</a></li>
+<li>Android: <a href="https://github.com/shadowsocksrr/shadowsocksr-android/releases" target="_blank" rel="noopener">ShadowsocksR for Android</a></li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li>Toyo, “『原创』ShadowsocksR MudbJSON模式多用户一键脚本 支持流量限制等,” <em>逗比根据地</em>. [Online]. Available: <a href="https://doub.io/ss-jc60/" target="_blank" rel="noopener">https://doub.io/ss-jc60/</a>.</li>
+</ol>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[持美国 F-1 签证在纽约市面签加拿大临时居民访问签证]]></title>
       <url>/blog/apply-ca-visa-in-nyc/</url>
       <content type="html"><![CDATA[<p><em>This article is about how to apply a Canadian visitor visa at New York Visa Application Centre, and is only available in Chinese.</em></p>
@@ -122,15 +176,17 @@
     <entry>
       <title><![CDATA[Résumé]]></title>
       <url>/blog//resume/index.html</url>
-      <content type="html"><![CDATA[<h1 id="Education"><a href="#Education" class="headerlink" title="Education"></a>Education</h1><h2 id="Columbia-University-School-of-General-Studies"><a href="#Columbia-University-School-of-General-Studies" class="headerlink" title="Columbia University, School of General Studies"></a><a href="https://www.columbia.edu" target="_blank" rel="noopener">Columbia University</a>, <a href="https://gs.columbia.edu" target="_blank" rel="noopener">School of General Studies</a></h2><p><em>Bachelor of Arts in <a href="https://www.cs.columbia.edu" target="_blank" rel="noopener">Computer Science</a></em> (Intelligent Systems Track)<br>September 2016 - May 2018, New York</p>
+      <content type="html"><![CDATA[<h1 id="Education"><a href="#Education" class="headerlink" title="Education"></a>Education</h1><h2 id="Cornell-University"><a href="#Cornell-University" class="headerlink" title="Cornell University"></a><a href="https://www.cornell.edu" target="_blank" rel="noopener">Cornell University</a></h2><p><em>Master of Engineering in <a href="https://www.cs.cornell.edu" target="_blank" rel="noopener">Computer Science</a></em><br>August 2018 - December 2019, Ithaca </p>
+<h2 id="Columbia-University-School-of-General-Studies"><a href="#Columbia-University-School-of-General-Studies" class="headerlink" title="Columbia University, School of General Studies"></a><a href="https://www.columbia.edu" target="_blank" rel="noopener">Columbia University</a>, <a href="https://gs.columbia.edu" target="_blank" rel="noopener">School of General Studies</a></h2><p><em>Bachelor of Arts in <a href="https://www.cs.columbia.edu" target="_blank" rel="noopener">Computer Science</a></em> (Intelligent Systems Track)<br><em>magna cum laude</em><br>September 2016 - May 2018, New York</p>
 <ul>
-<li>Dean’s List, School of General Studies (Spring 2017)</li>
+<li>Dean’s List, School of General Studies (Spring 2017, Spring 2018)</li>
 <li>Membership in the Honor Society of the School of General Studies (Fall 2017)</li>
 <li>Surdna Scholarship, School of General Studies (2017 - 2018)</li>
 <li>New Student Scholarship, School of General Studies (2016 - 2017)</li>
 </ul>
-<h2 id="City-University-of-Hong-Kong"><a href="#City-University-of-Hong-Kong" class="headerlink" title="City University of Hong Kong"></a><a href="https://www.cityu.edu.hk" target="_blank" rel="noopener">City University of Hong Kong</a></h2><p><em>Bachelor of Science (Honours) in <a href="https://www.cs.cityu.edu.hk/" target="_blank" rel="noopener">Computer Science</a></em> (Data Science Stream)<br>September 2013 - July 2018, Hong Kong</p>
+<h2 id="City-University-of-Hong-Kong"><a href="#City-University-of-Hong-Kong" class="headerlink" title="City University of Hong Kong"></a><a href="https://www.cityu.edu.hk" target="_blank" rel="noopener">City University of Hong Kong</a></h2><p><em>Bachelor of Science (Honours) in <a href="https://www.cs.cityu.edu.hk" target="_blank" rel="noopener">Computer Science</a></em> (Data Science Stream)<br>First Class Honours<br>September 2013 - July 2018, Hong Kong</p>
 <ul>
+<li>Dean’s Scholarships, College of Science and Engineering (<a href="http://www6.cityu.edu.hk/cse/cms/content.aspx?id=scholarshipsawards&amp;lang=en" target="_blank" rel="noopener">Year 2017/18</a>)</li>
 <li>Dean’s List, College of Science and Engineering (<a href="https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201402.pdf" target="_blank" rel="noopener">Fall 2013</a>, <a href="https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201503.pdf" target="_blank" rel="noopener">Fall 2014</a>, <a href="https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201508.pdf" target="_blank" rel="noopener">Spring 2015</a>, <a href="https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201603.pdf" target="_blank" rel="noopener">Fall 2015</a>, <a href="https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201608.pdf" target="_blank" rel="noopener">Spring 2016</a>)</li>
 <li>CityU Mainland Student Scholarship Scheme - Full Tuition Scholarship (2013 - 2016)</li>
 <li>Chow Sang Sang Group Entrance Scholarships for CityU-Columbia U Joint Bachelor’s Degree Program (2016 - 2017)</li>
@@ -142,14 +198,20 @@
 <li>Developed computer programs in Java, Perl and shell scripts to improve working efficiency and decrease the risks of operational mistakes for Production Support Team.</li>
 <li>Worked in the student project - Online Financial Product Selection Tool.</li>
 </ul>
-<h1 id="Projects"><a href="#Projects" class="headerlink" title="Projects"></a>Projects</h1><h2 id="Color-Monster"><a href="#Color-Monster" class="headerlink" title="Color Monster"></a>Color Monster</h2><p><strong><em>Java Programmer</em></strong><br><em>Team CityUytiC, Samsung Solve for Tomorrow 2015 Application Development Competition, Samsung Electronics H.K. Company, Ltd.</em><br>September 2015 - October 2015, Hong Kong</p>
+<h1 id="Projects"><a href="#Projects" class="headerlink" title="Projects"></a>Projects</h1><h2 id="Less0n"><a href="#Less0n" class="headerlink" title="Less0n"></a><a href="https://less0n.bmao.tech/" target="_blank" rel="noopener">Less0n</a></h2><p><strong><em>Project Manager</em></strong><br><em>Team Less0n</em><br>February 2018 - April 2018, New York</p>
+<p>A Flask-based course project for COMS W4156 Advanced Software Engineering, Columbia University which aimed to be the next generation of course and professor ratings system for Columbia community.</p>
+<p>Award: First Prize of the Demo Day at J.P. Morgan<br>Source: <a href="https://github.com/maobowen/Less0n" target="_blank" rel="noopener">https://github.com/maobowen/Less0n</a></p>
+<h2 id="Pixel"><a href="#Pixel" class="headerlink" title="Pixel++"></a>Pixel++</h2><p><strong><em>Tester</em></strong><br><em>Team Pixel++</em><br>January 2018 - May 2018, New York</p>
+<p>A course project for COMS W4115 Programming Languages and Translators, Columbia University which is a programming language for efficient manipulation of images coded in OCaml.</p>
+<p>Source: <a href="https://maobowen.github.io/PixelPlusPlus" target="_blank" rel="noopener">https://maobowen.github.io/PixelPlusPlus</a></p>
+<h2 id="Color-Monster"><a href="#Color-Monster" class="headerlink" title="Color Monster"></a>Color Monster</h2><p><strong><em>Java Programmer</em></strong><br><em>Team CityUytiC, Samsung Solve for Tomorrow 2015 Application Development Competition, Samsung Electronics H.K. Company, Ltd.</em><br>September 2015 - October 2015, Hong Kong</p>
 <p>An Android game designed for Samsung Solve for Tomorrow 2015 Application Development Competition which aimed to train the ability of concentration of children with special educational needs (especially with ADHD).</p>
 <ul>
 <li>Implemented the back-end logic of the game, including the score system, animations and data transmission on networks in Java.</li>
 <li>Implemented the back-end logic of the server-side reporting system in PHP and Bootstrap.</li>
 <li>Integrated the back-end logic (Java code) and UI design (XML code) together, and debugged and tested the final product in Android Studio.</li>
 </ul>
-<p>Award: Second Runner-Up<br>Official Promotion Video: <a href="https://youtu.be/Y4kvIFqm15A" target="_blank" rel="noopener">https://youtu.be/Y4kvIFqm15A</a> (Cantonese)</p>
+<p>Award: Second Runner-Up<br>Official Promotion Video: <a href="https://youtu.be/Y4kvIFqm15A" target="_blank" rel="noopener">https://youtu.be/Y4kvIFqm15A</a> (Cantonese)<br>Source: <a href="https://github.com/ShawnLYU/Color-Monster" target="_blank" rel="noopener">https://github.com/ShawnLYU/Color-Monster</a></p>
 <h2 id="Smarter-Class-Schedule"><a href="#Smarter-Class-Schedule" class="headerlink" title="Smarter Class Schedule"></a>Smarter Class Schedule</h2><p><strong><em>Project Manager</em></strong><br>September 2015 - December 2015, Hong Kong</p>
 <p>A Java-based course project for CS3343 Software Engineering Practice, City University of Hong Kong which helped students arrange their class schedules automatically.</p>
 <ul>
@@ -173,8 +235,8 @@
 <li>CityU-CS Robocode Contest 2014 (Common 1st-Year), Honorable Mention.</li>
 </ul>
 <h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><ul>
-<li>Programming languages: Assembly, C, C++, C#, HTML, Java, JavaScript, $\LaTeX$, Pascal, Perl, Python, PHP, Shell, SQL, Visual Basic</li>
-<li>Frameworks: Django, Hadoop, JavaServer Pages</li>
+<li>Programming languages: Assembly, C, C++, C#, HTML, Java, JavaScript, $\LaTeX$, OCaml, Pascal, Perl, Python, PHP, Shell, SQL, Visual Basic</li>
+<li>Frameworks: Flask, Django, Hadoop, JavaServer Pages</li>
 </ul>
 <h1 id="Languages"><a href="#Languages" class="headerlink" title="Languages"></a>Languages</h1><ul>
 <li>Shanghainese: Native</li>
