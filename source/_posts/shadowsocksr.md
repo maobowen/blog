@@ -69,6 +69,14 @@ If you want to add another user, just run the script again by `./ssrmu.sh`, choo
 
 In theory, we should boost our proxy server's TCP connection. The good news is that Ubuntu 18.04 enables [Google BBR](https://ai.google/research/pubs/pub45646) by default, so we do not need to take any further action. If you use other versions or systems and need to enable it manually, please follow this tutorial: [Centos/Ubuntu/Debian BBR加速一键安装包](https://www.91yun.co/archives/5174) (Chinese).
 
+> Debian 9 users can use the following commands to enable Google BBR:
+> ```bash
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+sysctl -p
+```
+> For more information, please check out this post: [Debian 9快速开启Google BBR的方法，实现高效单边加速](https://www.moerats.com/archives/297/).
+
 And don't forget to set firewall rules for the server! [DigitalOcean](https://www.digitalocean.com/community/tutorials/an-introduction-to-digitalocean-cloud-firewalls?refcode=881f697ed35a&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste) and [Vultr](https://www.vultr.com/docs/vultr-firewall?ref=7436070) provide graphical interface inside their consoles so that users can set up firewalls in clicks.
 
 ## Client-side Setup
