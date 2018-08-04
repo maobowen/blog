@@ -111,6 +111,10 @@
 <img src="/blog/shadowsocksr/shadowsocksr_09.png" width="500" title="Installation finished">
 <p>If you want to add another user, just run the script again by <code>./ssrmu.sh</code>, choose <strong>7</strong> and follow the exact same instruction.</p>
 <p>In theory, we should boost our proxy server’s TCP connection. The good news is that Ubuntu 18.04 enables <a href="https://ai.google/research/pubs/pub45646" target="_blank" rel="noopener">Google BBR</a> by default, so we do not need to take any further action. If you use other versions or systems and need to enable it manually, please follow this tutorial: <a href="https://www.91yun.co/archives/5174" target="_blank" rel="noopener">Centos/Ubuntu/Debian BBR加速一键安装包</a> (Chinese).</p>
+<blockquote>
+<p>Debian 9 users can use the following commands to enable Google BBR:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"net.core.default_qdisc=fq"</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"net.ipv4.tcp_congestion_control=bbr"</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure></p>
+<p>For more information, please check out this post: <a href="https://www.moerats.com/archives/297/" target="_blank" rel="noopener">Debian 9快速开启Google BBR的方法，实现高效单边加速</a>.</p>
+</blockquote>
 <p>And don’t forget to set firewall rules for the server! <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-digitalocean-cloud-firewalls?refcode=881f697ed35a&amp;utm_campaign=Referral_Invite&amp;utm_medium=Referral_Program&amp;utm_source=CopyPaste" target="_blank" rel="noopener">DigitalOcean</a> and <a href="https://www.vultr.com/docs/vultr-firewall?ref=7436070" target="_blank" rel="noopener">Vultr</a> provide graphical interface inside their consoles so that users can set up firewalls in clicks.</p>
 <h2 id="Client-side-Setup"><a href="#Client-side-Setup" class="headerlink" title="Client-side Setup"></a>Client-side Setup</h2><p>I would recommend the following client-side applications:</p>
 <ul>
@@ -240,6 +244,12 @@
   
     
     <entry>
+      <title><![CDATA[All Tags]]></title>
+      <url>/blog/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Résumé]]></title>
       <url>/blog//resume/index.html</url>
       <content type="html"><![CDATA[<h1 id="Education"><a href="#Education" class="headerlink" title="Education"></a>Education</h1><h2 id="Cornell-University"><a href="#Cornell-University" class="headerlink" title="Cornell University"></a><a href="https://www.cornell.edu" target="_blank" rel="noopener">Cornell University</a></h2><p><em>Master of Engineering in <a href="https://www.cs.cornell.edu" target="_blank" rel="noopener">Computer Science</a></em><br>August 2018 - December 2019, Ithaca </p>
@@ -311,12 +321,6 @@
 <li>English: Professional working proficient</li>
 </ul>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[All Tags]]></title>
-      <url>/blog/tags/index.html</url>
-      <content type="html"></content>
     </entry>
     
   

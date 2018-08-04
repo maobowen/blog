@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://bmao.tech/blog/shadowsocksr/shadowsocksr_07.png">
 <meta property="og:image" content="http://bmao.tech/blog/shadowsocksr/shadowsocksr_08.png">
 <meta property="og:image" content="http://bmao.tech/blog/shadowsocksr/shadowsocksr_09.png">
-<meta property="og:updated_time" content="2018-06-04T07:23:16.635Z">
+<meta property="og:updated_time" content="2018-08-04T03:08:33.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Setting Up a ShadowsocksR Proxy Server">
 <meta name="twitter:description" content="Follow this tutorial to start setting up a ShadowsocksR proxy server and enjoying freedom outside the wall!">
@@ -392,6 +392,10 @@
 <img src="/blog/shadowsocksr/shadowsocksr_09.png" width="500" title="Installation finished">
 <p>If you want to add another user, just run the script again by <code>./ssrmu.sh</code>, choose <strong>7</strong> and follow the exact same instruction.</p>
 <p>In theory, we should boost our proxy server’s TCP connection. The good news is that Ubuntu 18.04 enables <a href="https://ai.google/research/pubs/pub45646" target="_blank" rel="noopener">Google BBR</a> by default, so we do not need to take any further action. If you use other versions or systems and need to enable it manually, please follow this tutorial: <a href="https://www.91yun.co/archives/5174" target="_blank" rel="noopener">Centos/Ubuntu/Debian BBR加速一键安装包</a> (Chinese).</p>
+<blockquote>
+<p>Debian 9 users can use the following commands to enable Google BBR:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"net.core.default_qdisc=fq"</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"net.ipv4.tcp_congestion_control=bbr"</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure></p>
+<p>For more information, please check out this post: <a href="https://www.moerats.com/archives/297/" target="_blank" rel="noopener">Debian 9快速开启Google BBR的方法，实现高效单边加速</a>.</p>
+</blockquote>
 <p>And don’t forget to set firewall rules for the server! <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-digitalocean-cloud-firewalls?refcode=881f697ed35a&amp;utm_campaign=Referral_Invite&amp;utm_medium=Referral_Program&amp;utm_source=CopyPaste" target="_blank" rel="noopener">DigitalOcean</a> and <a href="https://www.vultr.com/docs/vultr-firewall?ref=7436070" target="_blank" rel="noopener">Vultr</a> provide graphical interface inside their consoles so that users can set up firewalls in clicks.</p>
 <h2 id="Client-side-Setup"><a href="#Client-side-Setup" class="headerlink" title="Client-side Setup"></a>Client-side Setup</h2><p>I would recommend the following client-side applications:</p>
 <ul>
@@ -415,7 +419,7 @@
         <p><span>Title:</span><a href="/blog/shadowsocksr/">Setting Up a ShadowsocksR Proxy Server</a></p>
         <p><span>Author:</span><a href="/blog/" title="Back to Homepage">101对双生儿</a></p>
         <p><span>Created:</span>2018-06-04, 15:00:00</p>
-        <p><span>Updated:</span>2018-06-04, 15:23:16</p>
+        <p><span>Updated:</span>2018-08-04, 11:08:33</p>
         <p> 
             <span>History:</span><i class="fa fa-github"></i>
             <a href="https://github.com/maobowen/blog/blame/src/source/_posts/shadowsocksr.md" title="View update history for each part in sequence" target = "_blank">Blame</a>,
