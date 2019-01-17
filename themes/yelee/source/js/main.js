@@ -178,7 +178,7 @@ require([], function (){
         var taskList = {
             field: this.textContent.substring(0, 2),
             check: function(str) {
-                var re = new RegExp(str);
+                var re = new RegExp(str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
                 return this.field.match(re);
             }
         }
