@@ -32,6 +32,7 @@ September 2013 - July 2018, Hong Kong
 
 - Dean's Scholarships, College of Science and Engineering ([Year 2017/18](http://www6.cityu.edu.hk/cse/cms/content.aspx?id=scholarshipsawards&lang=en))
 - Dean's List, College of Science and Engineering ([Fall 2013](https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201402.pdf), [Fall 2014](https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201503.pdf), [Spring 2015](https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201508.pdf), [Fall 2015](https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201603.pdf), [Spring 2016](https://www6.cityu.edu.hk/cse/cms/admin/Data/uploadfile/1/Dean%27s%20List_201608.pdf))
+- The Department of Computer Science Outstanding Student Scholarships (Year 2018/19)
 - CityU Mainland Student Scholarship Scheme - Full Tuition Scholarship (2013 - 2016)
 - Chow Sang Sang Group Entrance Scholarships for CityU-Columbia U Joint Bachelor's Degree Program (2016 - 2017)
 
