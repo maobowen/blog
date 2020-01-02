@@ -1,376 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="format-detection" content="telephone=no">
-<meta name="author" content="101对双生儿">
+<link rel="stylesheet" href="/blog/css/main.css">
 
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-minimal.css">
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
 
-<meta name="description" content="Students from those schools which offer Office 365 Education are eligible to enjoy up to 5TB of OneDrive for Business storage. With the huge space provided, we can turn it into a file hosting platform">
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://bmao.tech/blog').hostname,
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Students from those schools which offer Office 365 Education are eligible to enjoy up to 5TB of OneDrive for Business storage. With the huge space provided, we can turn it into a file hosting platform">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Deploying OneIndex on Heroku">
 <meta property="og:url" content="http://bmao.tech/blog/oneindex-on-heroku/index.html">
 <meta property="og:site_name" content="101对双生儿&#39;s Blog">
 <meta property="og:description" content="Students from those schools which offer Office 365 Education are eligible to enjoy up to 5TB of OneDrive for Business storage. With the huge space provided, we can turn it into a file hosting platform">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-19T04:34:17.317Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-07-18T15:00:00.000Z">
+<meta property="article:modified_time" content="2020-01-02T02:46:41.515Z">
+<meta property="article:author" content="101对双生儿">
+<meta property="article:tag" content="OneDrive">
+<meta property="article:tag" content="Heroku">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deploying OneIndex on Heroku">
-<meta name="twitter:description" content="Students from those schools which offer Office 365 Education are eligible to enjoy up to 5TB of OneDrive for Business storage. With the huge space provided, we can turn it into a file hosting platform">
 
-<link rel="apple-touch-icon" href="/blog//apple-touch-icon.png">
+<link rel="canonical" href="http://bmao.tech/blog/oneindex-on-heroku/">
 
 
-    <link rel="alternate" href="/atom.xml" title="101对双生儿&#39;s Blog" type="application/atom+xml">
-
-
-
-    <link rel="shortcut icon" href="/blog//favicon.png">
-
-
-
-    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
-
-
-
-    <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet">
-
-
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/orange/pace-theme-minimal.css" rel="stylesheet">
-
-
-<link rel="stylesheet" href="/blog/css/style.css">
-
-
-
-<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-
-<title>Deploying OneIndex on Heroku | 101对双生儿&#39;s Blog</title>
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
-
-<script>
-    var yiliaConfig = {
-        fancybox: true,
-        animate: true,
-        isHome: false,
-        isPost: true,
-        isArchive: false,
-        isTag: false,
-        isCategory: false,
-        fancybox_js: "//cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js",
-        scrollreveal: "//cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/3.3.6/scrollreveal.min.js",
-        search: true
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
 </script>
 
-
-    <script>
-        yiliaConfig.jquery_ui = [true, "//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js", "//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/css/jquery-ui.min.css"];
-    </script>
-
-
-
-    <script> yiliaConfig.rootUrl = /blog/; </script>
-
-
-
-    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56ff76c972fc0cf9"></script>
+  <title>Deploying OneIndex on Heroku | 101对双生儿's Blog</title>
+  
 
 
 
 
-</head></html>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/blog/" class="profilepic">
-            
-                <img src="https://tvax4.sinaimg.cn/crop.0.0.568.568.180/6e363801ly8fgtxq4arklj20fs0fsdh8.jpg" class="animated zoomIn">
-            
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/blog/">101对双生儿</a></h1>
-        </hgroup>
-
-        
-        <p class="header-subtitle">Not pleased by external gains. Not saddened by personal losses.</p>
-        
-
-        
-            <form id="search-form">
-            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
-            <i class="fa fa-times" onclick="resetSearch()"></i>
-            </form>
-            <div id="local-search-result"></div>
-            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
-        
 
 
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
-                        
-                        <li>Friends</li>
-                        
-                        
-                        <li>About Me</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/blog/">Homepage</a></li>
-                        
-                            <li><a href="/blog/archives/">Archives</a></li>
-                        
-                            <li><a href="/blog/tags/">All Tags</a></li>
-                        
-                            <li><a href="/blog/resume/">Résumé</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" href="mailto:&#109;&#97;&#111;&#98;&#111;&#119;&#101;&#110;&#51;&#64;&#104;&#111;&#116;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" title="Email"></a>
-                            
-                                <a class="fa GitHub" href="https://github.com/maobowen" title="GitHub"></a>
-                            
-                                <a class="fa Facebook" href="https://facebook.com/maobowen" title="Facebook"></a>
-                            
-                                <a class="fa Twitter" href="https://twitter.com/maobowen3" title="Twitter"></a>
-                            
-                                <a class="fa LinkedIn" href="https://www.linkedin.com/in/bowen-mao" title="LinkedIn"></a>
-                            
-                                <a class="fa 新浪微博" href="https://m.weibo.cn/u/1849047041" title="新浪微博"></a>
-                            
-                                <a class="fa V2EX" href="https://www.v2ex.com/member/maobowen3" title="V2EX"></a>
-                            
-                                <a class="fa 知乎" href="https://www.zhihu.com/people/maobowen3" title="知乎"></a>
-                            
-                                <a class="fa CSDN" href="http://my.csdn.net/maobowen3" title="CSDN"></a>
-                            
-                                <a class="fa 网易云音乐" href="https://music.163.com/#/user/home?id=449309413" title="网易云音乐"></a>
-                            
-                                <a class="fa 虾米音乐" href="https://www.xiami.com/u/352348161" title="虾米音乐"></a>
-                            
-                                <a class="fa bilibili" href="https://space.bilibili.com/49932516" title="bilibili"></a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
-                    </div>
-                </section>
-                
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">A low-end computer science student from an Ivy League school.<br><br>Shanghai ✈️ Hong Kong ✈️ New York City. Always on the way.<br><br>Love Cantopop, hiking and animes.</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>                
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">101对双生儿's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Not pleased by external gains. Not saddened by personal losses.</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 </div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">101对双生儿</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/blog/" class="profilepic">
-                
-                    <img src="https://tvax4.sinaimg.cn/crop.0.0.568.568.180/6e363801ly8fgtxq4arklj20fs0fsdh8.jpg" class="animated zoomIn">
-                
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/blog/" title="回到主页">101对双生儿</a></h1>
-            </hgroup>
-            
-            <p class="header-subtitle">Not pleased by external gains. Not saddened by personal losses.</p>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/blog/">Homepage</a></li>
-                
-                    <li><a href="/blog/archives/">Archives</a></li>
-                
-                    <li><a href="/blog/tags/">All Tags</a></li>
-                
-                    <li><a href="/blog/resume/">Résumé</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" target="_blank" href="mailto:&#109;&#97;&#111;&#98;&#111;&#119;&#101;&#110;&#51;&#64;&#104;&#111;&#116;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" title="Email"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="https://github.com/maobowen" title="GitHub"></a>
-                            
-                                <a class="fa Facebook" target="_blank" href="https://facebook.com/maobowen" title="Facebook"></a>
-                            
-                                <a class="fa Twitter" target="_blank" href="https://twitter.com/maobowen3" title="Twitter"></a>
-                            
-                                <a class="fa LinkedIn" target="_blank" href="https://www.linkedin.com/in/bowen-mao" title="LinkedIn"></a>
-                            
-                                <a class="fa 新浪微博" target="_blank" href="https://m.weibo.cn/u/1849047041" title="新浪微博"></a>
-                            
-                                <a class="fa V2EX" target="_blank" href="https://www.v2ex.com/member/maobowen3" title="V2EX"></a>
-                            
-                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/maobowen3" title="知乎"></a>
-                            
-                                <a class="fa CSDN" target="_blank" href="http://my.csdn.net/maobowen3" title="CSDN"></a>
-                            
-                                <a class="fa 网易云音乐" target="_blank" href="https://music.163.com/#/user/home?id=449309413" title="网易云音乐"></a>
-                            
-                                <a class="fa 虾米音乐" target="_blank" href="https://www.xiami.com/u/352348161" title="虾米音乐"></a>
-                            
-                                <a class="fa bilibili" target="_blank" href="https://space.bilibili.com/49932516" title="bilibili"></a>
-                            
-                        </ul>
-            </nav>
-        </header>                
-    </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me">
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/." rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">11</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">8</span></a>
+
+  </li>
+        <li class="menu-item menu-item-resume">
+
+    <a href="/blog/resume/" rel="section"><i class="fa fa-fw fa-file-text"></i>Résumé</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
 </nav>
-      <div class="body-wrap"><article id="post-oneindex-on-heroku" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/oneindex-on-heroku/" class="article-date">
-      <time datetime="2018-07-18T15:00:00.000Z" itemprop="datePublished">2018-07-18</time>
-</a>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div><!-- Global APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script>
+<meting-js
+  auto="https://music.163.com/#/playlist?id=648989969"
+  list-folded="true"
+  fixed="true"
+  lrc-type="0">
+</meting-js>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
 
 
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Deploying OneIndex on Heroku
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-
-        
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
           
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://bmao.tech/blog/oneindex-on-heroku/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.568.568.180/6e363801ly8fgtxq4arklj20fs0fsdh8.jpg">
+      <meta itemprop="name" content="101对双生儿">
+      <meta itemprop="description" content="A blog of a computer science student.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="101对双生儿's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Deploying OneIndex on Heroku
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-07-18 11:00:00" itemprop="dateCreated datePublished" datetime="2018-07-18T11:00:00-04:00">2018-07-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-01 21:46:41" itemprop="dateModified" datetime="2020-01-01T21:46:41-05:00">2020-01-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/996-ICU/" itemprop="url" rel="index">
+                    <span itemprop="name">996.ICU</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/blog/oneindex-on-heroku/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="oneindex-on-heroku/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>6.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>6 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
         <p>Students from those schools which offer <a href="https://products.office.com/en-us/student/office-in-education" target="_blank" rel="noopener">Office 365 Education</a> are eligible to enjoy up to 5TB of OneDrive for Business storage. With the huge space provided, we can turn it into a file hosting platform, which is similar to <a href="https://aws.amazon.com/s3/" target="_blank" rel="noopener">Amazon S3</a>, to store and share static files like documents, images, videos, etc. OneDrive for Business supports <a href="https://support.office.com/en-us/article/share-onedrive-files-and-folders-9fcc2f7d-de0c-4cec-93b0-a82024800c07#OS_Type=OneDrive_-_Business" target="_blank" rel="noopener">sharing files</a> with external users, but your school has to opt to enable external sharing, and the links generated are encoded. We can use a program called <a href="https://github.com/donwa/oneindex" target="_blank" rel="noopener">OneIndex</a> which helps generate <strong>direct download links</strong> without enabling external sharing. We can link to our files directly later.</p>
 <a id="more"></a>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>OneIndex is a PHP program developed by <a href="https://github.com/donwa" target="_blank" rel="noopener">@donwa</a> which indices directories and files in OneDrive or OneDrive for Business. We can deploy it on a PHP server. If you have your own server, you can simply install it on a LAMP (Linux, Apache, MySQL, PHP) stack. In this tutorial, I will demonstrate how to install it on <a href="https://www.heroku.com/" target="_blank" rel="noopener">Heroku</a>, where we can deploy cloud applications for free. However, due to Heroku’s <a href="https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem" target="_blank" rel="noopener">ephemeral file system</a>, we still need a temporary server, and we have to install and configure the program twice.</p>
-<h2 id="Installing-OneIndex-on-a-Server"><a href="#Installing-OneIndex-on-a-Server" class="headerlink" title="Installing OneIndex on a Server"></a>Installing OneIndex on a Server</h2><p>You may check <a href="../shadowsocksr/#Prepare-a-server">my previous post</a> to prepare a server if you do not have one. I will deploy a <a href="https://www.vultr.com/promo25b?ref=7436070" target="_blank" rel="noopener">Vultr</a> Cloud Compute (VC2) server with Ubuntu 18.04 in this tutorial.</p>
-<h3 id="Installing-Apache2-Web-Server-and-PHP"><a href="#Installing-Apache2-Web-Server-and-PHP" class="headerlink" title="Installing Apache2 Web Server and PHP"></a>Installing Apache2 Web Server and PHP</h3><p>First, follow <a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04" target="_blank" rel="noopener">this tutorial</a> to set up a LAMP stack. Here are some points that you should take care of:</p>
+<h2 id="introduction">Introduction</h2>
+<p>OneIndex is a PHP program developed by <span class="citation" data-cites="donwa">[@donwa]</span>(https://github.com/donwa) which indices directories and files in OneDrive or OneDrive for Business. We can deploy it on a PHP server. If you have your own server, you can simply install it on a LAMP (Linux, Apache, MySQL, PHP) stack. In this tutorial, I will demonstrate how to install it on <a href="https://www.heroku.com/" target="_blank" rel="noopener">Heroku</a>, where we can deploy cloud applications for free. However, due to Heroku's <a href="https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem" target="_blank" rel="noopener">ephemeral file system</a>, we still need a temporary server, and we have to install and configure the program twice.</p>
+<h2 id="installing-oneindex-on-a-server">Installing OneIndex on a Server</h2>
+<p>You may check <a href="../shadowsocksr/#Prepare-a-server">my previous post</a> to prepare a server if you do not have one. I will deploy a <a href="https://www.vultr.com/promo25b?ref=7436070" target="_blank" rel="noopener">Vultr</a> Cloud Compute (VC2) server with Ubuntu 18.04 in this tutorial.</p>
+<h3 id="installing-apache2-web-server-and-php">Installing Apache2 Web Server and PHP</h3>
+<p>First, follow <a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04" target="_blank" rel="noopener">this tutorial</a> to set up a LAMP stack. Here are some points that you should take care of:</p>
 <ul>
-<li>Setting up firewall rules is important to keep your server secure. However, you can skip enabling the UFW firewall in Step 1 if your server supports setting up firewall from graphical interface or your server is for temporary use. </li>
+<li>Setting up firewall rules is important to keep your server secure. However, you can skip enabling the UFW firewall in Step 1 if your server supports setting up firewall from graphical interface or your server is for temporary use.</li>
 <li>You can skip Step 2 since we do not need a database. Similarly, you do not to install <code>php-mysql</code> in Step 3.</li>
 </ul>
-<p>In addition, we need to enable PHP’s cULR module. Run the following commands to install the module and to restart Apache web server:</p>
+<p>In addition, we need to enable PHP's cULR module. Run the following commands to install the module and to restart Apache web server:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install php-curl</span><br><span class="line">sudo systemctl restart apache2</span><br></pre></td></tr></table></figure>
 <p>We also need to allow <code>.htaccess</code> overrides. Suppose we will use<code>/var/www/oneindex</code> as the root directory of our OneIndex program. Use your favorite editor to create an Apache configuration file for OneIndex:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apache2/sites-available/oneindex.conf</span><br></pre></td></tr></table></figure>
 <p>Add the following text to the file:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;	DocumentRoot /var/www/oneindex	ErrorLog $&#123;APACHE_LOG_DIR&#125;/error.log	CustomLog $&#123;APACHE_LOG_DIR&#125;/access.log combined	&lt;Directory /var/www/oneindex/&gt;		AllowOverride All	&lt;/Directory&gt;&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">	DocumentRoot &#x2F;var&#x2F;www&#x2F;oneindex</span><br><span class="line">	ErrorLog $&#123;APACHE_LOG_DIR&#125;&#x2F;error.log</span><br><span class="line">	CustomLog $&#123;APACHE_LOG_DIR&#125;&#x2F;access.log combined</span><br><span class="line">	&lt;Directory &#x2F;var&#x2F;www&#x2F;oneindex&#x2F;&gt;</span><br><span class="line">		AllowOverride All</span><br><span class="line">	&lt;&#x2F;Directory&gt;</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br></pre></td></tr></table></figure>
 <p>Then run the following commands to enable our site:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo a2ensite oneindex.conf</span><br><span class="line">sudo a2dissite 000-default.conf</span><br></pre></td></tr></table></figure>
 <p>Run the following commands to enable Apache mod_rewrite:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod rewrite</span><br><span class="line">sudo systemctl restart apache2</span><br></pre></td></tr></table></figure>
-<h3 id="Installing-OneIndex"><a href="#Installing-OneIndex" class="headerlink" title="Installing OneIndex"></a>Installing OneIndex</h3><p>Now, let’s start to deploy OneIndex on our server. Download the GitHub repository, move it to the root directory and change the ownership:</p>
+<h3 id="installing-oneindex">Installing OneIndex</h3>
+<p>Now, let's start to deploy OneIndex on our server. Download the GitHub repository, move it to the root directory and change the ownership:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/donwa/oneindex.git</span><br><span class="line">sudo mv oneindex/ /var/www/</span><br><span class="line">sudo chown -R www-data:www-data /var/www/oneindex</span><br></pre></td></tr></table></figure>
 <p>Now, open the browser and visit your site. Follow <a href="https://github.com/donwa/oneindex#安装" target="_blank" rel="noopener">this animation</a> to install and configure OneIndex. Some additional configurations can be found <a href="https://github.com/donwa/oneindex/blob/5ce51982c4903107c44a9e7e7e525869360c034c/README.md#可配置项" target="_blank" rel="noopener">in this tutorial</a>. Make sure that your settings are final, since it is not trivial to change them after we move it onto Heroku.</p>
-<h2 id="Installing-OneIndex-on-Heroku"><a href="#Installing-OneIndex-on-Heroku" class="headerlink" title="Installing OneIndex on Heroku"></a>Installing OneIndex on Heroku</h2><p>On the local machine, follow the first two steps of <a href="https://devcenter.heroku.com/articles/getting-started-with-php" target="_blank" rel="noopener">this tutorial</a> to set up the development environment.</p>
+<h2 id="installing-oneindex-on-heroku">Installing OneIndex on Heroku</h2>
+<p>On the local machine, follow the first two steps of <a href="https://devcenter.heroku.com/articles/getting-started-with-php" target="_blank" rel="noopener">this tutorial</a> to set up the development environment.</p>
 <p>Then prepare the template of the PHP cloud application:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/heroku/php-getting-started.git</span><br><span class="line">mv php-getting-started/ onedrive</span><br><span class="line"><span class="built_in">cd</span> onedrive</span><br></pre></td></tr></table></figure>
 <p>Pick your favorite editor, edit <code>composer.json</code> in the root directory to adjust dependencies:</p>
@@ -381,23 +349,25 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -rf web/</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/donwa/oneindex.git</span><br><span class="line">mv oneindex/ web</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>In case you want to put OneIndex in a subfolder, make sure to set up <code>.htaccess</code> correctly under the <code>web</code> directory:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine On</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line">RewriteRule ^.*$ /index.php [L,QSA]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine On</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line">RewriteRule ^.*$ &#x2F;index.php [L,QSA] </span><br></pre></td></tr></table></figure>
 </blockquote>
-<p>Now, we need to “borrow” the configuration files of OneIndex on the server.</p>
+<p>Now, we need to &quot;borrow&quot; the configuration files of OneIndex on the server.</p>
 <blockquote>
-<p>As stated before, Heroku has an ephemeral file system, which means that any files written will be discarded eventually. Generated by the program when we install OneIndex, caches and configuration are not parts of the Heroku application. Therefore, they will go away as well. It does not matter whether caches are persistent, but we have to make sure that configuration is persistent. Therefore, we have to use a temporary server to generate the configuration first and put the files into the Heroku application’s repository before publishing it.</p>
+<p>As stated before, Heroku has an ephemeral file system, which means that any files written will be discarded eventually. Generated by the program when we install OneIndex, caches and configuration are not parts of the Heroku application. Therefore, they will go away as well. It does not matter whether caches are persistent, but we have to make sure that configuration is persistent. Therefore, we have to use a temporary server to generate the configuration first and put the files into the Heroku application's repository before publishing it.</p>
 </blockquote>
 <p>Pick your favorite SFTP or SCP client, for example, graphical interface tools such as <a href="https://filezilla-project.org" target="_blank" rel="noopener">FileZilla</a> and <a href="https://winscp.net" target="_blank" rel="noopener">WinSCP</a> (for Windows only) or command-line tools such as <code>sftp</code> or <code>scp</code>. Download <code>base.php</code> and <code>token.php</code> from the server (inside <code>/var/www/onedrive/config/</code>) to your local repository (<code>web/config</code>).</p>
 <p>Last, create an application on Heroku, and use Heroku CLI to push the local repository to the cloud (supposing your application is <code>oneindex</code>):</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">heroku login</span><br><span class="line">heroku create oneindex</span><br><span class="line">git push heroku master</span><br></pre></td></tr></table></figure>
-<p>Open the browser and verify whether OneIndex is working on <a href="https://oneindex.herokuapp.com/" target="_blank" rel="noopener">https://oneindex.herokuapp.com/</a>.</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
-<li>M. Drake, “How To Install Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu 18.04,” <em>DigitalOcean</em>. [Online]. Available: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04" target="_blank" rel="noopener">https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04</a>.</li>
-<li>B. Boucheron, “How To Install WordPress with LAMP on Ubuntu 18.04,” <em>DigitalOcean</em>. [Online]. Available: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lamp-on-ubuntu-18-04" target="_blank" rel="noopener">https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lamp-on-ubuntu-18-04</a>.</li>
-<li>B., “How To Set Up Apache Virtual Hosts on Ubuntu 16.04,” <em>DigitalOcean</em>. [Online]. Available: <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-16-04" target="_blank" rel="noopener">https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-16-04</a>.</li>
-<li>“Getting Started on Heroku with PHP,” <em>Heroku</em>. [Online]. Available: <a href="https://devcenter.heroku.com/articles/getting-started-with-php" target="_blank" rel="noopener">https://devcenter.heroku.com/articles/getting-started-with-php</a>.</li>
+<p>Open the browser and verify whether OneIndex is working on https://oneindex.herokuapp.com/.</p>
+<h2 id="reference">Reference</h2>
+<ol type="1">
+<li>M. Drake, &quot;How To Install Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu 18.04,&quot; <em>DigitalOcean</em>. [Online]. Available: https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04.</li>
+<li>B. Boucheron, &quot;How To Install WordPress with LAMP on Ubuntu 18.04,&quot; <em>DigitalOcean</em>. [Online]. Available: https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lamp-on-ubuntu-18-04.</li>
+<li>B., &quot;How To Set Up Apache Virtual Hosts on Ubuntu 16.04,&quot; <em>DigitalOcean</em>. [Online]. Available: https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-16-04.</li>
+<li>&quot;Getting Started on Heroku with PHP,&quot; <em>Heroku</em>. [Online]. Available: https://devcenter.heroku.com/articles/getting-started-with-php.</li>
 </ol>
-<h2 id="扯些别的"><a href="#扯些别的" class="headerlink" title="扯些别的"></a>扯些别的</h2><p>专题<a href="../funathk/">《FUN@HK 香港玩啲乜》</a>暂时跳票了。在这个专题里，我将会分享许多香港鲜为人知的好去处。然而由于资料整理起来比较耗时间，这个专题何时上线还不确定。</p>
+<h2 id="扯些别的">扯些别的</h2>
+<p>专题<a href="../funathk/">《FUN@HK 香港玩啲乜》</a>暂时跳票了。在这个专题里，我将会分享许多香港鲜为人知的好去处。然而由于资料整理起来比较耗时间，这个专题何时上线还不确定。</p>
 <p>回国以后补、追了这些番：</p>
 <ul>
 <li><a href="https://zh.moegirl.org/zh-cn/青春之旅" target="_blank" rel="noopener">《青春之旅》（『アオハライド』）</a>：狗粮，还蛮温馨的；</li>
@@ -413,253 +383,407 @@
 <li><a href="https://zh.moegirl.org/zh-cn/摇曳露营" target="_blank" rel="noopener">《摇曳露营△》（『ゆるキャン△』）</a>：一月霸权，感同身受但还是不建议一个人去露营。</li>
 </ul>
 
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
       
+      <div style="display: inline-block;">
+        <img src="/blog/images/rewards_wechatpay.png" alt="101对双生儿 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/blog/images/rewards_alipay.png" alt="101对双生儿 Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/blog/images/rewards_venmo.png" alt="101对双生儿 Venmo">
+        <p>Venmo</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>101对双生儿
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://bmao.tech/blog/oneindex-on-heroku/" title="Deploying OneIndex on Heroku">http://bmao.tech/blog/oneindex-on-heroku/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/blog/tags/OneDrive/" rel="tag"><i class="fa fa-tag"></i> OneDrive</a>
+              <a href="/blog/tags/Heroku/" rel="tag"><i class="fa fa-tag"></i> Heroku</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/shadowsocksr/" rel="prev" title="Setting Up a ShadowsocksR Proxy Server">
+      <i class="fa fa-chevron-left"></i> Setting Up a ShadowsocksR Proxy Server
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/nys-driver-license/" rel="next" title="纽约考取驾照攻略">
+      纽约考取驾照攻略 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
+      </footer>
     
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
   </div>
   
-    
-    <div class="copyright">
-        <p><span>Title:</span><a href="/blog/oneindex-on-heroku/">Deploying OneIndex on Heroku</a></p>
-        <p><span>Author:</span><a href="/blog/" title="Back to Homepage">101对双生儿</a></p>
-        <p><span>Created:</span>2018-07-18, 11:00:00</p>
-        <p><span>Updated:</span>2019-01-18, 23:34:17</p>
-        <p> 
-            <span>History:</span><i class="fa fa-github"></i>
-            <a href="https://github.com/maobowen/blog/blame/src/source/_posts/oneindex-on-heroku.md" title="View update history for each part in sequence" target="_blank">Blame</a>,
-            <a href="https://github.com/maobowen/blog/commits/src/source/_posts/oneindex-on-heroku.md" title="View update history" target="_blank">History</a>
-            <span class="raw">Text Mode:</span><i class="fa fa-file-text-o"></i>
-            <a href="https://github.com/maobowen/blog/raw/src/source/_posts/oneindex-on-heroku.md" title="View raw file" target="_blank">oneindex-on-heroku.md</a>
-        </p>
-        <p>
-            <span>Full URL:</span><a class="post-url" href="/blog/oneindex-on-heroku/" title="Deploying OneIndex on Heroku">http://bmao.tech/blog/oneindex-on-heroku/</a>
-            <span class="copy-path" data-clipboard-text="From http://bmao.tech/blog/oneindex-on-heroku/　　By 101对双生儿" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
-        </p>
-    </div>
 
-
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/blog/nys-driver-license/">
-                    纽约考取驾照攻略
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/blog/shadowsocksr/">
-                    Setting Up a ShadowsocksR Proxy Server
-                </a>
-            </div>
-        
-    </nav>
-
-  
-</article>
-
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installing-OneIndex-on-a-Server"><span class="toc-number">2.</span> <span class="toc-text">Installing OneIndex on a Server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Installing-Apache2-Web-Server-and-PHP"><span class="toc-number">2.1.</span> <span class="toc-text">Installing Apache2 Web Server and PHP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Installing-OneIndex"><span class="toc-number">2.2.</span> <span class="toc-text">Installing OneIndex</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installing-OneIndex-on-Heroku"><span class="toc-number">3.</span> <span class="toc-text">Installing OneIndex on Heroku</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">4.</span> <span class="toc-text">Reference</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扯些别的"><span class="toc-number">5.</span> <span class="toc-text">扯些别的</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="Hide" title="Show or Hide Table of Contents">
-
-    <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
-    </script>
-
-
-
-    
-<div class="share">
-    
-
-    
-        <div class="addthis_sharing_toolbox"></div>
-    
-</div>
-
-
-
-
-
-
-
-    
-        <section id="comments">
-    <style> aside.comment-bar { margin: auto 30px; }</style>
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function(){
-            this.page.url = 'http://bmao.tech/blog/oneindex-on-heroku/';
-            this.page.identifier = 'oneindex-on-heroku/';
-        };
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = '//blog-maobowen.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        }
-    </script>
-    
-    <script> loadComment(); </script>
-
-</section>
-
-
-    
-
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/blog/nys-driver-license/" title="Pre: 纽约考取驾照攻略">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/blog/shadowsocksr/" title="Next: Setting Up a ShadowsocksR Proxy Server">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/navigating-nyc-subway/">深入了解纽约地铁</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/nys-driver-license/">纽约考取驾照攻略</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/oneindex-on-heroku/">Deploying OneIndex on Heroku</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/shadowsocksr/">Setting Up a ShadowsocksR Proxy Server</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/apply-ca-visa-in-nyc/">持美国 F-1 签证在纽约市面签加拿大临时居民访问签证</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/mcdonalds-us-mobile-order/">只花$2，就能在美国麦当劳吃到双层牛肉芝士堡？</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/hello/">Hello!</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                <i class="fa fa-copyright"></i> 
-                2018-2019 101对双生儿
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
-            </div>
-        </div>
-        
-    </div>
-</footer>
-    </div>
-    
-<script data-main="/blog/js/main.js" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/blog//background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
-
-
-
-
-
-    <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-<div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
-</div>
 <script>
-    // Open in New Window
-    
-        var oOpenInNew = {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-             friends: "#js-friends a", 
-             socail: ".social a" 
-        }
-        for (var x in oOpenInNew) {
-            $(oOpenInNew[x]).attr("target", "_blank");
-        }
-    
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
 </script>
 
-    <script>
-        var originTitle = document.title;
-        var titleTime;
-        document.addEventListener("visibilitychange", function() {
-            if (document.hidden) {
-                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
-                clearTimeout(titleTime);
-            }
-            else {
-                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
-                titleTime = setTimeout(function() {
-                    document.title = originTitle;
-                }, 2000);
-            }
-        })
-    </script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#installing-oneindex-on-a-server"><span class="nav-number">2.</span> <span class="nav-text">Installing OneIndex on a Server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#installing-apache2-web-server-and-php"><span class="nav-number">2.1.</span> <span class="nav-text">Installing Apache2 Web Server and PHP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#installing-oneindex"><span class="nav-number">2.2.</span> <span class="nav-text">Installing OneIndex</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#installing-oneindex-on-heroku"><span class="nav-number">3.</span> <span class="nav-text">Installing OneIndex on Heroku</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扯些别的"><span class="nav-number">5.</span> <span class="nav-text">扯些别的</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="101对双生儿"
+      src="https://tvax4.sinaimg.cn/crop.0.0.568.568.180/6e363801ly8fgtxq4arklj20fs0fsdh8.jpg">
+  <p class="site-author-name" itemprop="name">101对双生儿</p>
+  <div class="site-description" itemprop="description">A blog of a computer science student.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:&#109;&#97;&#111;&#98;&#111;&#119;&#101;&#110;&#51;&#64;&#104;&#111;&#116;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" title="Email → mailto:&#109;&#97;&#111;&#98;&#111;&#119;&#101;&#110;&#51;&#64;&#104;&#111;&#116;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>Email</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/maobowen" title="GitHub → https://github.com/maobowen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fb.me/maobowen" title="Facebook → https://fb.me/maobowen" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>Facebook</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/maobowen3" title="Twitter → https://twitter.com/maobowen3" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/bowen-mao" title="LinkedIn → https://www.linkedin.com/in/bowen-mao" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://m.weibo.cn/u/1849047041" title="Weibo → https://m.weibo.cn/u/1849047041" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/maobowen3" title="Zhihu → https://www.zhihu.com/people/maobowen3" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom zhihu"></i>Zhihu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://music.163.com/#/user/home?id=449309413" title="NetEase → https://music.163.com/#/user/home?id=449309413" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom netease"></i>NetEase</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/49932516" title="Bilibili → https://space.bilibili.com/49932516" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom bilibili"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://bangumi.tv/user/451556" title="Bangumi → https://bangumi.tv/user/451556" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom bangumi"></i>Bangumi</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.v2ex.com/member/maobowen3" title="V2EX → https://www.v2ex.com/member/maobowen3" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom v2ex"></i>V2EX</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://my.csdn.net/maobowen3" title="CSDN → http://my.csdn.net/maobowen3" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom csdn"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCYc-n4b88MuC-nqrHeSj40g" title="YouTube → https://www.youtube.com/channel/UCYc-n4b88MuC-nqrHeSj40g" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">101对双生儿</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">31k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">28 mins.</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0.2/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1.2.1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1.2.1/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://blog-maobowen.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "http://bmao.tech/blog/oneindex-on-heroku/",
+            identifier: "oneindex-on-heroku/",
+            title: "Deploying OneIndex on Heroku"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://blog-maobowen.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
 </body>
 </html>
