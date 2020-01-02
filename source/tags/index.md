@@ -1,5 +1,6 @@
 ---
-title: All Tags
+title: Tags 标签
+type: tags
 comments: false
 share: false
 ---

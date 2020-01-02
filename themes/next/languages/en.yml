@@ -14,6 +14,7 @@ menu:
   schedule: Schedule
   sitemap: Sitemap
   commonweal: Commonweal 404
+  resume: Résumé
 
 sidebar:
   overview: Overview
@@ -88,6 +89,7 @@ reward:
   wechatpay: WeChat Pay
   alipay: Alipay
   bitcoin: Bitcoin
+  venmo: Venmo
 
 accessibility:
   nav_toggle: Toggle navigation bar
