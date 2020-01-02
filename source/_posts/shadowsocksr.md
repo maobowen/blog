@@ -2,7 +2,10 @@
 title: Setting Up a ShadowsocksR Proxy Server
 date: 2018-06-04 15:00:00
 lang: en
+categories:
+- Across the Great Wall...
 tags:
+- GFW
 ---
 
 Follow this tutorial to start setting up a ShadowsocksR proxy server and enjoying freedom outside the wall!

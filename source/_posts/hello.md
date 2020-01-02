@@ -2,7 +2,10 @@
 title: Hello!
 date: 2018-01-12 00:00:00
 lang: en
+categories:
+- 996.ICU
 tags:
+- Hexo
 ---
 Welcome to 101对双生儿's blog! This blog will be the place to host my technical articles, class notes and personal posts. Thanks [MOxFIVE](http://moxfive.xyz) for providing such an amazing [theme](https://github.com/MOxFIVE/hexo-theme-yelee) on [Hexo](https://hexo.io), a fast, simple and powerful blog framework based on [Node.js](https://nodejs.org). The site is still under construction, so more contents will be added later.
 

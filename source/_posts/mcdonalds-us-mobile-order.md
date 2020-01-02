@@ -2,14 +2,18 @@
 title: 只花$2，就能在美国麦当劳吃到双层牛肉芝士堡？
 date: 2018-01-20 20:00:00
 lang: zh-CN
+categories:
+- Free USA, Shooting Everyday
 tags:
+- Dining
+- New York City
 ---
 *This article is about how to redeem deals exclusive for mobile ordering on McDonald's App, and is only available in Chinese. Please avoid using cellular data to read it as it contains many images.*  
 *本文多图，请避免使用数据流量阅读全文。*
 
 没想到第一篇文章居然写的是麦(jīn)当(gǒng)劳(mén)😂
 
-相比起香港麦当劳[HK\$24的「穷人恩物」](https://www.mcdonalds.com.hk/ch/food/meals-and-value-list-view/extra-value-meals-list-view.html)，美国的麦当劳并不便宜，随随便便一个[巨无霸 (Big Mac®)](https://www.mcdonalds.com/us/en-us/product/big-mac.html) 套餐就要\$10。\$2就能吃到汉堡怎么可能？而且是单价就要\$6.79的[双层牛肉芝士堡 (Double Quarter Pounder® with Cheese)](https://www.mcdonalds.com/us/en-us/product/double-quarter-pounder-with-cheese.html) ？骗人的吧。
+相比起香港麦当劳[HK$24的「穷人恩物」](https://www.mcdonalds.com.hk/ch/food/meals-and-value-list-view/extra-value-meals-list-view.html)，美国的麦当劳并不便宜，随随便便一个[巨无霸 (Big Mac®)](https://www.mcdonalds.com/us/en-us/product/big-mac.html) 套餐就要$10。$2就能吃到汉堡怎么可能？而且是单价就要$6.79的[双层牛肉芝士堡 (Double Quarter Pounder® with Cheese)](https://www.mcdonalds.com/us/en-us/product/double-quarter-pounder-with-cheese.html) ？骗人的吧。
 
 <!-- more -->
 
@@ -19,24 +23,24 @@ tags:
 
 还没安装手机应用的同学可以戳下面的链接去下载一个：（iOS 版仅在美国区苹果商店提供， Android 版不清楚）
 
-<div><a href="https://itunes.apple.com/us/app/mcdonalds/id922103212" target="_blank"><img class="not-fancy" src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store" /></a><a href="https://play.google.com/store/apps/details?id=com.mcdonalds.app" target="_blank"><img class="not-fancy" src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Get_it_on_Google_play.svg" alt="Get it on Google Play" /></a></div>
+<div><a href="https://itunes.apple.com/us/app/mcdonalds/id922103212" target="_blank"><img class="not-fancy store-badge" src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store" /></a><a href="https://play.google.com/store/apps/details?id=com.mcdonalds.app" target="_blank"><img class="not-fancy store-badge" src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" /></a></div>
 
 然后打开，发现有这么一个优惠券：
 
-> Free Sandwich with any purchase of \$1 or more. Available only on Mobile Order and Pay.
+> Free Sandwich with any purchase of $1 or more. Available only on Mobile Order and Pay.
 > 
 > {% asset_img mcdonalds-us-mobile-order_01.png 250 浏览优惠券 %}
 
-只要随便点一个超过\$1的东西，就可以免费得到一个汉堡。换句话说，用这个优惠券点一个\$1的[麦乐鸡 (McChicken®)](https://www.mcdonalds.com/us/en-us/product/mcchicken.html) 、[芝士堡 (Cheeseburger)](https://www.mcdonalds.com/us/en-us/product/cheeseburger.html)，或者是\$1.69的[香草甜筒 (Vanilla Cone)](https://www.mcdonalds.com/us/en-us/product/vanilla-cone.html) ，就送一个汉堡。惊不惊喜，意不意外？
+只要随便点一个超过$1的东西，就可以免费得到一个汉堡。换句话说，用这个优惠券点一个$1的[麦乐鸡 (McChicken®)](https://www.mcdonalds.com/us/en-us/product/mcchicken.html) 、[芝士堡 (Cheeseburger)](https://www.mcdonalds.com/us/en-us/product/cheeseburger.html)，或者是$1.69的[香草甜筒 (Vanilla Cone)](https://www.mcdonalds.com/us/en-us/product/vanilla-cone.html) ，就送一个汉堡。惊不惊喜，意不意外？
 
 ## 点餐
 
-废话不多说，开始点餐。先选择店面，然后咱要了一个\$1.99的[小薯条 (Small French Fries)](https://www.mcdonalds.com/us/en-us/product/small-french-fries.html) 。
+废话不多说，开始点餐。先选择店面，然后咱要了一个$1.99的[小薯条 (Small French Fries)](https://www.mcdonalds.com/us/en-us/product/small-french-fries.html) 。
 
 {% asset_img mcdonalds-us-mobile-order_02.png 250 选择一家店面 %}
 {% asset_img mcdonalds-us-mobile-order_03.png 250 点一份小薯条 %}
 
-> 哥伦比亚大学主校区附近一共也就三家麦当劳，而且离学校都不是很近。住在 West 116th Street 以南的同学可以考虑去 <a class="fancy-iframe" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3020.288552315353!2d-73.9713496472664!3d40.799652516735335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f6286b142f4f%3A0x84907467360a2195!2sMcDonald&#39;s!5e0!3m2!1sen!2sus!4v1516510788993" title="Open in Google Map"><i class="fa fa-map-marker" aria-hidden="true"></i> Broadway & West 105th Street</a> 的那家；住北面的可以考虑去 <a class="fancy-iframe" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3019.547118967761!2d-73.96109818500928!3d40.81594473918764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f612caaa6e17%3A0xf752919ec985c3f3!2sMcDonald&#39;s!5e0!3m2!1sen!2sus!4v1516514466217" title="Open in Google Map"><i class="fa fa-map-marker" aria-hidden="true"></i> West 125th Street & Broadway</a> （靠近<img class="not-fancy" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/NYCS-bull-trans-1.svg" width="20px" style="margin: -0.2em auto;">地铁站）或 <a class="fancy-iframe" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3019.7820006935403!2d-73.95522768500962!3d40.810784039503915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f612caaa6e17%3A0xf90346a7e5caa35b!2sMcDonald&#39;s!5e0!3m2!1sen!2sus!4v1516514584146"  title="Open in Google Map"><i class="fa fa-map-marker" aria-hidden="true"></i> West 125th Street & St. Nicholas Avenue</a> （靠近<img class="not-fancy subway-bullet" src="https://upload.wikimedia.org/wikipedia/commons/0/0c/NYCS-bull-trans-A.svg" width="20px" style="margin: -0.2em auto;"><img class="not-fancy subway-bullet" src="https://upload.wikimedia.org/wikipedia/commons/f/fb/NYCS-bull-trans-B.svg" width="20px" style="margin: -0.2em auto;"><img class="not-fancy subway-bullet" src="https://upload.wikimedia.org/wikipedia/commons/0/03/NYCS-bull-trans-C.svg" width="20px" style="margin: -0.2em auto;"><img class="not-fancy subway-bullet" src="https://upload.wikimedia.org/wikipedia/commons/3/39/NYCS-bull-trans-D.svg" width="20px" style="margin: -0.2em auto;">地铁站）的两家。
+> 哥伦比亚大学主校区附近一共也就三家麦当劳，而且离学校都不是很近。住在 West 116th Street 以南的同学可以考虑去 <a class="fancy-iframe" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3020.288552315353!2d-73.9713496472664!3d40.799652516735335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f6286b142f4f%3A0x84907467360a2195!2sMcDonald&#39;s!5e0!3m2!1sen!2sus!4v1516510788993" title="Open in Google Map"><i class="fa fa-map-marker" aria-hidden="true"></i> Broadway & West 105th Street</a> 的那家；住北面的可以考虑去 <a class="fancy-iframe" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3019.547118967761!2d-73.96109818500928!3d40.81594473918764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f612caaa6e17%3A0xf752919ec985c3f3!2sMcDonald&#39;s!5e0!3m2!1sen!2sus!4v1516514466217" title="Open in Google Map"><i class="fa fa-map-marker" aria-hidden="true"></i> West 125th Street & Broadway</a> （靠近<img class="not-fancy nycs-bullet" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/NYCS-bull-trans-1.svg" />地铁站）或 <a class="fancy-iframe" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3019.7820006935403!2d-73.95522768500962!3d40.810784039503915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f612caaa6e17%3A0xf90346a7e5caa35b!2sMcDonald&#39;s!5e0!3m2!1sen!2sus!4v1516514584146"  title="Open in Google Map"><i class="fa fa-map-marker" aria-hidden="true"></i> West 125th Street & St. Nicholas Avenue</a> （靠近<img class="not-fancy nycs-bullet" src="https://upload.wikimedia.org/wikipedia/commons/0/0c/NYCS-bull-trans-A.svg" /><img class="not-fancy nycs-bullet" src="https://upload.wikimedia.org/wikipedia/commons/f/fb/NYCS-bull-trans-B.svg" /><img class="not-fancy nycs-bullet" src="https://upload.wikimedia.org/wikipedia/commons/0/03/NYCS-bull-trans-C.svg" /><img class="not-fancy nycs-bullet" src="https://upload.wikimedia.org/wikipedia/commons/3/39/NYCS-bull-trans-D.svg" />地铁站）的两家。
 
 加入购物袋后，再去菜单里选择刚刚那个优惠券。
 
@@ -60,7 +64,7 @@ tags:
 
 ## 付款
 
-终于到了付款界面，含税一共才\$2.16！最后绑定信用卡然后确认订单就行了。
+终于到了付款界面，含税一共才$2.16！最后绑定信用卡然后确认订单就行了。
 
 {% asset_img mcdonalds-us-mobile-order_10.png 250 确认订单 %}
 

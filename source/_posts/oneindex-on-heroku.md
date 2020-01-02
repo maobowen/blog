@@ -2,7 +2,11 @@
 title: Deploying OneIndex on Heroku
 date: 2018-07-18 11:00:00
 lang: en
+categories:
+- 996.ICU
 tags:
+- OneDrive
+- Heroku
 ---
 
 Students from those schools which offer [Office 365 Education](https://products.office.com/en-us/student/office-in-education) are eligible to enjoy up to 5TB of OneDrive for Business storage. With the huge space provided, we can turn it into a file hosting platform, which is similar to [Amazon S3](https://aws.amazon.com/s3/), to store and share static files like documents, images, videos, etc. OneDrive for Business supports [sharing files](https://support.office.com/en-us/article/share-onedrive-files-and-folders-9fcc2f7d-de0c-4cec-93b0-a82024800c07#OS_Type=OneDrive_-_Business) with external users, but your school has to opt to enable external sharing, and the links generated are encoded. We can use a program called [OneIndex](https://github.com/donwa/oneindex) which helps generate **direct download links** without enabling external sharing. We can link to our files directly later.
@@ -40,7 +44,14 @@ sudo vim /etc/apache2/sites-available/oneindex.conf
 Add the following text to the file:
 
 ```txt
-<VirtualHost *:80>	DocumentRoot /var/www/oneindex	ErrorLog ${APACHE_LOG_DIR}/error.log	CustomLog ${APACHE_LOG_DIR}/access.log combined	<Directory /var/www/oneindex/>		AllowOverride All	</Directory></VirtualHost>
+<VirtualHost *:80>
+	DocumentRoot /var/www/oneindex
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+	<Directory /var/www/oneindex/>
+		AllowOverride All
+	</Directory>
+</VirtualHost>
 ```
 
 Then run the following commands to enable our site:
@@ -146,6 +157,7 @@ Open the browser and verify whether OneIndex is working on https://oneindex.hero
 专题[《FUN@HK 香港玩啲乜》](../funathk/)暂时跳票了。在这个专题里，我将会分享许多香港鲜为人知的好去处。然而由于资料整理起来比较耗时间，这个专题何时上线还不确定。
 
 回国以后补、追了这些番：
+
 - [《青春之旅》（『アオハライド』）](https://zh.moegirl.org/zh-cn/青春之旅)：狗粮，还蛮温馨的；
 - [《Slow Start》（『スロウスタート』）](https://zh.moegirl.org/zh-cn/Slow_Start)：没get到萌点；
 - [《Comic Girls》（『こみっくがーるず』）](https://zh.moegirl.org/zh-cn/Comic_Girls)：萝莉们好萌啊，挺励志的；
