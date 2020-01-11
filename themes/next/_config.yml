@@ -129,6 +129,7 @@ menu:
   #sitemap: sitemap.xml || sitemap
   #commonweal: 404/ || heartbeat
   resume: resume/ || file-text
+  referrals: referrals/ || share
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
