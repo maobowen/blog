@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-minimal.css">
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://bmao.tech/blog').hostname,
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Last time I talked about setting up a ShadowsocksR proxy server. However, ShadowsocksR is not as stable as it was, but thanks to the talented people, we have the alternatives: V2Ray and Brook.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Setting Up V2Ray and Brook Proxy Servers">
+<meta property="og:url" content="http://bmao.tech/blog/v2ray-brook/index.html">
+<meta property="og:site_name" content="101对双生儿&#39;s Blog">
+<meta property="og:description" content="Last time I talked about setting up a ShadowsocksR proxy server. However, ShadowsocksR is not as stable as it was, but thanks to the talented people, we have the alternatives: V2Ray and Brook.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_01.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_02.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_03.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_04.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_05.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_06.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_07.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_08.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_09.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_10.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_11.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_12.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_13.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_14.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_15.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_16.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_17.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_18.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_20.png">
+<meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_19.png">
+<meta property="article:published_time" content="2020-02-26T01:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-26T07:19:42.617Z">
+<meta property="article:author" content="101对双生儿">
+<meta property="article:tag" content="GFW">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_01.png">
+
+<link rel="canonical" href="http://bmao.tech/blog/v2ray-brook/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Setting Up V2Ray and Brook Proxy Servers | 101对双生儿's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">101对双生儿's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Not pleased by external gains. Not saddened by personal losses.</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/." rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">12</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">10</span></a>
+
+  </li>
+        <li class="menu-item menu-item-resume">
+
+    <a href="/blog/resume/" rel="section"><i class="fa fa-fw fa-file-text"></i>Résumé</a>
+
+  </li>
+        <li class="menu-item menu-item-referrals">
+
+    <a href="/blog/referrals/" rel="section"><i class="fa fa-fw fa-share"></i>Referrals</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div><!-- Global APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script>
+<meting-js
+  auto="https://music.163.com/#/playlist?id=648989969"
+  list-folded="true"
+  fixed="true"
+  lrc-type="0">
+</meting-js>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://bmao.tech/blog/v2ray-brook/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://tvax4.sinaimg.cn/crop.0.0.568.568.180/6e363801ly8fgtxq4arklj20fs0fsdh8.jpg">
+      <meta itemprop="name" content="101对双生儿">
+      <meta itemprop="description" content="A blog of a computer science student.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="101对双生儿's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Setting Up V2Ray and Brook Proxy Servers
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-25 17:00:00 / Modified: 23:19:42" itemprop="dateCreated datePublished" datetime="2020-02-25T17:00:00-08:00">2020-02-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Across-the-Great-Wall/" itemprop="url" rel="index">
+                    <span itemprop="name">Across the Great Wall...</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/blog/v2ray-brook/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="v2ray-brook/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Last time I talked about <a href="../shadowsocksr">setting up a ShadowsocksR proxy server</a>. However, ShadowsocksR is not as stable as it was, but thanks to the talented people, we have the alternatives: <a href="https://www.v2ray.com/" target="_blank" rel="noopener">V2Ray</a> and <a href="https://github.com/txthinking/brook" target="_blank" rel="noopener">Brook</a>.</p>
+<a id="more"></a>
+<h2 id="server-side-setup">Server-side Setup</h2>
+<h3 id="prepare-a-server">Prepare a server</h3>
+<p>This part is almost the same as <a href="../shadowsocksr#prepare-a-server">that in the previous article</a>, but this time, I will deploy a Vultr Cloud Compute (VC2) server with Debian 10.</p>
+<blockquote>
+<p>Check out my <a href="../referrals">referral links</a> if you want free credits for trying virtual private servers (VPS)!</p>
+</blockquote>
+<p>Here is a reminder: I don't recommend enabling IPv6 when setting up the server, as it might cause unexpected connection issue later.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_01.png" class="" width="800" title="Log into the server">
+<h3 id="install-v2ray-proxy-server">Install V2Ray Proxy Server</h3>
+<p>Similar to deploying a ShadowsocksR proxy server, there are already plenty of one-click scripts that take care of everything about the installation for us. Here we will use <a href="https://git.io/v2ray.sh" target="_blank" rel="noopener">the script</a> developed by <a href="https://github.com/233boy" target="_blank" rel="noopener">233boy</a>. First, make sure that you have <code>curl</code> installed. Then download and run the script by typing <code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code>.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_02.png" class="" width="800" title="Download and run the script of V2Ray server installation">
+<p>Enter <strong>1</strong> to start the installation of V2Ray proxy server.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_03.png" class="" width="800" title="Start installating V2Ray server">
+<p>Use the <strong>default setting</strong> (i.e. hit the <strong>Enter key</strong>) for the transport. You can find more information about transport <a href="https://www.v2ray.com/en/configuration/transport.html" target="_blank" rel="noopener">here</a>.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_04.png" class="" width="800" title="Configure V2Ray server">
+<p>Choose a non-conflicting <strong>port number</strong>, and use the <strong>default setting</strong> for ads blocking option.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_05.png" class="" width="800" title="Continue configuring V2Ray server">
+<p>Now we have the opportunity to set up a Shadowsocks proxy server at the same time. Even though Shadowsocks protocol is pretty unstable nowadays, there's no harm for us to add this &quot;backup&quot; option. So hit <strong>Y</strong> to continue setting up Shadowsocks, choose another <strong>port number</strong> and a <strong>password</strong>, and use the <strong>default setting</strong> for the encryption method. If everything is good, hit the <strong>Enter key</strong> and the script will do all the dirty work then.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_06.png" class="" width="800" title="Configure Shadowsocks server">
+<p>Finally, You will see all the configuration detail as shown below.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_07.png" class="" width="800" title="Installation of V2Ray and Shadowsocks servers finished">
+<p>In order to set up the V2Ray client easily, we need the VMess URL for our V2Ray proxy server. Therefore, type <code>v2ray url</code> to retrieve that URL and write it down.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_08.png" class="" width="800" title="Retrieve VMess URL">
+<p>Similar to the ShadowsocksR script, we can use this V2Ray script to manage our V2Ray proxy server settings by typing <code>v2ray</code>.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_09.png" class="" width="800" title="V2Ray server management script">
+<p>A useful operation here is to set up a separate proxy for Telegram. Choose <strong>6</strong>, enter <strong>Y</strong>, then pick another <strong>port number</strong>. If everything is good, hit the <strong>Enter key</strong>.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_10.png" class="" width="800" title="Configure MTPROTO proxy for Telegram">
+<p>And later we can use the link below to set up the proxy for Telegram.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_11.png" class="" width="800" title="Configuration of MTPROTO proxy for Telegram finished">
+<h3 id="install-brook-proxy-server">Install Brook Proxy Server</h3>
+<p>We will still use <a href="https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/brook.sh" target="_blank" rel="noopener">the one-click script</a> developed by <a href="https://github.com/ToyoDAdoubi" target="_blank" rel="noopener">Toyo</a>. First, make sure that you have <code>wget</code> installed. Then download and run the script by typing <code>wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/brook.sh &amp;&amp; chmod +x brook.sh &amp;&amp; bash brook.sh</code>.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_12.png" class="" width="800" title="Download and run the script of Brook server installation">
+<p>Enter <strong>1</strong> to start the installation of Brook proxy server. Choose a non-conflicing <strong>port number</strong> and a <strong>password</strong>, and use the <strong>default settings</strong> for Brook protocol and version.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_13.png" class="" width="800" title="Configure Brook server">
+<p>Finally, you will see the Brook configuration detail as shown below.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_14.png" class="" width="800" title="Installation of Brook server finished">
+<p>Again, we can use this Brook script to manage our Brook proxy server settings by typing <code>./brook.sh</code>.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_15.png" class="" width="800" title="Brook server management script">
+<p>Different from V2Ray, a Brook proxy seems to accept only one client at a time. Therefore, we probably want multiple users for multiple devices. To add a user, choose <strong>7</strong> in the management script and then choose <strong>1</strong>, and follow the exact same instructions above.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_16.png" class="" width="800" title="Add a second user to Brook server">
+<p>You will see that there are two users now. Repeat those steps to set up additional users if necessary.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_17.png" class="" width="800" title="Adding a second Brook user finished">
+<p>Last, don't forget to set firewall rules for the server!</p>
+<h2 id="client-side-setup">Client-side Setup</h2>
+<h3 id="set-up-v2ray-client">Set up V2Ray Client</h3>
+<p>I would recommend the following clients:</p>
+<ul>
+<li>macOS: <a href="hhttps://github.com/Cenmrev/V2RayX/releases">V2RayX</a>
+<ul>
+<li>Install with Homebrew Cask: <code>brew cask install v2rayx</code></li>
+</ul></li>
+<li>Windows: <a href="https://github.com/2dust/v2rayN/releases" target="_blank" rel="noopener">v2rayN</a></li>
+<li>iOS: <a href="https://apps.apple.com/app/id932747118" target="_blank" rel="noopener">Shadowrocket</a></li>
+</ul>
+<p>After launching the client, we can import the VMess URL into it.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_18.png" class="" width="500" title="Add a VMess server in V2RayX">
+<h3 id="set-up-brook-client">Set up Brook Client</h3>
+<p>Brook provides native <a href="https://github.com/txthinking/brook/releases" target="_blank" rel="noopener">GUI clients</a>.</p>
+<ul>
+<li>macOS
+<ul>
+<li>Install with Homebrew Cask: <code>brew cask install brook</code></li>
+</ul></li>
+<li>iOS: <a href="https://apps.apple.com/app/id1216002642" target="_blank" rel="noopener">App Store</a></li>
+</ul>
+<img data-src="/blog/v2ray-brook/v2ray-brook_20.png" class="" width="400" title="Add a Brook server">
+<h3 id="set-up-mtproto-proxy-in-telegram">Set up MTPROTO Proxy in Telegram</h3>
+<p>Just visit the link in any web browser and finish setting up in Telegram.</p>
+<img data-src="/blog/v2ray-brook/v2ray-brook_19.png" class="" width="600" title="Set up MTPROTO proxy in Telegram">
+<h2 id="references">References</h2>
+<ol type="1">
+<li>233boy, &quot;V2Ray一键安装脚本,&quot; <em>GitHub</em>. [Online]. Available: https://github.com/233boy/v2ray/wiki/V2Ray一键安装脚本.</li>
+<li>Toyo, &quot;『原创』一个优秀的跨平台 Socks5代理软件 —— Brook 一键安装管理脚本,&quot; <em>逗比根据地</em>. [Online]. Available: https://toyodadoubi.github.io/aybh4ww5-2.html.</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/blog/images/rewards_wechatpay.png" alt="101对双生儿 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/blog/images/rewards_alipay.png" alt="101对双生儿 Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/blog/images/rewards_venmo.png" alt="101对双生儿 Venmo">
+        <p>Venmo</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>101对双生儿
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://bmao.tech/blog/v2ray-brook/" title="Setting Up V2Ray and Brook Proxy Servers">http://bmao.tech/blog/v2ray-brook/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/blog/tags/GFW/" rel="tag"><i class="fa fa-tag"></i> GFW</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2019-animes-summary/" rel="prev" title="2019追番小结">
+      <i class="fa fa-chevron-left"></i> 2019追番小结
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#server-side-setup"><span class="nav-number">1.</span> <span class="nav-text">Server-side Setup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prepare-a-server"><span class="nav-number">1.1.</span> <span class="nav-text">Prepare a server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#install-v2ray-proxy-server"><span class="nav-number">1.2.</span> <span class="nav-text">Install V2Ray Proxy Server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#install-brook-proxy-server"><span class="nav-number">1.3.</span> <span class="nav-text">Install Brook Proxy Server</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#client-side-setup"><span class="nav-number">2.</span> <span class="nav-text">Client-side Setup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#set-up-v2ray-client"><span class="nav-number">2.1.</span> <span class="nav-text">Set up V2Ray Client</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set-up-brook-client"><span class="nav-number">2.2.</span> <span class="nav-text">Set up Brook Client</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set-up-mtproto-proxy-in-telegram"><span class="nav-number">2.3.</span> <span class="nav-text">Set up MTPROTO Proxy in Telegram</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#references"><span class="nav-number">3.</span> <span class="nav-text">References</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="101对双生儿"
+      src="https://tvax4.sinaimg.cn/crop.0.0.568.568.180/6e363801ly8fgtxq4arklj20fs0fsdh8.jpg">
+  <p class="site-author-name" itemprop="name">101对双生儿</p>
+  <div class="site-description" itemprop="description">A blog of a computer science student.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:&#109;&#97;&#111;&#98;&#111;&#119;&#101;&#110;&#51;&#64;&#104;&#111;&#116;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" title="Email → mailto:&#109;&#97;&#111;&#98;&#111;&#119;&#101;&#110;&#51;&#64;&#104;&#111;&#116;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>Email</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/maobowen" title="GitHub → https://github.com/maobowen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fb.me/maobowen" title="Facebook → https://fb.me/maobowen" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>Facebook</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/maobowen3" title="Twitter → https://twitter.com/maobowen3" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/bowen-mao" title="LinkedIn → https://www.linkedin.com/in/bowen-mao" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://m.weibo.cn/u/1849047041" title="Weibo → https://m.weibo.cn/u/1849047041" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/maobowen3" title="Zhihu → https://www.zhihu.com/people/maobowen3" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom zhihu"></i>Zhihu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://music.163.com/#/user/home?id=449309413" title="NetEase → https://music.163.com/#/user/home?id=449309413" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom netease"></i>NetEase</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/49932516" title="Bilibili → https://space.bilibili.com/49932516" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom bilibili"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://bangumi.tv/user/451556" title="Bangumi → https://bangumi.tv/user/451556" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom bangumi"></i>Bangumi</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.v2ex.com/member/maobowen3" title="V2EX → https://www.v2ex.com/member/maobowen3" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom v2ex"></i>V2EX</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://my.csdn.net/maobowen3" title="CSDN → http://my.csdn.net/maobowen3" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom csdn"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCYc-n4b88MuC-nqrHeSj40g" title="YouTube → https://www.youtube.com/channel/UCYc-n4b88MuC-nqrHeSj40g" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">101对双生儿</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">45k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">41 mins.</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0.2/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1.2.1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1.2.1/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://blog-maobowen.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "http://bmao.tech/blog/v2ray-brook/",
+            identifier: "v2ray-brook/",
+            title: "Setting Up V2Ray and Brook Proxy Servers"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://blog-maobowen.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>
