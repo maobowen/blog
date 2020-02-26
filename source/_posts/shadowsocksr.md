@@ -16,7 +16,7 @@ Follow this tutorial to start setting up a ShadowsocksR proxy server and enjoyin
 
 ### Prepare a server
 
-I would recommend [DigitalOcean](https://m.do.co/c/881f697ed35a) and [Vultr](https://www.vultr.com/?ref=7436070), both of which offer various plans for [virtual private servers (VPS)](https://en.wikipedia.org/wiki/Virtual_private_server). DigitalOcean provides [\$100 credits](https://try.digitalocean.com/performance/?refcode=881f697ed35a&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste) for new users, while Vultr provides [\$25 credits](https://www.vultr.com/promo25b?ref=7436070) for new users. Students with a valid .edu email address can sign up for [GitHub Student Developer Pack](https://education.github.com/pack) and get an extra \$50 credits on DigitalOcean. [Google Cloud](https://cloud.google.com/free/) and [Microsoft Azure](https://azure.microsoft.com/en-us/free/), at the same time, also provide free credits for trial, but they can exhaust faster. These free credits usually last for only one year, so you should take full advantage of them before they expire. If you have access to a dedicated server, keep in mind that you should have full access to it.
+I would recommend [DigitalOcean](https://m.do.co/c/881f697ed35a) and [Vultr](https://www.vultr.com/?ref=7436070), both of which offer various plans for [virtual private servers (VPS)](https://en.wikipedia.org/wiki/Virtual_private_server). DigitalOcean provides [$100 credits](https://try.digitalocean.com/performance/?refcode=881f697ed35a&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste) for new users, while Vultr provides [$25 credits](https://www.vultr.com/promo25b?ref=7436070) for new users. Students with a valid .edu email address can sign up for [GitHub Student Developer Pack](https://education.github.com/pack) and get an extra $50 credits on DigitalOcean. [Google Cloud](https://cloud.google.com/free/) and [Microsoft Azure](https://azure.microsoft.com/en-us/free/), at the same time, also provide free credits for trial, but they can exhaust faster. These free credits usually last for only one year, so you should take full advantage of them before they expire. If you have access to a dedicated server, keep in mind that you should have full access to it.
 
 I will deploy a Vultr Cloud Compute (VC2) server with Ubuntu 18.04 in this tutorial.
 
@@ -24,7 +24,7 @@ I will deploy a Vultr Cloud Compute (VC2) server with Ubuntu 18.04 in this tutor
 
 ### Install ShadowsocksR Proxy Server
 
-In this tutorial, we will use [a script](https://github.com/ToyoDAdoubi/doubi/blob/master/ssrmu.sh) developed by [@Toyo](https://github.com/ToyoDAdoubi) to help us install the proxy server. This script installs and runs the proxy server in the MudbJSON mode so that the we can manage each user of the proxy server separately. For those who are interested in the technical details of this script, please refer to [『原创』ShadowsocksR MudbJSON模式多用户一键脚本 支持流量限制等](https://doub.io/ss-jc60/#脚本版本) (Chinese).
+In this tutorial, we will use [a script](https://github.com/ToyoDAdoubi/doubi/blob/master/ssrmu.sh) developed by [Toyo](https://github.com/ToyoDAdoubi) to help us install the proxy server. This script installs and runs the proxy server in the MudbJSON mode so that the we can manage each user of the proxy server separately. For those who are interested in the technical details of this script, please refer to [『原创』ShadowsocksR MudbJSON模式多用户一键脚本 支持流量限制等](https://toyodadoubi.github.io/z2a4lk3l-2.html#脚本版本) (Chinese).
 
 Thanks to the script, the installation can be extremely easy. First, download and run the script.
 
@@ -89,10 +89,10 @@ I would recommend the following client-side applications:
 - macOS: [ShadowsocksX-NG](https://github.com/qinyuhang/ShadowsocksX-NG-R/releases)
 - Linux: [electron-ssr](https://github.com/erguotou520/electron-ssr/releases)
 - Windows: [ShadowsocksR C#](https://github.com/shadowsocksrr/shadowsocksr-csharp/releases)
-- iOS: [Potatso Lite](https://itunes.apple.com/app/id1239860606)
+- iOS: [Potatso Lite](https://apps.apple.com/app/id1239860606)
 - Android: [ShadowsocksR for Android](https://github.com/shadowsocksrr/shadowsocksr-android/releases)
 
 ## Reference
 
-1. Toyo, "『原创』ShadowsocksR MudbJSON模式多用户一键脚本 支持流量限制等," *逗比根据地*. [Online]. Available: https://doub.io/ss-jc60/.
+1. Toyo, "『原创』ShadowsocksR MudbJSON模式多用户一键脚本 支持流量限制等," *逗比根据地*. [Online]. Available: https://toyodadoubi.github.io/z2a4lk3l-2.html.
 
