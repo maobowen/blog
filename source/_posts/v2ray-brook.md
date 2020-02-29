@@ -32,7 +32,7 @@ Similar to deploying a ShadowsocksR proxy server, there are already plenty of on
 
 Enter **1** to start the installation of V2Ray proxy server.
 
-{% asset_img v2ray-brook_03.png 800 Start installating V2Ray server %}
+{% asset_img v2ray-brook_03.png 800 Start installing V2Ray server %}
 
 Use the **default setting** (i.e. hit the **Enter key**) for the transport. You can find more information about transport [here](https://www.v2ray.com/en/configuration/transport.html).
 
@@ -72,7 +72,7 @@ We will still use [the one-click script](https://raw.githubusercontent.com/ToyoD
 
 {% asset_img v2ray-brook_12.png 800 Download and run the script of Brook server installation %}
 
-Enter **1** to start the installation of Brook proxy server. Choose a non-conflicing **port number** and a **password**, and use the **default settings** for Brook protocol and version.
+Enter **1** to start the installation of Brook proxy server. Choose a non-conflicting **port number** and a **password**, and use the **default settings** for Brook protocol and version.
 
 {% asset_img v2ray-brook_13.png 800 Configure Brook server %}
 
