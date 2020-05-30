@@ -79,7 +79,7 @@
 <meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_20.png">
 <meta property="og:image" content="http://bmao.tech/blog/v2ray-brook/v2ray-brook_19.png">
 <meta property="article:published_time" content="2020-02-26T01:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T07:14:39.658Z">
+<meta property="article:modified_time" content="2020-05-30T07:26:54.104Z">
 <meta property="article:author" content="101对双生儿">
 <meta property="article:tag" content="GFW">
 <meta name="twitter:card" content="summary">
@@ -168,7 +168,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">13</span></a>
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">14</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -178,7 +178,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">11</span></a>
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">12</span></a>
 
   </li>
         <li class="menu-item menu-item-resume">
@@ -283,7 +283,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-28 23:14:39" itemprop="dateModified" datetime="2020-02-28T23:14:39-08:00">2020-02-28</time>
+                <time title="Modified: 2020-05-30 00:26:54" itemprop="dateModified" datetime="2020-05-30T00:26:54-07:00">2020-05-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -349,13 +349,13 @@
 <h3 id="install-v2ray-proxy-server">Install V2Ray Proxy Server</h3>
 <p>Similar to deploying a ShadowsocksR proxy server, there are already plenty of one-click scripts that take care of everything about the installation for us. Here we will use <a href="https://git.io/v2ray.sh" target="_blank" rel="noopener">the script</a> developed by <a href="https://github.com/233boy" target="_blank" rel="noopener">233boy</a>. First, make sure that you have <code>curl</code> installed. Then download and run the script by typing <code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code>.</p>
 <img data-src="/blog/v2ray-brook/v2ray-brook_02.png" class="" width="800" title="Download and run the script of V2Ray server installation">
-<p>Enter <strong>1</strong> to start the installation of V2Ray proxy server.</p>
+<p>Enter <kbd>1</kbd> to start the installation of V2Ray proxy server.</p>
 <img data-src="/blog/v2ray-brook/v2ray-brook_03.png" class="" width="800" title="Start installing V2Ray server">
-<p>Use the <strong>default setting</strong> (i.e. hit the <strong>Enter key</strong>) for the transport. You can find more information about transport <a href="https://www.v2ray.com/en/configuration/transport.html" target="_blank" rel="noopener">here</a>.</p>
+<p>Use the <strong>default setting</strong> (i.e. hit <kbd>Enter</kbd>) for the transport. You can find more information about transport <a href="https://www.v2ray.com/en/configuration/transport.html" target="_blank" rel="noopener">here</a>.</p>
 <img data-src="/blog/v2ray-brook/v2ray-brook_04.png" class="" width="800" title="Configure V2Ray server">
 <p>Choose a non-conflicting <strong>port number</strong>, and use the <strong>default setting</strong> for ads blocking option.</p>
 <img data-src="/blog/v2ray-brook/v2ray-brook_05.png" class="" width="800" title="Continue configuring V2Ray server">
-<p>Now we have the opportunity to set up a Shadowsocks proxy server at the same time. Even though Shadowsocks protocol is pretty unstable nowadays, there's no harm for us to add this &quot;backup&quot; option. So hit <strong>Y</strong> to continue setting up Shadowsocks, choose another <strong>port number</strong> and a <strong>password</strong>, and use the <strong>default setting</strong> for the encryption method. If everything is good, hit the <strong>Enter key</strong> and the script will do all the dirty work then.</p>
+<p>Now we have the opportunity to set up a Shadowsocks proxy server at the same time. Even though Shadowsocks protocol is pretty unstable nowadays, there's no harm for us to add this &quot;backup&quot; option. So hit <kbd>Y</kbd> to continue setting up Shadowsocks, choose another <strong>port number</strong> and a <strong>password</strong>, and use the <strong>default setting</strong> for the encryption method. If everything is good, hit <kbd>Enter</kbd> and the script will do all the dirty work then.</p>
 <img data-src="/blog/v2ray-brook/v2ray-brook_06.png" class="" width="800" title="Configure Shadowsocks server">
 <p>Finally, You will see all the configuration detail as shown below.</p>
 <img data-src="/blog/v2ray-brook/v2ray-brook_07.png" class="" width="800" title="Installation of V2Ray and Shadowsocks servers finished">
@@ -363,20 +363,20 @@
 <img data-src="/blog/v2ray-brook/v2ray-brook_08.png" class="" width="800" title="Retrieve VMess URL">
 <p>Similar to the ShadowsocksR script, we can use this V2Ray script to manage our V2Ray proxy server settings by typing <code>v2ray</code>.</p>
 <img data-src="/blog/v2ray-brook/v2ray-brook_09.png" class="" width="800" title="V2Ray server management script">
-<p>A useful operation here is to set up a separate proxy for Telegram. Choose <strong>6</strong>, enter <strong>Y</strong>, then pick another <strong>port number</strong>. If everything is good, hit the <strong>Enter key</strong>.</p>
+<p>A useful operation here is to set up a separate proxy for Telegram. Choose <kbd>6</kbd>, enter <kbd>Y</kbd>, then pick another <strong>port number</strong>. If everything is good, hit <kbd>Enter</kbd>.</p>
 <img data-src="/blog/v2ray-brook/v2ray-brook_10.png" class="" width="800" title="Configure MTPROTO proxy for Telegram">
 <p>And later we can use the link below to set up the proxy for Telegram.</p>
 <img data-src="/blog/v2ray-brook/v2ray-brook_11.png" class="" width="800" title="Configuration of MTPROTO proxy for Telegram finished">
 <h3 id="install-brook-proxy-server">Install Brook Proxy Server</h3>
 <p>We will still use <a href="https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/brook.sh" target="_blank" rel="noopener">the one-click script</a> developed by <a href="https://github.com/ToyoDAdoubi" target="_blank" rel="noopener">Toyo</a>. First, make sure that you have <code>wget</code> installed. Then download and run the script by typing <code>wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/brook.sh &amp;&amp; chmod +x brook.sh &amp;&amp; bash brook.sh</code>.</p>
 <img data-src="/blog/v2ray-brook/v2ray-brook_12.png" class="" width="800" title="Download and run the script of Brook server installation">
-<p>Enter <strong>1</strong> to start the installation of Brook proxy server. Choose a non-conflicting <strong>port number</strong> and a <strong>password</strong>, and use the <strong>default settings</strong> for Brook protocol and version.</p>
+<p>Enter <kbd>1</kbd> to start the installation of Brook proxy server. Choose a non-conflicting <strong>port number</strong> and a <strong>password</strong>, and use the <strong>default settings</strong> for Brook protocol and version.</p>
 <img data-src="/blog/v2ray-brook/v2ray-brook_13.png" class="" width="800" title="Configure Brook server">
 <p>Finally, you will see the Brook configuration detail as shown below.</p>
 <img data-src="/blog/v2ray-brook/v2ray-brook_14.png" class="" width="800" title="Installation of Brook server finished">
 <p>Again, we can use this Brook script to manage our Brook proxy server settings by typing <code>./brook.sh</code>.</p>
 <img data-src="/blog/v2ray-brook/v2ray-brook_15.png" class="" width="800" title="Brook server management script">
-<p>Different from V2Ray, a Brook proxy seems to accept only one client at a time. Therefore, we probably want multiple users for multiple devices. To add a user, choose <strong>7</strong> in the management script and then choose <strong>1</strong>, and follow the exact same instructions above.</p>
+<p>Different from V2Ray, a Brook proxy seems to accept only one client at a time. Therefore, we probably want multiple users for multiple devices. To add a user, choose <kbd>7</kbd> in the management script and then choose <kbd>1</kbd>, and follow the exact same instructions above.</p>
 <img data-src="/blog/v2ray-brook/v2ray-brook_16.png" class="" width="800" title="Add a second user to Brook server">
 <p>You will see that there are two users now. Repeat those steps to set up additional users if necessary.</p>
 <img data-src="/blog/v2ray-brook/v2ray-brook_17.png" class="" width="800" title="Adding a second Brook user finished">
@@ -409,8 +409,8 @@
 <img data-src="/blog/v2ray-brook/v2ray-brook_19.png" class="" width="600" title="Set up MTPROTO proxy in Telegram">
 <h2 id="references">References</h2>
 <ol type="1">
-<li>233boy, &quot;V2Ray一键安装脚本,&quot; <em>GitHub</em>. [Online]. Available: https://github.com/233boy/v2ray/wiki/V2Ray一键安装脚本.</li>
-<li>Toyo, &quot;『原创』一个优秀的跨平台 Socks5代理软件 —— Brook 一键安装管理脚本,&quot; <em>逗比根据地</em>. [Online]. Available: https://toyodadoubi.github.io/aybh4ww5-2.html.</li>
+<li>233boy, &quot;V2Ray一键安装脚本,&quot; <em>GitHub</em>. [Online]. Available: <a href="https://github.com/233boy/v2ray/wiki/V2Ray一键安装脚本" target="_blank" rel="noopener" class="uri">https://github.com/233boy/v2ray/wiki/V2Ray一键安装脚本</a>.</li>
+<li>Toyo, &quot;『原创』一个优秀的跨平台 Socks5代理软件 —— Brook 一键安装管理脚本,&quot; <em>逗比根据地</em>. [Online]. Available: <a href="https://toyodadoubi.github.io/aybh4ww5-2.html" target="_blank" rel="noopener" class="uri">https://toyodadoubi.github.io/aybh4ww5-2.html</a>.</li>
 </ol>
 
     </div>
@@ -562,7 +562,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -575,7 +575,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -650,12 +650,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">51k</span>
+    <span title="Symbols count total">54k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">47 mins.</span>
+    <span title="Reading time total">49 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.1
   </div>
