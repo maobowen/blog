@@ -34,27 +34,27 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 
 {% asset_img shadowsocksr_02.png 500 Download and run the script %}
 
-Enter **1** to start the installation of ShadowsocksR proxy server.
+Enter <kbd>1</kbd> to start the installation of ShadowsocksR proxy server.
 
 {% asset_img shadowsocksr_03.png 500 Start installation %}
 
-First, hit the **Enter key** to let the script automatically detect the IP address of the server. Then enter **user name**, **port number** and **password** for the first user.
+First, hit <kbd>Enter</kbd> to let the script automatically detect the IP address of the server. Then enter **user name**, **port number** and **password** for the first user.
 
 > The username and password should only contain ASCII characters. The port entered here should not have conflict with the ports which the server is using or the server system reserves.
 
 {% asset_img shadowsocksr_04.png 500 Configure the first user %}
 
-For the encryption method, select **"none"** (i.e. enter **1**) since I will use "auth_chain_a" protocol later.
+For the encryption method, select **"none"** (i.e. enter <kbd>1</kbd>) since I will use "auth_chain_a" protocol later.
 
 {% asset_img shadowsocksr_05.png 500 Select the encryption method %}
 
-Now select **"auth_chain_a"** protocol (i.e. enter **5**) because it is safer.
+Now select **"auth_chain_a"** protocol (i.e. enter <kbd>5</kbd>) because it is safer.
 
-> For more information about "auth_chain_a" protocol, please refer to [协议auth_chain_a是啥](https://breakwa11.blogspot.com/2017/05/auth-chain-a.html) (Chinese) or https://github.com/shadowsocksr-backup/shadowsocks-rss/blob/master/doc/auth_chain_a.md (English). You might also use "auth_chain_b" protocol, but it has not been widely supported on the iOS devices yet.
+> For more information about "auth_chain_a" protocol, please refer to [协议auth_chain_a是啥](https://breakwa11.blogspot.com/2017/05/auth-chain-a.html) (Chinese) or <https://github.com/shadowsocksr-backup/shadowsocks-rss/blob/master/doc/auth_chain_a.md> (English). You might also use "auth_chain_b" protocol, but it has not been widely supported on the iOS devices yet.
 
 {% asset_img shadowsocksr_06.png 500 Select the protocol %}
 
-Use the **default setting** for obfuscation (i.e. enter **5**) with no compatibility with Shadowsocks (i.e. enter **n**). Original Shadowsocks proxy is no longer safe, so it is not necessary to make the server compatible with Shadowsocks.
+Use the **default setting** for obfuscation (i.e. enter <kbd>5</kbd>) with no compatibility with Shadowsocks (i.e. enter <kbd>n</kbd>). Original Shadowsocks proxy is no longer safe, so it is not necessary to make the server compatible with Shadowsocks.
 
 > For more technical information about encryption method, protocol and obfuscation in ShadowsocksR, please refer to [ShadowsocksR 协议插件文档](https://github.com/iMeiji/shadowsocks_install/wiki/ShadowsocksR-协议插件文档) (Chinese).
 
@@ -68,7 +68,7 @@ Finally, the script shows that the proxy server is installed successfully, and t
 
 {% asset_img shadowsocksr_09.png 500 Installation finished %}
 
-If you want to add another user, just run the script again by `./ssrmu.sh`, choose **7** and follow the exact same instruction.
+If you want to add another user, just run the script again by `./ssrmu.sh`, choose <kbd>7</kbd> and follow the exact same instruction.
 
 In theory, we should boost our proxy server's TCP connection. The good news is that Ubuntu 18.04 enables [Google BBR](https://ai.google/research/pubs/pub45646) by default, so we do not need to take any further action. If you use other versions or systems and need to enable it manually, please follow this tutorial: [Centos/Ubuntu/Debian BBR加速一键安装包](https://www.91yun.co/archives/5174) (Chinese).
 
@@ -94,5 +94,5 @@ I would recommend the following client-side applications:
 
 ## Reference
 
-1. Toyo, "『原创』ShadowsocksR MudbJSON模式多用户一键脚本 支持流量限制等," *逗比根据地*. [Online]. Available: https://toyodadoubi.github.io/z2a4lk3l-2.html.
+1. Toyo, "『原创』ShadowsocksR MudbJSON模式多用户一键脚本 支持流量限制等," *逗比根据地*. [Online]. Available: <https://toyodadoubi.github.io/z2a4lk3l-2.html>.
 

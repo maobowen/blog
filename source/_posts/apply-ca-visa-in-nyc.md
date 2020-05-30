@@ -29,13 +29,13 @@ tags:
 4. 签证申请费的部分文章里没有讲清楚。
 	1. 首先，的确有两笔钱。一笔刚刚讲过了，是[签证申请中心服务费 (VAC Service Charge)](https://www.csc-cvac.com/en-US/selfservice/cvac_application_processing) $37.89。这笔钱是在交材料的时候付的，可以刷卡，接受汇票，但不接受现金。卡的话工作人员说只要是 Visa 或者 MasterCard 就行，所以我脑残地刷了借记卡，但至少证明有 PIN 的借记卡和上述两家发卡行的信用卡都是可以刷的。
 	2. 第二笔是[CA$100，折合US$75的签证申请费 (Application Fee)](https://www.cic.gc.ca/english/information/fees/fees.asp#temporary)。这笔钱是在交材料之前就应该交掉的。但大概很多申请人都不知道，所以前台特地提供了操作指引，让没有交的人在手机上操作（他们不提供 Wi-Fi）。所以我建议大家在去之前就把这笔钱交了，免得到现场烧流量。具体操作如下：
-		1. 访问 http://www.cic.gc.ca/english/information/fees/ ；
+		1. 访问 <http://www.cic.gc.ca/english/information/fees/> ；
 		2. 「Where are you paying from」选择「United States of America」，「What type of application」选择「Temporary residence」（临时居民），「What are you paying for」选择「Visitor visa」（访客签证）；
 		3. 看「Pay online and apply on paper」一栏，选择「Pay my fees online」，「What are you paying for」选择「Temporary residence」；
 		4. 「Visitor visa (including super visa) – per person」的数量输入1；
 		5. 注册一个账号，然后输入信用卡信息，提交付款。这里要注意邮箱地址一定不要填错；
-		6. 付款完成之后会收到一封标题为「CIC Receipt」的邮件。把这封邮件转发至 [ny-info@csc-cvac.com](mailto:ny-info@csc-cvac.com)。记下附件里的「Receipt number」（收据编号）。
-5. 如果是本人到时候亲自去领取护照的话，需要提供本人另一个证件的复印件。我自己有[纽约州实习驾照](https://dmv.ny.gov/driver-license/get-learner-permit)（[New York Learners Permit](https://dmv.ny.gov/driver-license/get-learner-permit)，相当于纽约州身份证）和[纽约市身份证 (IDNYC)](http://www.nyc.gov/idnyc)，所以没有问题；但对于很多纽约的留学生来说，除了护照以外并没有其他的身份证件。我也不是很清楚这个情况，建议可以发邮件至 [ny-info@csc-cvac.com](mailto:ny-info@csc-cvac.com) 查询一下。
+		6. 付款完成之后会收到一封标题为「CIC Receipt」的邮件。把这封邮件转发至 <ny-info@csc-cvac.com>。记下附件里的「Receipt number」（收据编号）。
+5. 如果是本人到时候亲自去领取护照的话，需要提供本人另一个证件的复印件。我自己有[纽约州实习驾照](https://dmv.ny.gov/driver-license/get-learner-permit)（[New York Learners Permit](https://dmv.ny.gov/driver-license/get-learner-permit)，相当于纽约州身份证）和[纽约市身份证 (IDNYC)](http://www.nyc.gov/idnyc)，所以没有问题；但对于很多纽约的留学生来说，除了护照以外并没有其他的身份证件。我也不是很清楚这个情况，建议可以发邮件至 <ny-info@csc-cvac.com> 查询一下。
 
 ## 时间
 

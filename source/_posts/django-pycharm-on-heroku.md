@@ -171,4 +171,4 @@ git push heroku master
 
 ## References
 
-1. Harman Deep Singh, "Deploying Django App on Heroku with Postgres as Backend," *Medium*. [Online]. Available: https://medium.com/%40hdsingh13/deploying-django-app-on-heroku-with-postgres-as-backend-b2f3194e8a43.
+1. Harman Deep Singh, "Deploying Django App on Heroku with Postgres as Backend," *Medium*. [Online]. Available: <https://medium.com/%40hdsingh13/b2f3194e8a43>.

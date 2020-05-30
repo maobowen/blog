@@ -30,11 +30,11 @@ Similar to deploying a ShadowsocksR proxy server, there are already plenty of on
 
 {% asset_img v2ray-brook_02.png 800 Download and run the script of V2Ray server installation %}
 
-Enter **1** to start the installation of V2Ray proxy server.
+Enter <kbd>1</kbd> to start the installation of V2Ray proxy server.
 
 {% asset_img v2ray-brook_03.png 800 Start installing V2Ray server %}
 
-Use the **default setting** (i.e. hit the **Enter key**) for the transport. You can find more information about transport [here](https://www.v2ray.com/en/configuration/transport.html).
+Use the **default setting** (i.e. hit <kbd>Enter</kbd>) for the transport. You can find more information about transport [here](https://www.v2ray.com/en/configuration/transport.html).
 
 {% asset_img v2ray-brook_04.png 800 Configure V2Ray server %}
 
@@ -42,7 +42,7 @@ Choose a non-conflicting **port number**, and use the **default setting** for ad
 
 {% asset_img v2ray-brook_05.png 800 Continue configuring V2Ray server %}
 
-Now we have the opportunity to set up a Shadowsocks proxy server at the same time. Even though Shadowsocks protocol is pretty unstable nowadays, there's no harm for us to add this "backup" option. So hit **Y** to continue setting up Shadowsocks, choose another **port number** and a **password**, and use the **default setting** for the encryption method. If everything is good, hit the **Enter key** and the script will do all the dirty work then.
+Now we have the opportunity to set up a Shadowsocks proxy server at the same time. Even though Shadowsocks protocol is pretty unstable nowadays, there's no harm for us to add this "backup" option. So hit <kbd>Y</kbd> to continue setting up Shadowsocks, choose another **port number** and a **password**, and use the **default setting** for the encryption method. If everything is good, hit <kbd>Enter</kbd> and the script will do all the dirty work then.
 
 {% asset_img v2ray-brook_06.png 800 Configure Shadowsocks server %}
 
@@ -58,7 +58,7 @@ Similar to the ShadowsocksR script, we can use this V2Ray script to manage our V
 
 {% asset_img v2ray-brook_09.png 800 V2Ray server management script %}
 
-A useful operation here is to set up a separate proxy for Telegram. Choose **6**, enter **Y**, then pick another **port number**. If everything is good, hit the **Enter key**.
+A useful operation here is to set up a separate proxy for Telegram. Choose <kbd>6</kbd>, enter <kbd>Y</kbd>, then pick another **port number**. If everything is good, hit <kbd>Enter</kbd>.
 
 {% asset_img v2ray-brook_10.png 800 Configure MTPROTO proxy for Telegram %}
 
@@ -72,7 +72,7 @@ We will still use [the one-click script](https://raw.githubusercontent.com/ToyoD
 
 {% asset_img v2ray-brook_12.png 800 Download and run the script of Brook server installation %}
 
-Enter **1** to start the installation of Brook proxy server. Choose a non-conflicting **port number** and a **password**, and use the **default settings** for Brook protocol and version.
+Enter <kbd>1</kbd> to start the installation of Brook proxy server. Choose a non-conflicting **port number** and a **password**, and use the **default settings** for Brook protocol and version.
 
 {% asset_img v2ray-brook_13.png 800 Configure Brook server %}
 
@@ -84,7 +84,7 @@ Again, we can use this Brook script to manage our Brook proxy server settings by
 
 {% asset_img v2ray-brook_15.png 800 Brook server management script %}
 
-Different from V2Ray, a Brook proxy seems to accept only one client at a time. Therefore, we probably want multiple users for multiple devices. To add a user, choose **7** in the management script and then choose **1**, and follow the exact same instructions above.
+Different from V2Ray, a Brook proxy seems to accept only one client at a time. Therefore, we probably want multiple users for multiple devices. To add a user, choose <kbd>7</kbd> in the management script and then choose <kbd>1</kbd>, and follow the exact same instructions above.
 
 {% asset_img v2ray-brook_16.png 800 Add a second user to Brook server %}
 
@@ -127,5 +127,5 @@ Just visit the link in any web browser and finish setting up in Telegram.
 
 ## References
 
-1. 233boy, "V2Ray一键安装脚本," *GitHub*. [Online]. Available: https://github.com/233boy/v2ray/wiki/V2Ray一键安装脚本.
-2. Toyo, "『原创』一个优秀的跨平台 Socks5代理软件 —— Brook 一键安装管理脚本," *逗比根据地*. [Online]. Available: https://toyodadoubi.github.io/aybh4ww5-2.html.
+1. 233boy, "V2Ray一键安装脚本," *GitHub*. [Online]. Available: <https://github.com/233boy/v2ray/wiki/V2Ray一键安装脚本>.
+2. Toyo, "『原创』一个优秀的跨平台 Socks5代理软件 —— Brook 一键安装管理脚本," *逗比根据地*. [Online]. Available: <https://toyodadoubi.github.io/aybh4ww5-2.html>.

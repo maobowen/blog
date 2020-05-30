@@ -15,7 +15,7 @@ Students from those schools which offer [Office 365 Education](https://products.
 
 ## Introduction
 
-OneIndex is a PHP program developed by [@donwa](https://github.com/donwa) which indices directories and files in OneDrive or OneDrive for Business. We can deploy it on a PHP server. If you have your own server, you can simply install it on a LAMP (Linux, Apache, MySQL, PHP) stack. In this tutorial, I will demonstrate how to install it on [Heroku](https://www.heroku.com/), where we can deploy cloud applications for free. However, due to Heroku's [ephemeral file system](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem), we still need a temporary server, and we have to install and configure the program twice.
+OneIndex is a PHP program developed by [&#64;donwa](https://github.com/donwa) which indices directories and files in OneDrive or OneDrive for Business. We can deploy it on a PHP server. If you have your own server, you can simply install it on a LAMP (Linux, Apache, MySQL, PHP) stack. In this tutorial, I will demonstrate how to install it on [Heroku](https://www.heroku.com/), where we can deploy cloud applications for free. However, due to Heroku's [ephemeral file system](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem), we still need a temporary server, and we have to install and configure the program twice.
 
 ## Installing OneIndex on a Server
 
@@ -147,10 +147,10 @@ Open the browser and verify whether OneIndex is working on https://oneindex.hero
 
 ## Reference
 
-1. M. Drake, "How To Install Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu 18.04," *DigitalOcean*. [Online]. Available: https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04.
-2. B. Boucheron, "How To Install WordPress with LAMP on Ubuntu 18.04," *DigitalOcean*. [Online]. Available: https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lamp-on-ubuntu-18-04.
-3. B., "How To Set Up Apache Virtual Hosts on Ubuntu 16.04," *DigitalOcean*. [Online]. Available: https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-16-04.
-4. "Getting Started on Heroku with PHP," *Heroku*. [Online]. Available: https://devcenter.heroku.com/articles/getting-started-with-php.
+1. M. Drake, "How To Install Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu 18.04," *DigitalOcean*. [Online]. Available: <https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04>.
+2. B. Boucheron, "How To Install WordPress with LAMP on Ubuntu 18.04," *DigitalOcean*. [Online]. Available: <https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lamp-on-ubuntu-18-04>.
+3. B., "How To Set Up Apache Virtual Hosts on Ubuntu 16.04," *DigitalOcean*. [Online]. Available: <https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-16-04>.
+4. "Getting Started on Heroku with PHP," *Heroku*. [Online]. Available: <https://devcenter.heroku.com/articles/getting-started-with-php>.
 
 ## 扯些别的
 
