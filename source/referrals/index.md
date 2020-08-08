@@ -43,6 +43,8 @@ Thank you for using my referral links below! Simply click the links below and bo
 
 - Airbnb
   - Please DM me as the referral link changes regularly.
+- [GIG Car Share](https://gigcarshare.app.link/WzrQuCs2L8)
+  - A car sharing service in the selected cities of the U.S. west coast.
 - [Lyft](https://www.lyft.com/i/BOWEN03679)
 - [OurBus](https://www.ourbus.com/signup/OBGRBMUL?deeplink=ourbus://referfriend/OBGRBMUL)
   - They operate cheap intercity bus routes in the eastern U.S. and their services are usually great.
