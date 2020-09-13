@@ -1,1 +1,1 @@
-../../themes/next/source/_data/header.swig
+../../themes/next-v7/source/_data/header.swig

@@ -1,6 +1,9 @@
-[submodule "themes/next"]
-	path = themes/next
-	url = https://github.com/maobowen/hexo-theme-next
 [submodule "themes/yelee"]
 	path = themes/yelee
 	url = https://github.com/maobowen/hexo-theme-yelee
+[submodule "themes/next-v7"]
+	path = themes/next-v7
+	url = https://github.com/maobowen/hexo-theme-next-v7
+[submodule "themes/next"]
+	path = themes/next
+	url = https://github.com/maobowen/hexo-theme-next
