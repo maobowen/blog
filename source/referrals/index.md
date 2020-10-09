@@ -9,13 +9,16 @@ Thank you for using my referral links below! Simply click the links below and bo
 
 # Financing
 
+I am happy to offer bonus match. Please DM me for details.
+
 - [Chase Banking](https://accounts.chase.com/raf/share/2329285207)
-- [Chase Freedom / Chase Freedom Unlimited](https://www.referyourchasecard.com/2f/6VBB27LIEW)
+- [Chase Freedom Flex / Chase Freedom Unlimited](https://www.referyourchasecard.com/m/18f/6L5/G88B/1564398628)
   - Those no annual fee credit cards are highly recommended if you want to earn Chase Ultimate Rewards points. You will need both your Social Security number and a fair credit history to apply.
+- [Chase Sapphire Preferred](https://www.referyourchasecard.com/m/6/6L5/G8QN/1572151034)
+  - By having this credit card you can get the most value out of Chase Ultimate Rewards points.
 - [Discover it](https://refer.discover.com/s/maobowen3)
   - This no annual fee credit card is highly recommended for credit card newbies who simply want cash back. You will only need your Social Security number to apply. No credit history is needed.
-  - I am happy to offer bonus match. Please DM me for details.
-- [Plastiq](https://apps.plastiq.com/cardholder_ui/start?referralCode=1495688)
+- [Plastiq](https://www.plastiq.com/invite/1495688)
   - Pay any bills using credit cards to earn credit card sign-up bonus easily.
 
 # Phone Plans
