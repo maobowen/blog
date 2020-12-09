@@ -31,7 +31,7 @@
 <meta property="og:description" content="I previously hosted two of my Django projects, NoteShare and Anime, on IBM Cloud. Now, I have decided to switch to Heroku, but the migration is not that straightforward. This article introduces how to">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-29T01:00:00.000Z">
-<meta property="article:modified_time" content="2020-07-21T07:16:48.829Z">
+<meta property="article:modified_time" content="2020-10-09T06:15:17.198Z">
 <meta property="article:author" content="101对双生儿">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Heroku">
@@ -126,7 +126,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">14</span></a>
+    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">16</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -136,7 +136,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">12</span></a>
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-resume">
@@ -245,7 +245,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-21 00:16:48" itemprop="dateModified" datetime="2020-07-21T00:16:48-07:00">2020-07-21</time>
+                <time title="Modified: 2020-10-08 23:15:17" itemprop="dateModified" datetime="2020-10-08T23:15:17-07:00">2020-10-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -296,28 +296,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>I previously hosted two of my <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/">Django</a> projects, <a target="_blank" rel="noopener" href="https://github.com/maobowen/noteshare_django">NoteShare</a> and <a target="_blank" rel="noopener" href="https://github.com/maobowen/anime_django">Anime</a>, on <a target="_blank" rel="noopener" href="https://www.ibm.com/cloud">IBM Cloud</a>. Now, I have decided to switch to <a target="_blank" rel="noopener" href="https://www.heroku.com">Heroku</a>, but the migration is not that straightforward. This article introduces how to deploy a Django project, created by <a target="_blank" rel="noopener" href="https://www.jetbrains.com/pycharm/">PyCharm</a>, on Heroku.</p>
+        <p>I previously hosted two of my <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/">Django</a> projects, <a target="_blank" rel="noopener" href="https://github.com/maobowen/noteshare_django">NoteShare</a> and <a target="_blank" rel="noopener" href="https://github.com/maobowen/anime_django">Anime</a>, on <a target="_blank" rel="noopener" href="https://www.ibm.com/cloud">IBM Cloud</a>. Now, I have decided to switch to <a target="_blank" rel="noopener" href="https://www.heroku.com/">Heroku</a>, but the migration is not that straightforward. This article introduces how to deploy a Django project, created by <a target="_blank" rel="noopener" href="https://www.jetbrains.com/pycharm/">PyCharm</a>, on Heroku.</p>
 <a id="more"></a>
-<h2 id="why-i-made-this-switch">Why I Made This Switch</h2>
-<p>IBM Cloud, previously called IBM Bluemix, is a Platform-as-a-Service (PaaS) based on <a target="_blank" rel="noopener" href="https://www.cloudfoundry.org/">Cloud Foundry</a>. It provides free Lite accounts, but <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/account?topic=account-accounts#lite-account-features">the limitations of those free accounts</a> are super inconvenient:</p>
+
+<h2 id="Why-I-Made-This-Switch"><a href="#Why-I-Made-This-Switch" class="headerlink" title="Why I Made This Switch"></a>Why I Made This Switch</h2><p>IBM Cloud, previously called IBM Bluemix, is a Platform-as-a-Service (PaaS) based on <a target="_blank" rel="noopener" href="https://www.cloudfoundry.org/">Cloud Foundry</a>. It provides free Lite accounts, but <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/account?topic=account-accounts#lite-account-features">the limitations of those free accounts</a> are super inconvenient:</p>
 <ul>
 <li>After 10 days of no development activity, your apps go to sleep.</li>
 <li>After 30 days of no development activity, your service instances with Lite plans are deleted.</li>
 </ul>
-<p>Having these rules means that I have to frequently update my projects even if I don't need to. More interestingly, once an app goes to sleep, I must either push new code or log into the console to re-activate it. Therefore, I decided to switch to <a target="_blank" rel="noopener" href="https://www.heroku.com/pricing">Heroku's free plan</a>. The free plan on Heroku also has <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/free-dyno-hours#dyno-sleeping">the following limitation</a>:</p>
+<p>Having these rules means that I have to frequently update my projects even if I don’t need to. More interestingly, once an app goes to sleep, I must either push new code or log into the console to re-activate it. Therefore, I decided to switch to <a target="_blank" rel="noopener" href="https://www.heroku.com/pricing">Heroku’s free plan</a>. The free plan on Heroku also has <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/free-dyno-hours#dyno-sleeping">the following limitation</a>:</p>
 <ul>
 <li>If an app has a free web dyno, and that dyno receives no web traffic in a 30-minute period, it will sleep.</li>
 </ul>
 <p>However, I can simply re-activate the app by visiting the URL of it. If you really want your app being online during most of the time in a day, you always have <a target="_blank" rel="noopener" href="https://medium.com/better-programming/keeping-my-heroku-app-alive-b19f3a8c3a82">other options</a> available. (By the way, it is <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/free-dyno-hours#usage">not possible</a> to make the free dynos always online.)</p>
-<h2 id="differences-between-ibm-cloud-and-heroku">Differences Between IBM Cloud and Heroku</h2>
-<p>To me, there are two major differences.</p>
+<h2 id="Differences-Between-IBM-Cloud-and-Heroku"><a href="#Differences-Between-IBM-Cloud-and-Heroku" class="headerlink" title="Differences Between IBM Cloud and Heroku"></a>Differences Between IBM Cloud and Heroku</h2><p>To me, there are two major differences.</p>
 <ul>
-<li>Cloud Foundry uses <code>.cfignore</code> to determine which files should be excluded from upload. This file can be different from <code>.gitignore</code> which determines which files should be excluded from the Git repository. This gives me more freedom of maintaining files in a project. For example, I don't want to ruin my repository by adding super large SQLite database file or numerous subtitle files of anime episodes. I don't want to push the credentials of the project to GitHub, too, but I want them available in the cloud. To deal with these cases, I could simply include those files in <code>.gitignore</code> but not in <code>.cfignore</code> in the past. However, on Heroku I don't have that level of control.</li>
-<li>Heroku's <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem">ephemeral filesystem</a> makes it <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/sqlite3">impossible to use file-based SQLite database</a>, as I just explained that SQLite database will not and should not be added to the repository. Therefore, I must switch to some database systems such as Postgres or MySQL, and actually Heroku provides bunch of <a target="_blank" rel="noopener" href="https://elements.heroku.com/addons#data-stores">database add-ons</a>. In addition, I cannot have any dynamically-generated files in the projects.</li>
+<li>Cloud Foundry uses <code>.cfignore</code> to determine which files should be excluded from upload. This file can be different from <code>.gitignore</code> which determines which files should be excluded from the Git repository. This gives me more freedom of maintaining files in a project. For example, I don’t want to ruin my repository by adding super large SQLite database file or numerous subtitle files of anime episodes. I don’t want to push the credentials of the project to GitHub, too, but I want them available in the cloud. To deal with these cases, I could simply include those files in <code>.gitignore</code> but not in <code>.cfignore</code> in the past. However, on Heroku I don’t have that level of control.</li>
+<li>Heroku’s <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem">ephemeral filesystem</a> makes it <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/sqlite3">impossible to use file-based SQLite database</a>, as I just explained that SQLite database will not and should not be added to the repository. Therefore, I must switch to some database systems such as Postgres or MySQL, and actually Heroku provides bunch of <a target="_blank" rel="noopener" href="https://elements.heroku.com/addons#data-stores">database add-ons</a>. In addition, I cannot have any dynamically-generated files in the projects.</li>
 </ul>
 <p>Therefore, I cannot directly push the projects to Heroku directly. Many changes must be made before doing that.</p>
-<h2 id="setting-up-a-new-django-project-using-pycharm">Setting Up a New Django Project Using PyCharm</h2>
-<p>Since there are lots of changes to my out-dated projects (which haven't been maintained for a long time since my app on IBM Cloud was deleted) and I forgot the process of setting up Django projects, I decided to deploy a new one using PyCharm. The following tutorial assumes that:</p>
+<h2 id="Setting-Up-a-New-Django-Project-Using-PyCharm"><a href="#Setting-Up-a-New-Django-Project-Using-PyCharm" class="headerlink" title="Setting Up a New Django Project Using PyCharm"></a>Setting Up a New Django Project Using PyCharm</h2><p>Since there are lots of changes to my out-dated projects (which haven’t been maintained for a long time since my app on IBM Cloud was deleted) and I forgot the process of setting up Django projects, I decided to deploy a new one using PyCharm. The following tutorial assumes that:</p>
 <ul>
 <li>A Python environment for Django has been set up;</li>
 <li>Heroku CLI has been installed and configured;</li>
@@ -325,50 +323,54 @@
 <li>A clean Django project has been created in PyCharm and the Git repository has been initialized;</li>
 <li>A Heroku app has been created.</li>
 </ul>
-<h3 id="preparing-the-project">Preparing the Project</h3>
-<p>We need at least three files in the top-level project folder.</p>
+<h3 id="Preparing-the-Project"><a href="#Preparing-the-Project" class="headerlink" title="Preparing the Project"></a>Preparing the Project</h3><p>We need at least three files in the top-level project folder.</p>
 <p><code>runtime.txt</code> specifies the Python runtime the Heroku app uses. See a list of supported runtimes <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/python-support#specifying-a-python-version">here</a>.</p>
-<p><code>Procfile</code> <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/getting-started-with-python#define-a-procfile">declares what command to execute to start the app</a>. Since I uses <a target="_blank" rel="noopener" href="https://gunicorn.org">Gunicorn</a> as the server, here I just have one line:</p>
+<p><code>Procfile</code> <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/getting-started-with-python#define-a-procfile">declares what command to execute to start the app</a>. Since I uses <a target="_blank" rel="noopener" href="https://gunicorn.org/">Gunicorn</a> as the server, here I just have one line:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">web: gunicorn django_site.wsgi --log-file -</span><br></pre></td></tr></table></figure>
-<p>where <code>django_site</code> is Django project's name and <code>--log-file -</code> means log to <code>stderr</code>.</p>
+
+<p>where <code>django_site</code> is Django project’s name and <code>--log-file -</code> means log to <code>stderr</code>.</p>
 <p><code>requirements.txt</code> <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/getting-started-with-python#declare-app-dependencies">defines app dependencies</a>. It is recommended to run <code>pip freeze &gt; requirements.txt</code> to create it but at least those are necessary:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Django&gt;=3.0.0</span><br><span class="line">django-heroku&gt;=0.3.0</span><br><span class="line">gunicorn&gt;=20.0.0</span><br><span class="line">requests&gt;=2.22.0</span><br><span class="line">whitenoise&gt;=4.1.0</span><br></pre></td></tr></table></figure>
+
 <p>Then run <code>pip install -r requirements.txt</code> to install all the dependencies locally. I would maintain packages using <code>conda</code> though.</p>
-<p>In addition to those files, a <code>.gitignore</code> is also necessary. It can be easily created on <a target="_blank" rel="noopener" href="https://gitignore.io">gitignore.io</a>. You can also use <a target="_blank" rel="noopener" href="https://www.gitignore.io/api/django,linux,macos,pycharm+all,python,virtualenv,visualstudiocode,windows">mine</a>.</p>
-<h3 id="modifying-projects-settings.py">Modifying Project's <code>settings.py</code></h3>
-<p><code>settings.py</code> is located inside <code>django_site</code> folder. It is generated by PyCharm to <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.0/ref/settings/">configure the project</a>. Here are the modifications:</p>
-<p>Set <code>SECRET_KEY</code> because it should not be exposed to the public. This is critical if the repository will be pushed to some public code bases such as GitHub. So first, mark down the secret key. Then run <code>heroku config:set SECRET_KEY=&lt;secret_key&gt;</code> to set the environment variable <code>SECRET_KEY</code> on Heroku. Also, add this environment variable to any PyCharm configurations. Finally, change the code to <code>SECRET_KEY = os.environ.get('SECRET_KEY')</code> so that the app will read the key from the environment variable.</p>
+<p>In addition to those files, a <code>.gitignore</code> is also necessary. It can be easily created on <a target="_blank" rel="noopener" href="https://gitignore.io/">gitignore.io</a>. You can also use <a target="_blank" rel="noopener" href="https://www.gitignore.io/api/django,linux,macos,pycharm+all,python,virtualenv,visualstudiocode,windows">mine</a>.</p>
+<h3 id="Modifying-Project’s-settings-py"><a href="#Modifying-Project’s-settings-py" class="headerlink" title="Modifying Project’s settings.py"></a>Modifying Project’s <code>settings.py</code></h3><p><code>settings.py</code> is located inside <code>django_site</code> folder. It is generated by PyCharm to <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.0/ref/settings/">configure the project</a>. Here are the modifications:</p>
+<p>Set <code>SECRET_KEY</code> because it should not be exposed to the public. This is critical if the repository will be pushed to some public code bases such as GitHub. So first, mark down the secret key. Then run <code>heroku config:set SECRET_KEY=&lt;secret_key&gt;</code> to set the environment variable <code>SECRET_KEY</code> on Heroku. Also, add this environment variable to any PyCharm configurations. Finally, change the code to <code>SECRET_KEY = os.environ.get(&#39;SECRET_KEY&#39;)</code> so that the app will read the key from the environment variable.</p>
 <p>Set <code>DEBUG = False</code> and <code>DEBUG_PROPAGATE_EXCEPTIONS = True</code>.</p>
 <p>Set <code>ALLOWED_HOSTS</code> where <code>django-site</code> is the name of the Heroku app:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ALLOWED_HOSTS = [</span><br><span class="line">    <span class="string">&#x27;0.0.0.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;[::1]&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;.localhost&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django-site.herokuapp.com&#x27;</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
 <p>Add middleware <a target="_blank" rel="noopener" href="http://whitenoise.evans.io/en/stable/">WhiteNoise</a> by</p>
 <ul>
-<li>Adding <code>'whitenoise.runserver_nostatic'</code> to <code>INSTALLED_APPS</code>;</li>
-<li>Adding <code>'whitenoise.middleware.WhiteNoiseMiddleware'</code> to <code>MIDDLEWARE</code> <a target="_blank" rel="noopener" href="http://whitenoise.evans.io/en/stable/django.html#enable-whitenoise">directly after the Django <code>SecurityMiddleware</code> and before all other middleware</a>;</li>
-<li>Setting <code>STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'</code></li>
+<li>Adding <code>&#39;whitenoise.runserver_nostatic&#39;</code> to <code>INSTALLED_APPS</code>;</li>
+<li>Adding <code>&#39;whitenoise.middleware.WhiteNoiseMiddleware&#39;</code> to <code>MIDDLEWARE</code> <a target="_blank" rel="noopener" href="http://whitenoise.evans.io/en/stable/django.html#enable-whitenoise">directly after the Django <code>SecurityMiddleware</code> and before all other middleware</a>;</li>
+<li>Setting <code>STATICFILES_STORAGE = &#39;whitenoise.storage.CompressedManifestStaticFilesStorage&#39;</code></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">&#x27;whitenoise.runserver_nostatic&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.staticfiles&#x27;</span>,</span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">&#x27;django.middleware.security.SecurityMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;whitenoise.middleware.WhiteNoiseMiddleware&#x27;</span>,</span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">STATICFILES_STORAGE = <span class="string">&#x27;whitenoise.storage.CompressedManifestStaticFilesStorage&#x27;</span></span><br></pre></td></tr></table></figure>
+
 <p>Set database connection. In order not to expose database URLs in the code, first add <code>import dj_database_url</code> to the very beginning of the file, then after <code>DATABASES = &#123; ... &#125;</code>, add the following code:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="string">&#x27;DATABASE_URL&#x27;</span> <span class="keyword">in</span> os.environ:</span><br><span class="line">    <span class="comment"># Configure Django for DATABASE_URL environment variable.</span></span><br><span class="line">    DATABASES[<span class="string">&#x27;default&#x27;</span>] = dj_database_url.config(conn_max_age=<span class="number">600</span>)</span><br></pre></td></tr></table></figure>
-<p>And don't forget to add <code>DATABASE_URL</code> environment variable to any PyCharm configurations with value <code>postgresql://localhost:5432/django_site</code> if <code>django_site</code> is the name of the local Postgres database.</p>
+
+<p>And don’t forget to add <code>DATABASE_URL</code> environment variable to any PyCharm configurations with value <code>postgresql://localhost:5432/django_site</code> if <code>django_site</code> is the name of the local Postgres database.</p>
 <p>Set <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/django-assets">static asset</a> variables. For example:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">STATIC_URL = <span class="string">&#x27;/static/&#x27;</span></span><br><span class="line">STATIC_ROOT = os.path.join(BASE_DIR, <span class="string">&#x27;staticfiles&#x27;</span>)</span><br><span class="line">STATICFILES_DIRS = [</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">&#x27;static&#x27;</span>),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
 <p>Make sure that <code>staticfiles</code> and <code>static</code> folders exist in the top-level folder and <code>static</code> folder is not empty (i.e., containing at least one file). Also run <code>heroku config:set DEBUG_COLLECTSTATIC=1</code> to simplify debugging collectstatic on Heroku.</p>
 <p>Set <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.0/topics/files/">media file</a> variables:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MEDIA_URL = <span class="string">&#x27;/media/&#x27;</span></span><br><span class="line">MEDIA_ROOT = os.path.join(BASE_DIR, <span class="string">&#x27;media&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
 <p>Run <code>python manage.py migrate</code> to apply migrations.</p>
-<h2 id="setting-up-a-new-django-application">Setting Up a New Django Application</h2>
-<p>A Django project can have multiple Django applications. When PyCharm creates the project, an application can be created at the same time. The key things here are coding <code>app/urls.py</code>, <code>app/models,py</code> and <code>app/views.py</code>, designing templates and adding static files to <code>app/static/app</code> folder. Don't forget to add the application to <code>django_site/settings.py</code> and <code>django_site/urls.py</code>.</p>
+<h2 id="Setting-Up-a-New-Django-Application"><a href="#Setting-Up-a-New-Django-Application" class="headerlink" title="Setting Up a New Django Application"></a>Setting Up a New Django Application</h2><p>A Django project can have multiple Django applications. When PyCharm creates the project, an application can be created at the same time. The key things here are coding <code>app/urls.py</code>, <code>app/models,py</code> and <code>app/views.py</code>, designing templates and adding static files to <code>app/static/app</code> folder. Don’t forget to add the application to <code>django_site/settings.py</code> and <code>django_site/urls.py</code>.</p>
 <p>When done, run the following commands to migrate schema changes and <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.0/howto/initial-data/">load initial data into the local database</a> if the fixture is located at <code>app/fixtures/app.json</code>:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations</span><br><span class="line">python manage.py migrate</span><br><span class="line">python manage.py loaddata app</span><br><span class="line">python manage.py collectstatic</span><br></pre></td></tr></table></figure>
-<h2 id="pushing-the-project-to-heroku">Pushing the Project to Heroku</h2>
-<p>We need to push both the local database and the local code repository to Heroku. I use <a target="_blank" rel="noopener" href="https://www.heroku.com/postgres">Heroku Postgres add-on</a> and have attached it to the Heroku app, so I just need to do:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">heroku git:remote -a django-site</span><br><span class="line">heroku pg:push postgresql://localhost:5432/django_site &lt;postgresql_addon&gt;</span><br><span class="line">git push heroku master</span><br></pre></td></tr></table></figure>
-<h2 id="references">References</h2>
-<ol type="1">
-<li>Harman Deep Singh, &quot;Deploying Django App on Heroku with Postgres as Backend,&quot; <em>Medium</em>. [Online]. Available: <a target="_blank" rel="noopener" href="https://medium.com/%40hdsingh13/b2f3194e8a43">https://medium.com/%40hdsingh13/b2f3194e8a43</a>.</li>
-</ol>
 
+<h2 id="Pushing-the-Project-to-Heroku"><a href="#Pushing-the-Project-to-Heroku" class="headerlink" title="Pushing the Project to Heroku"></a>Pushing the Project to Heroku</h2><p>We need to push both the local database and the local code repository to Heroku. I use <a target="_blank" rel="noopener" href="https://www.heroku.com/postgres">Heroku Postgres add-on</a> and have attached it to the Heroku app, so I just need to do:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">heroku git:remote -a django-site</span><br><span class="line">heroku pg:push postgresql://localhost:5432/django_site &lt;postgresql_addon&gt;</span><br><span class="line">git push heroku master</span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li>Harman Deep Singh, “Deploying Django App on Heroku with Postgres as Backend,” <em>Medium</em>. [Online]. Available: <a target="_blank" rel="noopener" href="https://medium.com/%40hdsingh13/b2f3194e8a43">https://medium.com/%40hdsingh13/b2f3194e8a43</a>.</li>
+</ol>
+<link rel="stylesheet" href="/blog/css/spoiler.css" type="text/css"><script src="/blog/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -502,7 +504,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#why-i-made-this-switch"><span class="nav-number">1.</span> <span class="nav-text">Why I Made This Switch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#differences-between-ibm-cloud-and-heroku"><span class="nav-number">2.</span> <span class="nav-text">Differences Between IBM Cloud and Heroku</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setting-up-a-new-django-project-using-pycharm"><span class="nav-number">3.</span> <span class="nav-text">Setting Up a New Django Project Using PyCharm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#preparing-the-project"><span class="nav-number">3.1.</span> <span class="nav-text">Preparing the Project</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#modifying-projects-settings.py"><span class="nav-number">3.2.</span> <span class="nav-text">Modifying Project&#39;s settings.py</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setting-up-a-new-django-application"><span class="nav-number">4.</span> <span class="nav-text">Setting Up a New Django Application</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pushing-the-project-to-heroku"><span class="nav-number">5.</span> <span class="nav-text">Pushing the Project to Heroku</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#references"><span class="nav-number">6.</span> <span class="nav-text">References</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-I-Made-This-Switch"><span class="nav-number">1.</span> <span class="nav-text">Why I Made This Switch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Differences-Between-IBM-Cloud-and-Heroku"><span class="nav-number">2.</span> <span class="nav-text">Differences Between IBM Cloud and Heroku</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setting-Up-a-New-Django-Project-Using-PyCharm"><span class="nav-number">3.</span> <span class="nav-text">Setting Up a New Django Project Using PyCharm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Preparing-the-Project"><span class="nav-number">3.1.</span> <span class="nav-text">Preparing the Project</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modifying-Project%E2%80%99s-settings-py"><span class="nav-number">3.2.</span> <span class="nav-text">Modifying Project’s settings.py</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setting-Up-a-New-Django-Application"><span class="nav-number">4.</span> <span class="nav-text">Setting Up a New Django Application</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pushing-the-Project-to-Heroku"><span class="nav-number">5.</span> <span class="nav-text">Pushing the Project to Heroku</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">6.</span> <span class="nav-text">References</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -518,7 +520,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -531,7 +533,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -608,12 +610,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">54k</span>
+    <span title="Symbols count total">67k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">49 mins.</span>
+    <span title="Reading time total">1:01</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>

@@ -38,7 +38,7 @@
 <meta property="og:image" content="http://bmao.tech/blog/parallels-phoenixos-auto-gui/parallels-phoenixos-auto-gui_06.png">
 <meta property="og:image" content="http://bmao.tech/blog/parallels-phoenixos-auto-gui/parallels-phoenixos-auto-gui_07.png">
 <meta property="article:published_time" content="2020-05-26T03:00:00.000Z">
-<meta property="article:modified_time" content="2020-07-21T07:16:48.858Z">
+<meta property="article:modified_time" content="2020-10-09T06:15:17.311Z">
 <meta property="article:author" content="101对双生儿">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
@@ -133,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">14</span></a>
+    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">16</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">12</span></a>
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-resume">
@@ -252,7 +252,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-21 00:16:48" itemprop="dateModified" datetime="2020-07-21T00:16:48-07:00">2020-07-21</time>
+                <time title="Modified: 2020-10-08 23:15:17" itemprop="dateModified" datetime="2020-10-08T23:15:17-07:00">2020-10-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -284,7 +284,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.7k</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -303,34 +303,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a target="_blank" rel="noopener" href="http://www.phoenixos.com">Phoenix OS</a> is an Android x86 distribution which allows users to install Android on a PC. By using <a target="_blank" rel="noopener" href="https://www.parallels.com">Parallels Desktop</a> or other virtual machine software, we can run Phoenix OS seamlessly on macOS. Due to some unknown reasons, Phoenix OS does not enter the graphical interface automatically after having it installed on Parallels Desktop. Since it is pretty annoying to edit the boot option manually each time when the virtual machine is booted, this article introduces a way to automate this process by modifying the <a target="_blank" rel="noopener" href="https://www.gnu.org/software/grub/">GRUB</a> startup menu.</p>
+        <p><a target="_blank" rel="noopener" href="http://www.phoenixos.com/">Phoenix OS</a> is an Android x86 distribution which allows users to install Android on a PC. By using <a target="_blank" rel="noopener" href="https://www.parallels.com/">Parallels Desktop</a> or other virtual machine software, we can run Phoenix OS seamlessly on macOS. Due to some unknown reasons, Phoenix OS does not enter the graphical interface automatically after having it installed on Parallels Desktop. Since it is pretty annoying to edit the boot option manually each time when the virtual machine is booted, this article introduces a way to automate this process by modifying the <a target="_blank" rel="noopener" href="https://www.gnu.org/software/grub/">GRUB</a> startup menu.</p>
 <a id="more"></a>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>To install Phoenix OS, you need to <a target="_blank" rel="noopener" href="http://www.phoenixos.com/download_x86">download the ISO image</a> and <a target="_blank" rel="noopener" href="http://www.phoenixos.com/zh_CN/help/installation/iso-Legacy">follow this official installation guide</a>. UEFI boot mode did not work for me, so ensure that you follow the link above to install the OS in legacy BIOS mode.</p>
-<h2 id="manual-way-to-enter-graphical-interface">Manual Way to Enter Graphical Interface</h2>
-<p>After the reboot, Phoenix OS will start the terminal session automatically if no action is taken, which is not we want.</p>
+
+<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>To install Phoenix OS, you need to <a target="_blank" rel="noopener" href="http://www.phoenixos.com/download_x86">download the ISO image</a> and <a target="_blank" rel="noopener" href="http://www.phoenixos.com/zh_CN/help/installation/iso-Legacy">follow this official installation guide</a>. UEFI boot mode did not work for me, so ensure that you follow the link above to install the OS in legacy BIOS mode.</p>
+<h2 id="Manual-Way-to-Enter-Graphical-Interface"><a href="#Manual-Way-to-Enter-Graphical-Interface" class="headerlink" title="Manual Way to Enter Graphical Interface"></a>Manual Way to Enter Graphical Interface</h2><p>After the reboot, Phoenix OS will start the terminal session automatically if no action is taken, which is not we want.</p>
 <img data-src="/blog/parallels-phoenixos-auto-gui/parallels-phoenixos-auto-gui_01.png" class="" width="500" title="Phoenix OS Terminal Session">
-<p>Here is <a target="_blank" rel="noopener" href="https://youyou-tech.com/2019/10/10/deepin使用笔记——VirtualB/">a post</a> which introduces how to manually enter the graphical interface. In brief, hit <kbd>e</kbd> twice and append <code>nomodeset</code> (<strong>with a leading space</strong>) to the boot command. Then press <kbd>Enter</kbd> and <kbd>b</kbd> to boot.</p>
+
+<p>Here is <a target="_blank" rel="noopener" href="https://youyou-tech.com/2019/10/10/deepin%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94VirtualB/">a post</a> which introduces how to manually enter the graphical interface. In brief, hit <kbd>e</kbd> twice and append <code>nomodeset</code> (<strong>with a leading space</strong>) to the boot command. Then press <kbd>Enter</kbd> and <kbd>b</kbd> to boot.</p>
 <img data-src="/blog/parallels-phoenixos-auto-gui/parallels-phoenixos-auto-gui_02.png" class="" width="500" title="Change Boot Command Manually">
-<h2 id="automatic-way-to-enter-graphical-interface">Automatic Way to Enter Graphical Interface</h2>
-<p>What the trick above does is overriding the default boot command in GRUB boot menu. The boot menu should be stored somewhere on the disk, so the idea of automating this override process is to permanently modify the GRUB configuration by appending the <code>nomodeset</code> argument to the boot entry. A user posted <a target="_blank" rel="noopener" href="http://bbs.phoenixstudio.org/cn/read.php?tid=2961">some instruction</a> about how to do that, but unluckily, that instruction no longer works, as I did not find any <a target="_blank" rel="noopener" href="https://docs.oracle.com/cd/E19253-01/817-5504/gavhe/index.html"><code>menu.lst</code> file</a> at all by searching the entire filesystem in the Phoenix OS terminal session. It seems that GRUB is mounted to a separate mount point which is not directly accessible inside Phoenix OS.</p>
+
+<h2 id="Automatic-Way-to-Enter-Graphical-Interface"><a href="#Automatic-Way-to-Enter-Graphical-Interface" class="headerlink" title="Automatic Way to Enter Graphical Interface"></a>Automatic Way to Enter Graphical Interface</h2><p>What the trick above does is overriding the default boot command in GRUB boot menu. The boot menu should be stored somewhere on the disk, so the idea of automating this override process is to permanently modify the GRUB configuration by appending the <code>nomodeset</code> argument to the boot entry. A user posted <a target="_blank" rel="noopener" href="http://bbs.phoenixstudio.org/cn/read.php?tid=2961">some instruction</a> about how to do that, but unluckily, that instruction no longer works, as I did not find any <a target="_blank" rel="noopener" href="https://docs.oracle.com/cd/E19253-01/817-5504/gavhe/index.html"><code>menu.lst</code> file</a> at all by searching the entire filesystem in the Phoenix OS terminal session. It seems that GRUB is mounted to a separate mount point which is not directly accessible inside Phoenix OS.</p>
 <p>Therefore, we need a boot CD to help us access the <code>menu.lst</code> file. One option is to use the Ubuntu-based <a target="_blank" rel="noopener" href="https://sourceforge.net/p/boot-repair-cd/home/Home/">Boot-Repair-Disk</a> which is designed for boot repair. You can also choose any live CD of any Linux distribution. Here I use the Boot-Repair-Disk ISO image as an example. Remember that before booting from the image, change the boot order in Parallels Desktop to put CD/DVD at the first place and load the image file to CD/DVD.</p>
 <img data-src="/blog/parallels-phoenixos-auto-gui/parallels-phoenixos-auto-gui_03.png" class="" width="500" title="Boot From Boot-Repair-Disk">
+
 <p>After some investigation, I find that the <code>menu.lst</code> file that we want to modify is under <code>/mnt/boot-sav/sda1/grub</code> path. Therefore, we can use the following commands to edit this file.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/boot-sav/sda1/grub</span><br><span class="line">sudo nano menu.lst</span><br></pre></td></tr></table></figure>
+
 <p>You can use whatever editor you want as long as it comes with your boot CD. Boot-Repair-Disk has GNU nano (but not Vim). Also, remember to edit the file using root permission.</p>
 <img data-src="/blog/parallels-phoenixos-auto-gui/parallels-phoenixos-auto-gui_04.png" class="" width="500" title="Edit GRUB Menu">
+
 <p>Find the line with boot entry, and append <code>nomodeset</code> argument to it.</p>
 <img data-src="/blog/parallels-phoenixos-auto-gui/parallels-phoenixos-auto-gui_05.png" class="" width="500" title="Edit Boot Entry in GRUB Menu">
+
 <p>Finally, reboot the virtual machine from hard disk (so remember to change the boot order back in virtual machine settings). This time Phoenix OS loads the graphical interface automatically.</p>
 <img data-src="/blog/parallels-phoenixos-auto-gui/parallels-phoenixos-auto-gui_06.png" class="" width="500" title="Boot Phoenix OS After Modifying GRUB Menu">
-<img data-src="/blog/parallels-phoenixos-auto-gui/parallels-phoenixos-auto-gui_07.png" class="" width="500" title="Phoenix OS Graphical Interface">
-<h2 id="references">References</h2>
-<ol type="1">
-<li>小柚子-新闻, &quot;deepin使用笔记——VirtualBox 6.0虚拟机安装凤凰OS,&quot; <em>柚柚科技</em>. [Online]. Available: <a target="_blank" rel="noopener" href="https://youyou-tech.com/2019/10/10/deepin使用笔记——VirtualB/" class="uri">https://youyou-tech.com/2019/10/10/deepin使用笔记——VirtualB/</a>.</li>
-<li>Exception, &quot;安装系统后无法进入图形界面的临时解决办法,&quot; <em>Phoenix Studio</em>. [Online]. Available: <a target="_blank" rel="noopener" href="http://bbs.phoenixstudio.org/cn/read.php?tid=2961" class="uri">http://bbs.phoenixstudio.org/cn/read.php?tid=2961</a>.</li>
-</ol>
 
+<img data-src="/blog/parallels-phoenixos-auto-gui/parallels-phoenixos-auto-gui_07.png" class="" width="500" title="Phoenix OS Graphical Interface">
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li>小柚子-新闻, “deepin使用笔记——VirtualBox 6.0虚拟机安装凤凰OS,” <em>柚柚科技</em>. [Online]. Available: <a target="_blank" rel="noopener" href="https://youyou-tech.com/2019/10/10/deepin%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94VirtualB/">https://youyou-tech.com/2019/10/10/deepin使用笔记——VirtualB/</a>.</li>
+<li>Exception, “安装系统后无法进入图形界面的临时解决办法,” <em>Phoenix Studio</em>. [Online]. Available: <a target="_blank" rel="noopener" href="http://bbs.phoenixstudio.org/cn/read.php?tid=2961">http://bbs.phoenixstudio.org/cn/read.php?tid=2961</a>.</li>
+</ol>
+<link rel="stylesheet" href="/blog/css/spoiler.css" type="text/css"><script src="/blog/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -394,7 +399,10 @@
     <a href="/blog/django-pycharm-on-heroku/" rel="prev" title="Deploying PyCharm-Created Django Project on Heroku">
       <i class="fa fa-chevron-left"></i> Deploying PyCharm-Created Django Project on Heroku
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/blog/amazon-fire-tv-stick-setup/" rel="next" title="亚马逊 Fire TV Stick 配置教程">
+      亚马逊 Fire TV Stick 配置教程 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -460,7 +468,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#prerequisites"><span class="nav-number">1.</span> <span class="nav-text">Prerequisites</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#manual-way-to-enter-graphical-interface"><span class="nav-number">2.</span> <span class="nav-text">Manual Way to Enter Graphical Interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#automatic-way-to-enter-graphical-interface"><span class="nav-number">3.</span> <span class="nav-text">Automatic Way to Enter Graphical Interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#references"><span class="nav-number">4.</span> <span class="nav-text">References</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Prerequisites"><span class="nav-number">1.</span> <span class="nav-text">Prerequisites</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Manual-Way-to-Enter-Graphical-Interface"><span class="nav-number">2.</span> <span class="nav-text">Manual Way to Enter Graphical Interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Automatic-Way-to-Enter-Graphical-Interface"><span class="nav-number">3.</span> <span class="nav-text">Automatic Way to Enter Graphical Interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">4.</span> <span class="nav-text">References</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -476,7 +484,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -489,7 +497,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -566,12 +574,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">54k</span>
+    <span title="Symbols count total">67k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">49 mins.</span>
+    <span title="Reading time total">1:01</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>

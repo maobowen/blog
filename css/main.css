@@ -1222,7 +1222,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #17a4ff;
+  background: #a1ba73;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2662,6 +2662,12 @@ body::after {
 }
 .zhihu:before {
   content: "\e602";
+}
+.inline-app-icon {
+  border-radius: 22.5%;
+  display: inline;
+  height: 1.4em;
+  margin: 0 0 -0.3em 0 !important;
 }
 .nycs-bullet {
   display: inline;
