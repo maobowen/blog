@@ -39,6 +39,8 @@ I am happy to offer bonus match. Please DM me for details.
 
 # Dining
 
+- [Freshly](https://refer.freshly.com/s/Bowen52)
+  - Prepared meals delivered right to your door.
 - [MealPal](https://www.mealpal.com/bowenmao)
   - They offer extremely cheap lunches on weekdays but there are not a lot of choices.
 
