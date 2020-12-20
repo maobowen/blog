@@ -18,17 +18,17 @@ tags:
 
 我现在的公寓里目前只有一台[32寸2K曲面显示器](https://www.amazon.com/dp/B07B8DXNDZ/)，并没有电视机。我之所以一直想买个电视盒子，是因为坐在床上看视频时一开始用蓝牙鼠标操作电脑感觉很不方便。虽然我后来尝试了一款叫 [<img class="not-fancy inline-app-icon" src="https://is3-ssl.mzstatic.com/image/thumb/Purple124/v4/11/c3/e5/11c3e57c-d591-3b19-04c0-4974e6d1b118/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" /> Remote Mouse](https://www.remotemouse.net/) 的应用，但因为电脑在显示器上的分辨率很高，床又离显示器有点远，所以坐在床上时看不清楚文字和光标，操作起来还是有一点不便。而亚马逊的 Fire TV Stick 配有遥控器，加之是基于 Android 系统可定制性强，价格又比 Apple TV 亲民得多，黑五以$29.99入手一支原价$49.99的[4K版](https://www.amazon.com/dp/B079QHML21/)还是很划算的。
 
-<img alt="亚马逊第一代 Fire TV Stick 4K" src="amazon-fire-tv-stick-setup_01.jpg" style="max-width: 800px;" />
+<img alt="亚马逊第一代 Fire TV Stick 4K" src="amazon-fire-tv-stick-setup_01.jpg" style="max-width: 800px; width: 100%;" />
 
 买 Echo Dot 的理由则比较简单：因为 Fire TV Stick 默认通过电视的内置音箱播放声音，而我是把电脑显示器当电视用。众所周知，显示器内置音箱的音效一般都很差，所以我需要一台外置音箱。亚马逊的电视盒子当然要搭配自家的音箱用会比较好，而 Echo Dot 的第三代和第四代感觉功能上没什么区别，第四代体积大反而更占地方，所以以$18.99买一台原价$39.99的[第三代 Echo Dot](https://www.amazon.com/dp/B07FZ8S74R/) 就够了。
 
-<img alt="亚马逊第三代 Echo Dot" src="amazon-fire-tv-stick-setup_02.jpg" style="max-width: 800px;" />
+<img alt="亚马逊第三代 Echo Dot" src="amazon-fire-tv-stick-setup_02.jpg" style="max-width: 800px; width: 100%;" />
 
 ## 配置硬件
 
 配置硬件的部分基本上跟着说明书一步步操作就行了。我是先收到的 Echo Dot，所以先在手机上安装 [<img class="not-fancy inline-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/8e/e3/d2/8ee3d2ff-78e5-4f66-046f-43ae2200aeac/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" /> Amazon Alexa 应用](https://www.amazon.com/b?node=18354642011) 让音箱先工作起来。收到 Fire TV Stick 之后把它插到显示器上，再配对好遥控器，然后跟着向导设置即可。
 
-<img alt="配置好的 Fire TV Stick" src="amazon-fire-tv-stick-setup_03.jpg" style="max-width: 800px;" />
+<img alt="配置好的 Fire TV Stick" src="amazon-fire-tv-stick-setup_03.jpg" style="max-width: 800px; width: 100%;" />
 
 对于在显示器上用 Fire TV Stick，这里有一点需要额外注意：设置向导里有一步是让你按 Fire TV 遥控器的音量增大、减小键检查输出音量是否发生变化，而显示器的内置音箱可能对这两个按键并没有效果，输出音量没有变化。这种情况下直接在屏幕上选 Yes 跳过即可（选 No 的话后面会让你重试很多次）。然后配置完 Fire TV Stick 之后去 Amazon Alexa 应用里添加一个声音系统 (Audio System)，把 Fire TV Stick 和 Echo Dot 或者其他蓝牙音箱组成一个家庭影院 (Home Theater)。这样的话 Fire TV Stick 就会通过音箱输出声音了，而且 Fire TV 遥控器的音量按键可以正确调节 Echo Dot 的音量。
 
@@ -42,11 +42,11 @@ Fire TV 跟其他美国的智能电视盒子相比最大的优势在于，它除
 
 需要注意的是，要从其他渠道安装应用，必须要事先在 Fire OS 的 Settings -> My Fire TV -> Developer Options 里打开 Apps from Unknown Sources 选项。具体步骤可以[点这里](https://www.aftvnews.com/how-to-enable-apps-from-unknown-sources-on-an-amazon-fire-tv-or-fire-tv-stick/)。
 
-<img alt="打开 Apps from Unknown Sources 选项" src="https://www.aftvnews.com/wp-content/uploads/2015/08/new-interface-settings-section-developer-options-apps-from-unknown-sources-menu.jpg" style="max-width: 800px;" />
+<img alt="打开 Apps from Unknown Sources 选项" src="https://www.aftvnews.com/wp-content/uploads/2015/08/new-interface-settings-section-developer-options-apps-from-unknown-sources-menu.jpg" style="max-width: 800px; width: 100%;" />
 
 ### <img class="not-fancy inline-app-icon" src="https://images-na.ssl-images-amazon.com/images/I/31Xj%2BlMLinL.png" /> Downloader
 
-<img alt="Downloader" src="https://images-na.ssl-images-amazon.com/images/I/61Uv-UUSzOL.png" style="max-width: 800px;" />
+<img alt="Downloader" src="https://images-na.ssl-images-amazon.com/images/I/61Uv-UUSzOL.png" style="max-width: 800px; width: 100%;" />
 
 [Downloader](https://www.aftvnews.com/downloader/) 是 Fire OS 上的下载神器，我们可以利用它下载那些没有在内置应用商店里上架的 Android 应用的安装包（`.apk`文件）以及任何其他文件。它还内置一个简易浏览器，方便用户获取下载链接。因此，配置好 Fire TV Stick 后应该第一个安装它，而且后面提到的一些应用也需要用它来下载。这款应用可以直接在内置应用商店里获得。
 
@@ -72,7 +72,7 @@ Fire TV 跟其他美国的智能电视盒子相比最大的优势在于，它除
 
 不想花钱的可以考虑 [<img class="not-fancy inline-app-icon" src="https://is2-ssl.mzstatic.com/image/thumb/Purple114/v4/79/a5/5f/79a55fb2-1f7d-8fb9-e94b-c1bd346d7c94/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" /> Malus](https://getmalus.com/)。Malus 的TV版提供免费线路，只要注册一个账号就可以用了。免费线路的体验，不论在 Fire TV 上还是在电脑或手机上，都不是很理想，但至少这是一个翻墙回国的免费选项。Malus TV版可以直接在当贝市场里下载安装，也可以用 Downloader 访问官网 <https://getmalus.com/tv> 获得。当然，Malus 也有收费的会员服务。
 
-<img alt="Malus TV版" src="https://malus.s3cdn.net/uploads/tv_download.jpg" style="max-width: 800px;" />
+<img alt="Malus TV版" src="https://malus.s3cdn.net/uploads/tv_download.jpg" style="max-width: 800px; width: 100%;" />
 
 ### <img class="not-fancy inline-app-icon" src="http://fluxii.com/wp-content/uploads/mousetogglefiretv.png" /> Mouse Toggle for Fire TV
 
@@ -82,11 +82,11 @@ Fire TV 跟其他美国的智能电视盒子相比最大的优势在于，它除
 
 在安装 Mouse Toggle 前，首先要在 Fire OS 的 Settings -> My Fire TV -> Developer Options 里打开 ADB Debugging 选项。具体步骤可以[点这里](https://www.aftvnews.com/how-to-enable-adb-debugging-on-an-amazon-fire-tv-or-fire-tv-stick/)。
 
-<img alt="打开 ADB Debugging 选项" src="https://www.aftvnews.com/wp-content/uploads/2014/12/new-interface-settings-section-developer-options-adb-debugging-menu.jpg" style="max-width: 800px;" />
+<img alt="打开 ADB Debugging 选项" src="https://www.aftvnews.com/wp-content/uploads/2014/12/new-interface-settings-section-developer-options-adb-debugging-menu.jpg" style="max-width: 800px; width: 100%;" />
 
 Mouse Toggle for Fire TV 目前最新的1.11版可以用 Downloader 从这里获得：<https://www.firestickhow.com/mouse>。启动应用后，把 Enable the mouse service 打开，然后等 Status 变成 started 即可。如果屏幕上有弹出是否允许 USB 调试的话，需要勾选 Always allow from this computer 并且同意。
 
-<img alt="Mouse Toggle for Fire TV" src="https://g8m9f6u5.stackpathcdn.com/wp-content/uploads/2018/09/mouse-toggle-on-firestick-9.jpg" style="max-width: 800px;" />
+<img alt="Mouse Toggle for Fire TV" src="https://g8m9f6u5.stackpathcdn.com/wp-content/uploads/2018/09/mouse-toggle-on-firestick-9.jpg" style="max-width: 800px; width: 100%;" />
 
 ![允许 USB 调试](https://www.aftvnews.com/wp-content/uploads/2017/12/ADB-Debugging-RSA-Key-Fingerprint-800x450.jpg)
 
@@ -122,7 +122,7 @@ Mouse Toggle 这款应用看上去很强大，然而其实有一个副作用：�
 
 这里的「广播电台」指的是传统的无线电广播，并非音乐串流平台上的音乐电台或播客。用内置应用商店里的 [<img class="not-fancy inline-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/8b/76/4d/8b764d6e-60cd-abea-b25f-12967590ac1b/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" /> TuneIn](https://tunein.com/radio/home/) 或者 [<img class="not-fancy inline-app-icon" src="https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/75/55/e6/7555e6d5-93b0-eeef-d92b-db201f07e24b/AppIcon-0-1x_U007emarketing-0-6-0-0-85-220.png/230x0w.webp" /> iHeartRadio](https://www.iheart.com/live/) 就可以收听很多境外电台。其中 TuneIn 的频道非常丰富，不但有 [KUOW](https://www.kuow.org/)、[KIRO](https://mynorthwest.com/category/kiro-radio/) 等几乎所有的西雅图本地频道，甚至收录了世界各地的电台，例如香港电台和香港新城电台的所有频道。iHeartRadio 则只有美国和墨西哥的电台。
 
-<img alt="TuneIn" src="https://images-na.ssl-images-amazon.com/images/I/A14cNprEYeL.png" style="max-width: 800px;" />
+<img alt="TuneIn" src="https://images-na.ssl-images-amazon.com/images/I/A14cNprEYeL.png" style="max-width: 800px; width: 100%;" />
 
 TuneIn 对于国内的电台收录得不是很全，例如里面虽然有上海动感101但不能播放。想要收听国内电台的话，在 Fire TV 上我尝试了从当贝市场中安装 [<img class="not-fancy inline-app-icon" src="https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/fa/11/e1/fa11e14a-2cfe-f16e-6354-4ca308d3e331/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-85-220.png/230x0w.webp" /> 蜻蜓FM](https://www.qingting.fm/radiopage)和 [<img class="not-fancy inline-app-icon" src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/5c/1a/9f/5c1a9fc3-235c-6ab3-1d19-22d9688a4d42/_U559c_U9a6c_U62c9_U96c5.png/230x0w.webp" /> 喜马拉雅](https://www.ximalaya.com/)的TV版，但它们的效果都很差：蜻蜓FM完全找不到电台，喜马拉雅则只有回放，所以基本上放弃了。而且事实上，我感觉直接用小度音箱来收听动感101更方便。
 
@@ -132,11 +132,11 @@ TuneIn 对于国内的电台收录得不是很全，例如里面虽然有上海�
 
 ![Amazon News](https://miro.medium.com/max/700/1*85IUbnL0VBIoLxw0jWu7Ig.png)
 
-<img alt="Locast" src="https://images-na.ssl-images-amazon.com/images/I/71wVcFnrO5L.png" style="max-width: 800px;" />
+<img alt="Locast" src="https://images-na.ssl-images-amazon.com/images/I/71wVcFnrO5L.png" style="max-width: 800px; width: 100%;" />
 
 当然，大家可能更多想看的还是国内的电视台。虽然 Fire TV 内置应用商店并没有提供中国电视台的直播应用，但当贝市场里的直播应用太多了，随便下载一款就好。我用的是HDP直播，需要从其官网上下载：<http://www.hdplive.net/>。它里面不仅收录了全国绝大部分的电视台，甚至提供了自定义源的功能方便添加境外电台电视台。感兴趣的可以参考[这个官方教程](http://www.hdpfans.com/thread-486314-1-1.html)，我也会在文末分享一些港澳地区的电视电台直播源。
 
-<img alt="HDP直播" src="http://pic.dangbei.net/uploads/new/191118/9-19111Q31FX21.jpg" style="max-width: 800px;" />
+<img alt="HDP直播" src="http://pic.dangbei.net/uploads/new/191118/9-19111Q31FX21.jpg" style="max-width: 800px; width: 100%;" />
 
 考虑到也有人可能会选择用内置应用商店里的 [<img class="not-fancy inline-app-icon" src="https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/0d/48/91/0d489179-91ab-43e2-07b9-9857a4cf1608/AppIcon-1x_U007emarketing-0-7-0-0-85-220.png/230x0w.webp" /> VLC 播放器](https://www.videolan.org/vlc/)或者自行安装 Kodi（官网下载：<https://kodi.tv/download>），而这两款应用可能需要用到`.m3u`格式的文件，这里推荐一个电视源格式转换的工具：<https://guihet.com/tvlistconvert.html>，可以快速在各种文件格式之间转换。
 
@@ -144,7 +144,7 @@ TuneIn 对于国内的电台收录得不是很全，例如里面虽然有上海�
 
 当初买 Fire TV Stick 主要是为了解决看动画的问题。首先我自己不习惯看英文字幕版动画，因此尽管内置应用商店里有 [<img class="not-fancy inline-app-icon" src="https://is2-ssl.mzstatic.com/image/thumb/Purple114/v4/f3/90/0b/f3900bbc-8415-96d2-807b-5c3462b4c1c6/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" /> Crunchyroll](https://www.crunchyroll.com/)，[<img class="not-fancy inline-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/6d/00/f0/6d00f0ac-7092-2dab-e387-c67e40a6445b/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" /> Funimation](https://www.funimation.com/)，[<img class="not-fancy inline-app-icon" src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/43/f9/2c/43f92c63-b61e-4ea3-394f-2f677e219bf6/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" /> HIDIVE](https://www.hidive.com/) 和 [<img class="not-fancy inline-app-icon" src="https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/42/83/57/428357a9-3b00-f1d1-2a10-477f020c9455/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" /> VRV](https://vrv.co/) 等一系列欧美动画网站的应用，我平时却很少用它们看番。
 
-<img alt="Crunchyroll" src="https://images-na.ssl-images-amazon.com/images/I/B1iwbMhcFrS.png" style="max-width: 800px;" />
+<img alt="Crunchyroll" src="https://images-na.ssl-images-amazon.com/images/I/B1iwbMhcFrS.png" style="max-width: 800px; width: 100%;" />
 
 想看中文字幕版的话，理论上比较正确的做法应该是下载 [<img class="not-fancy inline-app-icon" src="http://pic.dangbei.net/uploads/new/190620/9-1Z6201G953629.png" /> 云视听小电视](https://app.bilibili.com/)，即哔哩哔哩TV版，然后搭配穿梭或者 Malus 使用。不过之前有提到说 Malus 免费线路速度慢，穿梭TV版收费，而且B站如今很多番剧也需要充大会员才有的看，这对穷苦的劳动人民们就不太友好了。所以实际上，我自己采用并推荐的是以下几种「政治不正确」的观看非正版番剧方法：
 
@@ -152,6 +152,12 @@ TuneIn 对于国内的电台收录得不是很全，例如里面虽然有上海�
 - 使用下面推荐的 TV Bro 浏览器访问二刺螈们都熟悉的几个非正版网站，但总体来说操作起来还是有点麻烦。
 - 安装那些网站的手机版应用然后配合 Mouse Toggle 使用，但因为没做适配和「鼠标」难用导致用户体验更差。
 - 安装 Kodi，然后再安装大神写的插件（使用方式见[这里](https://github.com/zhengfan2014/xbmc-kodi-private-china-addons)，下载地址见[这里](https://afdian.net/@zhengfan2014)）。需要有一定的电脑知识，而且我个人使用下来发现B站视频的音画不同步现象比较严重。
+
+B站其实有两个TV版应用，一个是上面提到的 <img class="not-fancy inline-app-icon" src="http://pic.dangbei.net/uploads/new/190620/9-1Z6201G953629.png" /> 云视听小电视，可以从[B站官网](https://app.bilibili.com/)以及第三方应用商店中下载。这个版本可以看直播，视频分类也比较详细，但有几个比较严重的弊端：视频没有弹幕、看番需要购买额外的电视大会员（即普通大会员还不够）、及并非所有视频和番剧都能观看。其实B站还有另外一个TV版应用—— <img class="not-fancy inline-app-icon" src="https://is4-ssl.mzstatic.com/image/thumb/Purple113/v4/6f/7d/6a/6f7d6a2f-065a-412f-0519-1135ac552c76/AppIcon-1x_U007emarketing-0-6-0-0-sRGB-85-220.png/230x0w.webp" /> 早期的哔哩哔哩TV版，由于没有广电总局的互联网电视牌照而下架了。这个版本能看所有视频和番剧而且有弹幕，同时也不需要额外购买电视大会员；但它的缺点是不能看直播以及界面略简陋，不排除以后可能产生兼容性问题而随时无法使用。这个版本不太容易下载到，有兴趣的可以点[这里](https://www.bilibili.com/read/cv5889620/)或[这里](https://www.mpyit.com/bilibilitv.html)获取，目前最新的版本是1.6.6。
+
+<img alt="云视听小电视" src="https://www.bingfengyl.com/zb_users/upload/2020/06/20200602213249159110476955601.jpg" style="max-width: 800px; width: 100%;" />
+
+<img alt="有弹幕版哔哩哔哩TV版" src="https://newsimg.dangbei.net/ueditor/php/upload/image/20170322/1490165383752951.png" />
 
 ### 上网
 
@@ -163,7 +169,6 @@ TuneIn 对于国内的电台收录得不是很全，例如里面虽然有上海�
 
 ### 港澳地区电视电台直播源
 
-{% spoiler %}
 ```
 香港电视台
 港台電視31 (數碼電視31台),https://rthklive1-lh.akamaihd.net/i/rthk31_1@167495/master.m3u8
@@ -221,7 +226,6 @@ METRO PLUS (AM 1044),https://metroradio-lh.akamaihd.net/i/1044_h@349800/master.m
 Rádio Macau (FM 98.0),http://live4.tdm.com.mo/live/rch1.live/playlist.m3u8
 澳門電台 (FM 100.7),http://live4.tdm.com.mo/live/rch2.live/playlist.m3u8
 ```
-{% endspoiler %}
 
 这里只是简单列举一部分，请低调分享。更多境内外直播资源可参见以下网站或各大智能电视讨论区：
 
