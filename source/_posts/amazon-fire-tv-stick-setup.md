@@ -102,9 +102,11 @@ Mouse Toggle 这款应用看上去很强大，然而其实有一个副作用：�
 
 另外，Mouse Toggle 应用存在一个风险：我们之前勾选了「总是允许 USB 调试」的选项（如果不勾选的话应用可能无法正常工作），这会令 Fire TV Stick 非常容易受到恶意程序的攻击（有兴趣的话可以读一下[这篇报道](https://www.aftvnews.com/android-malware-worm-that-mines-cryptocurrency-is-infecting-amazon-fire-tv-and-fire-tv-stick-devices/)）。因此，除非你一定要使用某些不支持遥控器的手机版应用，否则我不建议普通用户安装 Mouse Toggle，尽管它的功能还是很强大的。
 
-### <img class="not-fancy inline-app-icon" src="http://www.airscreenapp.com/img/logo.png" /> AirScreen
+### 投屏应用
 
-用过 Apple TV 的人一定会对 AirPlay 投屏功能赞不绝口，那么对于 iPhone 用户，Fire TV 上有相似的解决方案吗？答案是有的，去内置应用商店下载这款 [AirScreen](http://www.airscreenapp.com/) 应用就行了。这款应用支持 AirPlay、Google Cast、Miracast 等多种主流投屏协议，可以满足比较基本的投屏需求。然而，和 Apple TV 开机就启动了 AirPlay 不用，在 Fire TV 上投屏前先要去这款应用里手动启动服务器，而且有时候投屏会失败，例如无法播放加密的 HLS 串流。
+用过 Apple TV 的人一定会对 AirPlay 投屏功能赞不绝口，那么对于 iPhone 用户，Fire TV 上有相似的解决方案吗？答案是有的，一款叫做 [<img class="not-fancy inline-app-icon" src="https://is3-ssl.mzstatic.com/image/thumb/Purple124/v4/0a/c1/38/0ac138cc-bfff-2c90-7ad3-73b92156f2aa/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" /> 乐播投屏](https://www.hpplay.com.cn/)的国产应用就非常好用。这款应用可以在当贝市场或者官网 <https://www.hpplay.com.cn/Download.jsp> 下载到，当 Fire TV Stick 开机时会随系统自动在后台启动。对于支持 AirPlay 投屏协议的苹果设备，用户可以直接无缝将手机或者电脑屏幕投射到 Fire TV Stick 上，而 Android 或者 Windows 设备可能需要先安装客户端。乐播投屏的延迟相当小，想要把手机游戏投射到电视上玩完全没有问题。
+
+另外，大家还可以去内置应用商店下载这款 [<img class="not-fancy inline-app-icon" src="http://www.airscreenapp.com/img/logo.png" /> AirScreen](http://www.airscreenapp.com/) 应用。这款应用支持 AirPlay、Google Cast、Miracast 等多种主流投屏协议，可以满足比较基本的投屏需求而无需在手机或者电脑上安装额外的客户端。然而，在 Fire TV 上投屏前先要去这款应用里手动启动服务器，而且有时候投屏会失败，例如无法播放加密的 HLS 串流。总体来说，乐播投屏更好用，但 Android 手机用户如果不想在手机上安装额外客户端程序的话也可以考虑使用 AirScreen。
 
 ## Fire TV 使用心得
 
@@ -166,6 +168,24 @@ B站其实有两个TV版应用，一个是上面提到的 <img class="not-fancy 
 所以这里我推荐一款开源的 TV Bro 浏览器。这款浏览器在基本上还原了手机浏览器功能的同时还对遥控器进行了适配，所以可以很方便地使用遥控器加「鼠标」的组合方式使用。虽然它并没有提供诸如「请勿跟踪」(Do Not Track) 等功能，但它可以将用户代理字符串 (user agent string) 设置成电脑版 Chrome，这样我们就可以直接访问所有网站的桌面版了，这对于访问很多动画网站非常实用（因为那些网站的手机版并没有对横屏进行优化，导致在 Fire TV 上手机版页面的渲染非常糟糕）。同时，这款浏览器还可以自定义遥控器按键的功能，比如将遥控器的菜单键设置为显示主菜单。不得不说，作为一款 Android TV 版浏览器，TV Bro 非常优秀，而且自从 [<img class="not-fancy inline-app-icon" src="https://is3-ssl.mzstatic.com/image/thumb/Purple124/v4/4e/c0/7a/4ec07ab4-8187-a33d-f1e7-f7e71b3960e6/AppIcon-1x_U007emarketing-0-7-0-85-220.png/230x0w.webp" /> Puffin](https://www.puffin.com/android-tv/puffin-tv-browser/) 需要使用 Google Play （在 Fire TV 上安装 Google 服务框架比较麻烦）并收费后，TV Bro 貌似成了目前唯一在 Fire TV 上体验比较好的浏览器。TV Bro 的安装包可以直接从项目的 GitHub 上获得：<https://github.com/truefedex/tv-bro/releases>。
 
 ![TV Bro 浏览器](https://troypoint.com/wp-content/uploads/2020/10/best-android-browser-chromecast-17.png)
+
+### 其他影视类应用
+
+绝大部分的影视类应用中，国内应用通常可以直接在当贝市场中安装或者从官网下载`.apk`安装包，海外应用大多数可以在内置应用商店中安装专门针对 Fire TV 发布的版本。这里想要简单介绍的是一些无法从上述渠道安装的影视类应用。
+
+- [<img class="not-fancy inline-app-icon" src="https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/3f/5f/fd/3f5ffd36-c6d6-77de-fb2b-2bd228cdd9c6/AppIcon-0-1x_U007emarketing-0-7-0-0-85-220.png/230x0w.webp" /> WeTV](https://wetv.vip/)：这款应用是腾讯视频海外版，主要面向东南亚用户。其智能电视版有在 [Google Play](https://play.google.com/store/apps/details?id=com.ktcp.osvideo) 上架，但因为 Fire TV Stick 默认不带 Google 服务框架，所以可从 [APKPure](https://apkpure.com/wetv-tv-version/com.ktcp.osvideo) 上下载。
+- [<img class="not-fancy inline-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/4a/9c/b5/4a9cb5b8-76bf-7a3a-f198-2411759c2519/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" /> iQIYI Video](https://www.iq.com/)：同理，爱奇艺海外版，有在 [Google Play](https://play.google.com/store/apps/details?id=com.iqiyi.i18n.tv) 上架，可从 [APKPure](https://apkpure.com/iqiyi-video-–-dramas-movies/com.iqiyi.i18n.tv) 上下载。
+- [<img class="not-fancy inline-app-icon" src="https://is2-ssl.mzstatic.com/image/thumb/Purple114/v4/db/f5/0f/dbf50f89-2fee-a415-a366-3d43de678922/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" /> Viu](https://www.viu.com/)：这是电讯盈科旗下的视频点播网站，主要面向香港、东南亚及中东用户，在香港为了与香港电视娱乐旗下的免费电视 [ViuTV](https://viu.tv/) 区别而被称为「黄Viu」（ViuTV 的应用则被称为「蓝Viu」）。其智能电视版 Viu for Home 有在 [Google Play](https://play.google.com/store/apps/details?id=com.viu.tv) 上架，Fire TV 用户可从[该网站](https://hktvapp.com/app.html)上下载较旧的版本。这个「港人话电视」网站上还有其他应用，但版本可能比较旧，大家可自行淘宝。
+
+### 其他地区的VPN
+
+有时我们可能还会遇到别的地域版权限制，例如想在有弹幕版哔哩哔哩TV版中收看仅限港澳台的番剧。这时候我们需要一款可以翻去其他地区的VPN。这类的收费VPN在内置应用商店里就有不少，例如 [<img class="not-fancy inline-app-icon" src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/d8/62/ad/d862ad93-1222-f288-071d-af117fc3dee5/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" /> ExpressVPN](https://www.expressvpn.com/)、[<img class="not-fancy inline-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/de/5c/9c/de5c9c63-ad8e-2b0d-afe0-e93a74dde88f/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" /> NordVPN](https://nordvpn.com/) 等，这里就不做介绍了。这里主要提几款免费VPN。
+
+- [<img class="not-fancy inline-app-icon" src="https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/01/86/3f/01863f9b-f27d-4bbb-c53c-e098bfdeaa37/AppIcon-0-0-1x_U007emarketing-0-0-0-8-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" /> ProtonVPN](https://protonvpn.com/)：没有流量限制而且保证隐私，但免费用户只能连接到美国、日本和荷兰三国国家。可以从官方 GitHub 上直接下载安装包：<https://github.com/ProtonVPN/android-app/releases>，比较适用于想用 Kodi 看一些非正版欧美电影电视剧的用户。
+- [<img class="not-fancy inline-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/ac/ec/db/acecdb68-d902-ee9f-0200-3e1958ca6819/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" /> Windscribe](https://windscribe.com/)：注册免费用户有最多一个月10G的流量限制，但可以选择例如香港，可以解锁黄Viu或者B站应用内的港澳台番剧，只是免费线路速度很慢。可以直接从内置应用商店中获取。
+- [<img class="not-fancy inline-app-icon" src="https://is3-ssl.mzstatic.com/image/thumb/Purple124/v4/ce/5b/1e/ce5b1ea5-00de-7c20-94c0-b567721c511a/AppIcon-2x_U007euniversal-4-0-85-220.png/230x0w.webp" /> Hola VPN](https://hola.org/)：Hola VPN 的知名度还是相当大的，毕竟他们提供几乎每个国家的免费VPN。但他们在隐私保护方面争议很大，例如传说中有收集用户访问过什么网站之类的信息。不过平时如果只是用来解锁地域限制看B站国内或者港澳台的番剧的话，个人感觉应该问题不大。他们官网没有提供智能电视版应用，但是可以从 [APKMirror](https://www.apkmirror.com/apk/hola/hola-free-vpn-proxy-unblocker-android-tv/) 上下载到。
+
+需要注意的是，这些VPN应用未必可以绕过中国的防火长城，因此需要在国内使用 Fire TV Stick 的用户需要另作准备。
 
 ### 港澳地区电视电台直播源
 
