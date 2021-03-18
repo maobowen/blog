@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
@@ -40,7 +40,7 @@
 <meta property="og:image" content="http://bmao.tech/blog/shadowsocksr/shadowsocksr_08.png">
 <meta property="og:image" content="http://bmao.tech/blog/shadowsocksr/shadowsocksr_09.png">
 <meta property="article:published_time" content="2018-06-04T22:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-30T21:13:38.784Z">
+<meta property="article:modified_time" content="2021-02-01T00:14:34.430Z">
 <meta property="article:author" content="101对双生儿">
 <meta property="article:tag" content="GFW">
 <meta name="twitter:card" content="summary">
@@ -254,7 +254,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-30 13:13:38" itemprop="dateModified" datetime="2021-01-30T13:13:38-08:00">2021-01-30</time>
+                <time title="Modified: 2021-01-31 16:14:34" itemprop="dateModified" datetime="2021-01-31T16:14:34-08:00">2021-01-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -306,7 +306,7 @@
 
       
         <p>Follow this tutorial to start setting up a ShadowsocksR proxy server and enjoying freedom outside the wall!</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="Server-side-Setup"><a href="#Server-side-Setup" class="headerlink" title="Server-side Setup"></a>Server-side Setup</h2><h3 id="Prepare-a-server"><a href="#Prepare-a-server" class="headerlink" title="Prepare a server"></a>Prepare a server</h3><p>I would recommend <a target="_blank" rel="noopener" href="https://m.do.co/c/881f697ed35a">DigitalOcean</a> and <a target="_blank" rel="noopener" href="https://www.vultr.com/?ref=7436070">Vultr</a>, both of which offer various plans for <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Virtual_private_server">virtual private servers (VPS)</a>. DigitalOcean provides <a target="_blank" rel="noopener" href="https://try.digitalocean.com/performance/?refcode=881f697ed35a&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">$100 credits</a> for new users, while Vultr provides <a target="_blank" rel="noopener" href="https://www.vultr.com/promo25b?ref=7436070">$25 credits</a> for new users. Students with a valid .edu email address can sign up for <a target="_blank" rel="noopener" href="https://education.github.com/pack">GitHub Student Developer Pack</a> and get an extra $50 credits on DigitalOcean. <a target="_blank" rel="noopener" href="https://cloud.google.com/free/">Google Cloud</a> and <a target="_blank" rel="noopener" href="https://azure.microsoft.com/en-us/free/">Microsoft Azure</a>, at the same time, also provide free credits for trial, but they can exhaust faster. These free credits usually last for only one year, so you should take full advantage of them before they expire. If you have access to a dedicated server, keep in mind that you should have full access to it.</p>
 <p>I will deploy a Vultr Cloud Compute (VC2) server with Ubuntu 18.04 in this tutorial.</p>
@@ -315,6 +315,7 @@
 <h3 id="Install-ShadowsocksR-Proxy-Server"><a href="#Install-ShadowsocksR-Proxy-Server" class="headerlink" title="Install ShadowsocksR Proxy Server"></a>Install ShadowsocksR Proxy Server</h3><p>In this tutorial, we will use <a target="_blank" rel="noopener" href="https://github.com/ToyoDAdoubi/doubi/blob/master/ssrmu.sh">a script</a> developed by <a target="_blank" rel="noopener" href="https://github.com/ToyoDAdoubi">Toyo</a> to help us install the proxy server. This script installs and runs the proxy server in the MudbJSON mode so that the we can manage each user of the proxy server separately. For those who are interested in the technical details of this script, please refer to <a target="_blank" rel="noopener" href="https://toyodadoubi.github.io/z2a4lk3l-2.html#%E8%84%9A%E6%9C%AC%E7%89%88%E6%9C%AC">『原创』ShadowsocksR MudbJSON模式多用户一键脚本 支持流量限制等</a> (Chinese).</p>
 <p>Thanks to the script, the installation can be extremely easy. First, download and run the script.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh &amp;&amp; chmod +x ssrmu.sh &amp;&amp; ./ssrmu.sh</span><br></pre></td></tr></table></figure>
+
 <img data-src="/blog/shadowsocksr/shadowsocksr_02.png" class="" width="500" title="Download and run the script">
 
 <p>Enter <kbd>1</kbd> to start the installation of ShadowsocksR proxy server.</p>

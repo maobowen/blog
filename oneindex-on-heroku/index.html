@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
@@ -31,7 +31,7 @@
 <meta property="og:description" content="Students from those schools which offer Office 365 Education are eligible to enjoy up to 5TB of OneDrive for Business storage. With the huge space provided, we can turn it into a file hosting platform">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2018-07-18T18:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-30T21:13:38.689Z">
+<meta property="article:modified_time" content="2021-02-01T00:14:34.419Z">
 <meta property="article:author" content="101对双生儿">
 <meta property="article:tag" content="Heroku">
 <meta property="article:tag" content="OneDrive">
@@ -245,7 +245,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-30 13:13:38" itemprop="dateModified" datetime="2021-01-30T13:13:38-08:00">2021-01-30</time>
+                <time title="Modified: 2021-01-31 16:14:34" itemprop="dateModified" datetime="2021-01-31T16:14:34-08:00">2021-01-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -297,7 +297,7 @@
 
       
         <p>Students from those schools which offer <a target="_blank" rel="noopener" href="https://products.office.com/en-us/student/office-in-education">Office 365 Education</a> are eligible to enjoy up to 5TB of OneDrive for Business storage. With the huge space provided, we can turn it into a file hosting platform, which is similar to <a target="_blank" rel="noopener" href="https://aws.amazon.com/s3/">Amazon S3</a>, to store and share static files like documents, images, videos, etc. OneDrive for Business supports <a target="_blank" rel="noopener" href="https://support.office.com/en-us/article/share-onedrive-files-and-folders-9fcc2f7d-de0c-4cec-93b0-a82024800c07#OS_Type=OneDrive_-_Business">sharing files</a> with external users, but your school has to opt to enable external sharing, and the links generated are encoded. We can use a program called <a target="_blank" rel="noopener" href="https://github.com/donwa/oneindex">OneIndex</a> which helps generate <strong>direct download links</strong> without enabling external sharing. We can link to our files directly later.</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>OneIndex is a PHP program developed by <a target="_blank" rel="noopener" href="https://github.com/donwa">&#64;donwa</a> which indices directories and files in OneDrive or OneDrive for Business. We can deploy it on a PHP server. If you have your own server, you can simply install it on a LAMP (Linux, Apache, MySQL, PHP) stack. In this tutorial, I will demonstrate how to install it on <a target="_blank" rel="noopener" href="https://www.heroku.com/">Heroku</a>, where we can deploy cloud applications for free. However, due to Heroku’s <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem">ephemeral file system</a>, we still need a temporary server, and we have to install and configure the program twice.</p>
 <h2 id="Installing-OneIndex-on-a-Server"><a href="#Installing-OneIndex-on-a-Server" class="headerlink" title="Installing OneIndex on a Server"></a>Installing OneIndex on a Server</h2><p>You may check <a href="../shadowsocksr/#Prepare-a-server">my previous post</a> to prepare a server if you do not have one. I will deploy a <a target="_blank" rel="noopener" href="https://www.vultr.com/promo25b?ref=7436070">Vultr</a> Cloud Compute (VC2) server with Ubuntu 18.04 in this tutorial.</p>
@@ -308,37 +308,48 @@
 </ul>
 <p>In addition, we need to enable PHP’s cULR module. Run the following commands to install the module and to restart Apache web server:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install php-curl</span><br><span class="line">sudo systemctl restart apache2</span><br></pre></td></tr></table></figure>
+
 <p>We also need to allow <code>.htaccess</code> overrides. Suppose we will use<code>/var/www/oneindex</code> as the root directory of our OneIndex program. Use your favorite editor to create an Apache configuration file for OneIndex:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apache2/sites-available/oneindex.conf</span><br></pre></td></tr></table></figure>
+
 <p>Add the following text to the file:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">	DocumentRoot /var/www/oneindex</span><br><span class="line">	ErrorLog $&#123;APACHE_LOG_DIR&#125;/error.log</span><br><span class="line">	CustomLog $&#123;APACHE_LOG_DIR&#125;/access.log combined</span><br><span class="line">	&lt;Directory /var/www/oneindex/&gt;</span><br><span class="line">		AllowOverride All</span><br><span class="line">	&lt;/Directory&gt;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+
 <p>Then run the following commands to enable our site:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo a2ensite oneindex.conf</span><br><span class="line">sudo a2dissite 000-default.conf</span><br></pre></td></tr></table></figure>
+
 <p>Run the following commands to enable Apache mod_rewrite:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod rewrite</span><br><span class="line">sudo systemctl restart apache2</span><br></pre></td></tr></table></figure>
+
 <h3 id="Installing-OneIndex"><a href="#Installing-OneIndex" class="headerlink" title="Installing OneIndex"></a>Installing OneIndex</h3><p>Now, let’s start to deploy OneIndex on our server. Download the GitHub repository, move it to the root directory and change the ownership:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/donwa/oneindex.git</span><br><span class="line">sudo mv oneindex/ /var/www/</span><br><span class="line">sudo chown -R www-data:www-data /var/www/oneindex</span><br></pre></td></tr></table></figure>
+
 <p>Now, open the browser and visit your site. Follow <a target="_blank" rel="noopener" href="https://github.com/donwa/oneindex#%E5%AE%89%E8%A3%85">this animation</a> to install and configure OneIndex. Some additional configurations can be found <a target="_blank" rel="noopener" href="https://github.com/donwa/oneindex/blob/5ce51982c4903107c44a9e7e7e525869360c034c/README.md#%E5%8F%AF%E9%85%8D%E7%BD%AE%E9%A1%B9">in this tutorial</a>. Make sure that your settings are final, since it is not trivial to change them after we move it onto Heroku.</p>
 <h2 id="Installing-OneIndex-on-Heroku"><a href="#Installing-OneIndex-on-Heroku" class="headerlink" title="Installing OneIndex on Heroku"></a>Installing OneIndex on Heroku</h2><p>On the local machine, follow the first two steps of <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/getting-started-with-php">this tutorial</a> to set up the development environment.</p>
 <p>Then prepare the template of the PHP cloud application:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/heroku/php-getting-started.git</span><br><span class="line">mv php-getting-started/ onedrive</span><br><span class="line"><span class="built_in">cd</span> onedrive</span><br></pre></td></tr></table></figure>
+
 <p>Pick your favorite editor, edit <code>composer.json</code> in the root directory to adjust dependencies:</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;require&quot;</span> : &#123;</span><br><span class="line">    <span class="attr">&quot;php&quot;</span>: <span class="string">&quot;^7.2.0&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;require-dev&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;heroku/heroku-buildpack-php&quot;</span>: <span class="string">&quot;*&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>Run the following command to update the dependencies:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer update</span><br></pre></td></tr></table></figure>
+
 <p>In the root directory, replace the <code>web</code> directory by OneIndex program:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -rf web/</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/donwa/oneindex.git</span><br><span class="line">mv oneindex/ web</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>In case you want to put OneIndex in a subfolder, make sure to set up <code>.htaccess</code> correctly under the <code>web</code> directory:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine On</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line">RewriteRule ^.*$ /index.php [L,QSA]</span><br></pre></td></tr></table></figure>
-<p>Now, we need to “borrow” the configuration files of OneIndex on the server.</p>
 </blockquote>
+<p>Now, we need to “borrow” the configuration files of OneIndex on the server.</p>
 <blockquote>
 <p>As stated before, Heroku has an ephemeral file system, which means that any files written will be discarded eventually. Generated by the program when we install OneIndex, caches and configuration are not parts of the Heroku application. Therefore, they will go away as well. It does not matter whether caches are persistent, but we have to make sure that configuration is persistent. Therefore, we have to use a temporary server to generate the configuration first and put the files into the Heroku application’s repository before publishing it.</p>
 </blockquote>
 <p>Pick your favorite SFTP or SCP client, for example, graphical interface tools such as <a target="_blank" rel="noopener" href="https://filezilla-project.org/">FileZilla</a> and <a target="_blank" rel="noopener" href="https://winscp.net/">WinSCP</a> (for Windows only) or command-line tools such as <code>sftp</code> or <code>scp</code>. Download <code>base.php</code> and <code>token.php</code> from the server (inside <code>/var/www/onedrive/config/</code>) to your local repository (<code>web/config</code>).</p>
 <p>Last, create an application on Heroku, and use Heroku CLI to push the local repository to the cloud (supposing your application is <code>oneindex</code>):</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">heroku login</span><br><span class="line">heroku create oneindex</span><br><span class="line">git push heroku master</span><br></pre></td></tr></table></figure>
+
 <p>Open the browser and verify whether OneIndex is working on <a target="_blank" rel="noopener" href="https://oneindex.herokuapp.com/">https://oneindex.herokuapp.com/</a>.</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li>M. Drake, “How To Install Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu 18.04,” <em>DigitalOcean</em>. [Online]. Available: <a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04">https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04</a>.</li>
