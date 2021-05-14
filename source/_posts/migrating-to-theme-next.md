@@ -38,20 +38,20 @@ tags:
 
 ## 自定义图片样式
 
-我之前的文章里嵌入了很多纽约地铁的颜色标志，例如<img class="not-fancy nycs-bullet" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/NYCS-bull-trans-1.svg" />。之前的 Yelee 主题里文章图片默认都是内联 (inline) 显示，但切换到 NexT 主题之后，图片全部变成了块级 (block) 显示。这些小的矢量图每个图片占单独一行，显得非常丑。因此我需要给所有的颜色标志单独加 CSS 样式，例如在自定义样式文件 `/source/_data/styles.styl` 里增加：
+我之前的文章里嵌入了很多纽约地铁的颜色标志，例如<img class="not-fancy text-image" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/NYCS-bull-trans-1.svg" />。之前的 Yelee 主题里文章图片默认都是内联 (inline) 显示，但切换到 NexT 主题之后，图片全部变成了块级 (block) 显示。这些小的矢量图每个图片占单独一行，显得非常丑。因此我需要给所有的颜色标志单独加 CSS 样式，例如在自定义样式文件 `/source/_data/styles.styl` 里增加：
 
 ```css
-.nycs-bullet {
+.text-image {
   display: inline;
   height: 1.4em;
   margin: 0 0 -0.3em 0 !important;
 }
 ```
 
-然后再把文章里所有颜色标志的 HTML 代码加上 `nycs-bullet` 这个类：
+然后再把文章里所有颜色标志的 HTML 代码加上 `text-image` 这个类：
 
 ```html
-<img class="not-fancy nycs-bullet" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/NYCS-bull-trans-1.svg" />
+<img class="not-fancy text-image" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/NYCS-bull-trans-1.svg" />
 ```
 
 ## 部分图片禁用 fancybox
